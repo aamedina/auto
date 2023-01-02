@@ -1,0 +1,16 @@
+{:vocab {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator}
+ :auto  {:sc/create-fn net.wikipunk.auto/map->AUTO
+         :sc/refs      [:vocab]
+         :domains      [net.wikipunk.auto.boot/auto-av-mod
+                        net.wikipunk.auto.boot/auto-de-mod
+                        net.wikipunk.auto.boot/auto-vs-mod
+                        net.wikipunk.auto.boot/auto-vc-mod
+                        net.wikipunk.auto.boot/auto-mo-mod]
+         :modules      [net.wikipunk.auto.boot/auto-av
+                        net.wikipunk.auto.boot/auto-cc
+                        net.wikipunk.auto.boot/auto-ev
+                        net.wikipunk.auto.boot/auto-ti
+                        net.wikipunk.auto.boot/auto-vs
+                        net.wikipunk.auto.boot/auto-mo
+                        net.wikipunk.auto.boot/auto-vc
+                        net.wikipunk.auto.boot/auto-vp]}}

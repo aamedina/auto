@@ -1,0 +1,29 @@
+{:deps
+ {com.stuartsierra/component
+  {:mvn/version "1.1.0"}
+  io.github.aamedina/rdf
+  {:git/sha "8672b6ac5199c22ec0eaeb3b282e49a58f560815"}
+  io.github.aamedina/fibo
+  {:git/sha "e0c27da1bd36eafe5504998e570ee40232270343"}
+  org.clojure/clojure
+  {:mvn/version "1.11.1"}}
+ :paths ["src" "classes"]
+ :aliases
+ {:dev
+  {:extra-deps
+   {com.walmartlabs/schematic
+    {:mvn/version "1.3.0"}
+    com.stuartsierra/component.repl
+    {:mvn/version "0.2.0"}
+    ont-app/vocabulary
+    {:mvn/version "0.2.1"}    
+    org.clojure/test.check
+    {:mvn/version "1.1.1"}
+    org.clojure/tools.namespace
+    {:mvn/version "1.3.0"}
+    org.slf4j/slf4j-simple
+    {:mvn/version "1.7.36"}}
+   :extra-paths ["dev"]
+   :jvm-opts    ["-XX:-OmitStackTraceInFastThrow"
+                 "-XX:+HeapDumpOnOutOfMemoryError"
+                 "-Dorg.slf4j.simpleLogger.defaultLogLevel=warn"]}}}
