@@ -24,7 +24,8 @@
   com/Lifecycle
   (start [this]
     (try
-      (quickstart)
+      (binding [*ns* (or (:quickstart-ns this) (find-ns 'dev))]
+        (quickstart))
       (catch Throwable ex))
     this)
   (stop [this]
