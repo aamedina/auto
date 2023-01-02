@@ -8,18 +8,6 @@
    [net.wikipunk.auto.boot]
    [net.wikipunk.rdf :as rdf]))
 
-(defrecord AUTO [vocab domains modules]
-  com/Lifecycle
-  (start [this]
-    this)
-  (stop [this]
-    this)
-
-  rdf/NamespaceSpitter
-  (emit [_ arg-map]
-    (rdf/emit domains arg-map)
-    (rdf/emit modules arg-map)))
-
 (defn quickstart
   []
   (require '[net.wikipunk.rdf.auto :as auto-spec]
@@ -31,3 +19,18 @@
            '[net.wikipunk.rdf.auto-vc :as auto-vc]
            '[net.wikipunk.rdf.auto-vp :as auto-vp]
            '[net.wikipunk.rdf.auto-vs :as auto-vs]))
+
+(defrecord AUTO [vocab domains modules]
+  com/Lifecycle
+  (start [this]
+    (try
+      (quickstart)
+      (catch Throwable ex))
+    this)
+  (stop [this]
+    this)
+
+  rdf/NamespaceSpitter
+  (emit [_ arg-map]
+    (rdf/emit domains arg-map)
+    (rdf/emit modules arg-map)))

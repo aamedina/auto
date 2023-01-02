@@ -75,7 +75,6 @@
 
 (set-init
   (fn [_]
-    (auto/quickstart)
     (if-let [r (io/resource "system.edn")]
       (-> (slurp r)
           (edn/read-string)

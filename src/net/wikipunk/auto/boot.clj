@@ -12,7 +12,7 @@
    :rdfa/uri    "https://spec.edmcouncil.org/auto/ontology/AV/MetadataAV/"
    :rdf/type    :rdfa/PrefixMapping
    :rdf/ns-prefix-map
-   {"auto-av-mod" "https://spec.edmcouncil.org/auto/ontology/AV/MetadataAV/"}})
+   {"auto-av-mod"     "https://spec.edmcouncil.org/auto/ontology/AV/MetadataAV/"}})
 
 (def auto-de-mod
   {:rdfa/prefix "auto-de-mod"
@@ -47,7 +47,9 @@
    :rdfa/uri    "https://spec.edmcouncil.org/auto/ontology/AV/VehicleAutomationLevels/"
    :rdf/type    :rdfa/PrefixMapping
    :rdf/ns-prefix-map
-   {"auto-av" "https://spec.edmcouncil.org/auto/ontology/AV/VehicleAutomationLevels/"}})
+   {"auto-av"         "https://spec.edmcouncil.org/auto/ontology/AV/VehicleAutomationLevels/"
+    "fibo-fnd-utl-av" "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/"
+    "sm"              "http://www.omg.org/techprocess/ab/SpecificationMetadata/"}})
 
 (def auto-ti
   {:rdfa/prefix "auto-ti"
