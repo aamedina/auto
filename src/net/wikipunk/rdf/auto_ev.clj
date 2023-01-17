@@ -789,6 +789,7 @@
     "connection between an uncontrolled intersection and a two-way narrow road"}})
 
 (def LaneSegment
+  "lane segment"
   {:db/ident :auto-ev/LaneSegment,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
@@ -812,6 +813,7 @@
     "large public building containing different facilities for leisure activities"}})
 
 (def LocalRoad
+  "local road"
   {:db/ident :auto-ev/LocalRoad,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
@@ -1906,6 +1908,7 @@
                      "indicates whether a vehicle can change lanes"}})
 
 (def allowedDir
+  "allowed direction"
   {:db/ident :auto-ev/allowedDir,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/domain :auto-ev/Lane,
@@ -1928,14 +1931,17 @@
     "relates a vehicle or a node to its altitude expressed in meters"}})
 
 (def angle
+  "angle"
   {:db/ident :auto-ev/angle,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/domain :auto-ev/TrafficSignal,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
+   :rdfs/label "angle",
    :rdfs/range :xsd/decimal})
 
 (def boundCoordinate
+  "bound coordinate"
   {:db/ident :auto-ev/boundCoordinate,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/isDefinedBy
@@ -1967,6 +1973,7 @@
                      :rdf/value    "relates a material entity to its brand"}})
 
 (def curve_id
+  "curve ID"
   {:db/ident :auto-ev/curve_id,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/isDefinedBy
@@ -1987,6 +1994,7 @@
                      :rdf/value    "relates a lane to its driving direction"}})
 
 (def enterPos
+  "enter position"
   {:db/ident :auto-ev/enterPos,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/domain :auto-ev/Lane,
@@ -1996,6 +2004,7 @@
    :rdfs/subPropertyOf :owl/topDataProperty})
 
 (def exitPos
+  "exit position"
   {:db/ident :auto-ev/exitPos,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/domain :auto-ev/Lane,
@@ -2018,6 +2027,7 @@
     "relates a vehicle to a road part straight of him, onto which it should go when changing lanes"}})
 
 (def hasCar
+  "has car"
   {:db/ident :auto-ev/hasCar,
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy
@@ -2118,6 +2128,7 @@
     :rdf/value    "relates a lane to a road segment which contains said lane"}})
 
 (def isLeftOf
+  "is left of"
   {:db/ident :auto-ev/isLeftOf,
    :owl/inverseOf :auto-ev/isRightOf,
    :rdf/type :owl/ObjectProperty,
@@ -2140,6 +2151,7 @@
                      :rdf/value    "relates a lane to a lane next to it"}})
 
 (def isOn
+  "is on"
   {:db/ident :auto-ev/isOn,
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy
@@ -2148,6 +2160,7 @@
                 :rdf/value    "is on"}})
 
 (def isRightOf
+  "is right of"
   {:db/ident :auto-ev/isRightOf,
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy
@@ -2238,6 +2251,7 @@
                      :rdf/value    "relates something to its name"}})
 
 (def nearTo
+  "near to"
   {:db/ident :auto-ev/nearTo,
    :rdf/type [:owl/SymmetricProperty :owl/ObjectProperty],
    :rdfs/isDefinedBy
@@ -2258,6 +2272,7 @@
     "relates an infrastructure or a natural place to the hours during which it is open"}})
 
 (def operator
+  "operator"
   {:db/ident :auto-ev/operator,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/domain :auto-ev/Infrastructure,
@@ -2267,6 +2282,7 @@
    :rdfs/range :xsd/string})
 
 (def orientation
+  "orientation"
   {:db/ident :auto-ev/orientation,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/isDefinedBy
@@ -2334,6 +2350,7 @@
                      "relates an infrastructure to its postal code"}})
 
 (def pubFacAdmin
+  "pub fac admin"
   {:db/ident :auto-ev/pubFacAdmin,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/isDefinedBy

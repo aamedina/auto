@@ -488,6 +488,7 @@
     "A road vehicle damage which precludes departure of the vehicle from the scene of the crash in its usual operating manner by daylight after simple repairs."}})
 
 (def DistanceBack
+  "distance back"
   {:db/ident :auto-ti/DistanceBack,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/isDefinedBy
@@ -496,6 +497,7 @@
                 :rdf/value    "distance back"}})
 
 (def DistanceFront
+  "distance front"
   {:db/ident :auto-ti/DistanceFront,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/isDefinedBy
@@ -1889,11 +1891,11 @@
 (def TrafficIncident
   "all road accidents - irrespective of whether there is an accident or serious material damage"
   {:db/ident :auto-ti/TrafficIncident,
-   :owl/equivalentClass [{:owl/onProperty     :auto-ti/hasEffect,
-                          :owl/someValuesFrom :auto-ti/TrafficIncidentEffect,
-                          :rdf/type           :owl/Restriction}
-                         {:owl/onProperty     :auto-ti/hasCause,
+   :owl/equivalentClass [{:owl/onProperty     :auto-ti/hasCause,
                           :owl/someValuesFrom :auto-ti/TrafficIncidentCauses,
+                          :rdf/type           :owl/Restriction}
+                         {:owl/onProperty     :auto-ti/hasEffect,
+                          :owl/someValuesFrom :auto-ti/TrafficIncidentEffect,
                           :rdf/type           :owl/Restriction}],
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
@@ -2305,6 +2307,7 @@
     "relates a process to another process of which it is an effect"}})
 
 (def isOffenceOf
+  "is offence of"
   {:db/ident :auto-ti/isOffenceOf,
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy

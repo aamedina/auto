@@ -84,6 +84,7 @@
     "value representing the speed of a vehicle and indicating that the speed is constant"}})
 
 (def CurrentLaneSafeDist
+  "current lane safe distance"
   {:db/ident         :auto-cc/CurrentLaneSafeDist,
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "https://spec.edmcouncil.org/auto/ontology/DE/CarControl/",
@@ -150,27 +151,27 @@
                 :rdf/value    "dynamic driving task"},
    :rdfs/subClassOf
    [{:owl/onProperty     :auto-mo/hasPart,
-     :owl/someValuesFrom :auto-cc/LateralVehicleMotionControl,
-     :rdf/type           :owl/Restriction}
-    {:owl/onProperty     :auto-mo/hasPart,
-     :owl/someValuesFrom :auto-cc/Monitor,
+     :owl/someValuesFrom :auto-cc/ObjectAndEventDetectionAndResponse,
      :rdf/type           :owl/Restriction}
     {:owl/onProperty     :auto-mo/hasPart,
      :owl/someValuesFrom :auto-cc/LongitudinalVehicleMotionControl,
      :rdf/type           :owl/Restriction}
-    {:owl/onProperty     :auto-mo/hasPart,
-     :owl/someValuesFrom :auto-cc/ManeuverPlanning,
-     :rdf/type           :owl/Restriction}
     :auto-cc/Task
     {:owl/onProperty     :auto-mo/hasPart,
-     :owl/someValuesFrom :auto-cc/EnhancingConspicuity,
+     :owl/someValuesFrom :auto-cc/LateralVehicleMotionControl,
      :rdf/type           :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
      :owl/onClass    :auto-cc/OperateMotorVehicle,
      :owl/onProperty :auto-cc/hasRealizationIn,
      :rdf/type       :owl/Restriction}
     {:owl/onProperty     :auto-mo/hasPart,
-     :owl/someValuesFrom :auto-cc/ObjectAndEventDetectionAndResponse,
+     :owl/someValuesFrom :auto-cc/ManeuverPlanning,
+     :rdf/type           :owl/Restriction}
+    {:owl/onProperty     :auto-mo/hasPart,
+     :owl/someValuesFrom :auto-cc/Monitor,
+     :rdf/type           :owl/Restriction}
+    {:owl/onProperty     :auto-mo/hasPart,
+     :owl/someValuesFrom :auto-cc/EnhancingConspicuity,
      :rdf/type           :owl/Restriction}],
    :skos/definition
    {:rdf/language "en",
@@ -890,6 +891,7 @@
                       :rdf/value    "relates a path to its end lane"}})
 
 (def enterOf
+  "enter of"
   {:db/ident :auto-cc/enterOf,
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy "https://spec.edmcouncil.org/auto/ontology/DE/CarControl/",
@@ -897,6 +899,7 @@
    :rdfs/subPropertyOf :auto-cc/isNodeOf})
 
 (def exitOf
+  "exit of"
   {:db/ident :auto-cc/exitOf,
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy "https://spec.edmcouncil.org/auto/ontology/DE/CarControl/",
@@ -904,6 +907,7 @@
    :rdfs/subPropertyOf :auto-cc/isNodeOf})
 
 (def giveWay
+  "give way"
   {:db/ident         :auto-cc/giveWay,
    :rdf/type         :owl/ObjectProperty,
    :rdfs/isDefinedBy "https://spec.edmcouncil.org/auto/ontology/DE/CarControl/",
@@ -945,6 +949,7 @@
     :rdf/value    "relates a way, a path or a road to a given path segment"}})
 
 (def hasRealizationIn
+  "has realization in"
   {:db/ident         :auto-cc/hasRealizationIn,
    :rdf/type         :owl/ObjectProperty,
    :rdfs/isDefinedBy "https://spec.edmcouncil.org/auto/ontology/DE/CarControl/",
@@ -952,6 +957,7 @@
                       :rdf/value    "has realization in"}})
 
 (def isAgentOf
+  "is agent of"
   {:db/ident         :auto-cc/isAgentOf,
    :rdf/type         :owl/ObjectProperty,
    :rdfs/domain      :auto-mo/Agent,

@@ -41,7 +41,7 @@
    :rdf/type [:sm/Module :owl/NamedIndividual],
    :rdfs/isDefinedBy "https://spec.edmcouncil.org/auto/ontology/VS/MetadataVS/",
    :rdfs/label "Vehicle Signals",
-   :rdfs/seeAlso "https://spec.edmcouncil.org/auto/",
+   :rdfs/seeAlso ["https://spec.edmcouncil.org/auto/"],
    :sm/contributor "FIBO Community",
    :sm/copyright "Copyright (c) 2020 EDM Council, Inc.",
    :sm/dependsOn "http://www.omg.org/techprocess/ab/SpecificationMetadata/",

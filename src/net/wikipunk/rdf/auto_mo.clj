@@ -51,6 +51,7 @@
    :rdfs/subClassOf :auto-mo/Object})
 
 (def Continuant
+  "Continuant"
   {:db/ident :auto-mo/Continuant,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
@@ -59,6 +60,7 @@
                 :rdf/value    "Continuant"}})
 
 (def Disposition
+  "Disposition"
   {:db/ident :auto-mo/Disposition,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
@@ -68,6 +70,7 @@
    :rdfs/subClassOf :auto-mo/RealizableEntity})
 
 (def GenericallyDependentContinuant
+  "Generically dependent continuant"
   {:db/ident :auto-mo/GenericallyDependentContinuant,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
@@ -77,6 +80,7 @@
    :rdfs/subClassOf :auto-mo/Continuant})
 
 (def ImmaterialEntity
+  "Immaterial entity"
   {:db/ident :auto-mo/ImmaterialEntity,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
@@ -86,6 +90,7 @@
    :rdfs/subClassOf :auto-mo/IndependentContinuant})
 
 (def IndependentContinuant
+  "Independent continuant"
   {:db/ident :auto-mo/IndependentContinuant,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
@@ -97,17 +102,18 @@
 (def Location
   "QName: auto-mo-mo:Location"
   {:db/ident :auto-mo/Location,
+   :fibo-fnd-utl-av/synonym {:rdf/language "en",
+                             :rdf/value    "place"},
    :rdf/type :owl/Class,
    :rdfs/comment "QName: auto-mo-mo:Location",
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/MO/MiddleOntology/",
-   :rdfs/label [{:rdf/language "en",
-                 :rdf/value    "place"}
-                {:rdf/language "en",
-                 :rdf/value    "location"}],
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "location"},
    :rdfs/subClassOf :auto-mo/ImmaterialEntity})
 
 (def MaterialEntity
+  "Material entity"
   {:db/ident :auto-mo/MaterialEntity,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
@@ -150,6 +156,7 @@
    :rdfs/subClassOf :auto-mo/MaterialEntity})
 
 (def Occurrent
+  "Occurrent"
   {:db/ident :auto-mo/Occurrent,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
@@ -243,6 +250,7 @@
    :sm/directSource "https://schema.org/QualitativeValue"})
 
 (def Quality
+  "Quality"
   {:db/ident :auto-mo/Quality,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
@@ -300,6 +308,7 @@
    :rdfs/subClassOf :auto-mo/NumericalValue})
 
 (def RealizableEntity
+  "Realizable entity"
   {:db/ident :auto-mo/RealizableEntity,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy

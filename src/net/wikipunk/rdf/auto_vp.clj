@@ -668,17 +668,18 @@
     "load-supporting frame of a commercial motor vehicle, exclusive of any appurtenances which might be added to accommodate cargo"}})
 
 (def ClearanceLamp
+  "lamp that provides light to the front or rear, mounted on the permanent structure of the vehicle, such that it indicates the overall width of the vehicle"
   {:db/ident :auto-vp/ClearanceLamp,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleParts/",
-   :rdfs/label
-   [{:rdf/language "en",
-     :rdf/value
-     "lamp that provides light to the front or rear, mounted on the permanent structure of the vehicle, such that it indicates the overall width of the vehicle"}
-    {:rdf/language "en",
-     :rdf/value    "clearanece lamp"}],
-   :rdfs/subClassOf :auto-vp/ExternalLights})
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "clearanece lamp"},
+   :rdfs/subClassOf :auto-vp/ExternalLights,
+   :skos/definition
+   {:rdf/language "en",
+    :rdf/value
+    "lamp that provides light to the front or rear, mounted on the permanent structure of the vehicle, such that it indicates the overall width of the vehicle"}})
 
 (def CombinationHeadlamp
   "headlamp that is a combination of two different headlamp types chosen from a type F sealed beam headlamp, an integral beam headlamp, or a replaceable bulb headlamp"
@@ -1229,6 +1230,7 @@
     "combination of fuel tank, fuel pump, fuel lines, oil injection metering system, and carburetor or fuel injection components, and includes all fuel system vents"}})
 
 (def GPS
+  "GPS"
   {:db/ident :auto-vp/GPS,
    :rdf/type :owl/NamedIndividual,
    :rdfs/isDefinedBy
@@ -2484,6 +2486,7 @@
     :rdf/value "window designed to open by moving vertically or horizontally"}})
 
 (def Speedometer
+  "speedometer"
   {:db/ident :auto-vp/Speedometer,
    :rdf/type :owl/NamedIndividual,
    :rdfs/isDefinedBy

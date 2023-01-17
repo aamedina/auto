@@ -40,7 +40,7 @@
    :rdf/type [:owl/NamedIndividual :sm/Module],
    :rdfs/isDefinedBy "https://spec.edmcouncil.org/auto/ontology/MO/MetadataMO/",
    :rdfs/label "Middle Ontology",
-   :rdfs/seeAlso "https://spec.edmcouncil.org/auto/",
+   :rdfs/seeAlso ["https://spec.edmcouncil.org/auto/"],
    :sm/contributor ["The John Paul II Catholic University of Lublin"
                     "Hepp Research GmbH"
                     "Makolab SA"],

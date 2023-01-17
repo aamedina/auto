@@ -43,7 +43,7 @@
    :rdf/type [:owl/NamedIndividual :sm/Module],
    :rdfs/isDefinedBy "https://spec.edmcouncil.org/auto/ontology/DE/MetadataDE/",
    :rdfs/label "Driving Events",
-   :rdfs/seeAlso "https://spec.edmcouncil.org/auto/",
+   :rdfs/seeAlso ["https://spec.edmcouncil.org/auto/"],
    :sm/contributor ["Piotr Kulicki" "AUTO Community" "Robert Trypuz"],
    :sm/copyright "Copyright (c) 2021 EDM Council, Inc.",
    :sm/dependsOn "http://www.omg.org/techprocess/ab/SpecificationMetadata/",

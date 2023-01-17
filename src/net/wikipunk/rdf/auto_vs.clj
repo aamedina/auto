@@ -510,17 +510,23 @@
                      :rdf/value    "Senses if the backup light switch is on"}})
 
 (def Bank2
+  "bank 2"
   {:db/ident :auto-vs/Bank2,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "bank 2"},
    :rdfs/subClassOf :auto-vs/VehicleSensor})
 
 (def Barometer
+  "barometer"
   {:db/ident :auto-vs/Barometer,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "barometer"},
    :rdfs/subClassOf :auto-vs/VehicleSensor})
 
 (def BarometricPressure
@@ -575,10 +581,13 @@
                      :rdf/value "Sensor measuring the capacity of a battery"}})
 
 (def BatterySensor
+  "battery sensor"
   {:db/ident :auto-vs/BatterySensor,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "battery sensor"},
    :rdfs/subClassOf :auto-vs/VehicleSensor})
 
 (def BatteryTemperature
@@ -739,17 +748,23 @@
     "Signal.Chassis.Axle.RowX.Wheel.Left/Right.Brake.BrakesWorn : Brake pad wear status. True = Worn. False = Not Worn."}})
 
 (def CAN
+  "CAN"
   {:db/ident :auto-vs/CAN,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "CAN"},
    :rdfs/subClassOf :sosa/Sensor})
 
 (def Camera
+  "camera"
   {:db/ident :auto-vs/Camera,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "camera"},
    :rdfs/subClassOf :sosa/Sensor})
 
 (def CatalystTemperature
@@ -773,10 +788,13 @@
     "Signal.OBD.Catalyst.BankX.TemperatureY : PID 3C->3F - Catalyst temperature from bank X, sensor Y"}})
 
 (def CatalystTemperatureSensor
+  "catalyst temperature sensor"
   {:db/ident :auto-vs/CatalystTemperatureSensor,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "catalyst temperature sensor"},
    :rdfs/subClassOf :auto-vs/VehicleSensor})
 
 (def ChildLock
@@ -947,10 +965,13 @@
     :rdf/value "Signal.OBD.CoolantTemperature : PID 05 - Coolant temperature"}})
 
 (def CoolantTemperatureSensor
+  "coolant temperature sensor"
   {:db/ident :auto-vs/CoolantTemperatureSensor,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "coolant temperature sensor"},
    :rdfs/subClassOf :auto-vs/VehicleSensor})
 
 (def CoolantThermometer
@@ -967,10 +988,13 @@
                      "Sensor measuring the temperature of the coolant fluid"}})
 
 (def CrankshaftPositionSensor
+  "crankshaft position sensor"
   {:db/ident :auto-vs/CrankshaftPositionSensor,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "crankshaft position sensor"},
    :rdfs/subClassOf :auto-vs/VehicleSensor})
 
 (def CruiseControlError
@@ -1197,10 +1221,13 @@
                      :rdf/value    "Controls the cushion position"}})
 
 (def CushionPositionSensor
+  "cushion position sensor"
   {:db/ident :auto-vs/CushionPositionSensor,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "cushion position sensor"},
    :rdfs/subClassOf :auto-vs/VehicleSensor})
 
 (def CushionUp
@@ -1355,10 +1382,13 @@
     "Signal.Cabin.Infotainment.Navigation.DestinationSet.Longitude : Longitude of destination"}})
 
 (def DiagnosticSystem
+  "diagnostic system"
   {:db/ident :auto-vs/DiagnosticSystem,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "diagnostic system"},
    :rdfs/subClassOf :auto-vs/VehicleSensor})
 
 (def DimmingSystem
@@ -1583,10 +1613,13 @@
     "Signal.OBD.EGRError : PID 2D - Exhaust gas recirculation (EGR) error"}})
 
 (def EGRSystemMonitor
+  "EGR system monitor"
   {:db/ident :auto-vs/EGRSystemMonitor,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "EGR system monitor"},
    :rdfs/subClassOf :auto-vs/VehicleSensor})
 
 (def EOP
@@ -1677,10 +1710,13 @@
     "Signal.ADAS.ESC.IsEngaged : Indicates if ESC is currently regulating vehicle stability. True = Engaged. False = Not Engaged."}})
 
 (def EVAPSystem
+  "EVAP system"
   {:db/ident :auto-vs/EVAPSystem,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "EVAP system"},
    :rdfs/subClassOf :auto-vs/VehicleSensor})
 
 (def EVAPVaporPressure
@@ -1877,10 +1913,13 @@
                      :rdf/value "Sensor measuring the flow of a fluid (fuel)"}})
 
 (def FluidSensor
+  "fluid sensor"
   {:db/ident :auto-vs/FluidSensor,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "fluid sensor"},
    :rdfs/subClassOf :auto-vs/VehicleSensor})
 
 (def FreezeDTC
@@ -1967,10 +2006,13 @@
                      "Signal.OBD.FuelPressure : PID 0A - Fuel pressure"}})
 
 (def FuelPressureSensor
+  "fuel pressure sensor"
   {:db/ident :auto-vs/FuelPressureSensor,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "fuel pressure sensor"},
    :rdfs/subClassOf :auto-vs/VehicleSensor})
 
 (def FuelRailPressureAbsolute
@@ -2014,10 +2056,13 @@
     "Signal.OBD.FuelRailPressureDirect : PID 23 - Fuel rail pressure direct inject"}})
 
 (def FuelRailPressureSensor
+  "fuel rail pressure sensor"
   {:db/ident :auto-vs/FuelRailPressureSensor,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "fuel rail pressure sensor"},
    :rdfs/subClassOf :auto-vs/VehicleSensor})
 
 (def FuelRailPressureVac
@@ -2516,10 +2561,13 @@
     "Signal.Drivetrain.FuelSystem.InstantConsumption : Current consumption in liters per 100 km."}})
 
 (def Intake-AirTemperatureSensor
+  "intake air temperature sensor"
   {:db/ident :auto-vs/Intake-AirTemperatureSensor,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "intake air temperature sensor"},
    :rdfs/subClassOf :auto-vs/VehicleSensor})
 
 (def IntakeTemperature
@@ -2565,10 +2613,13 @@
     "Signal.Cabin.HVAC.IsAirConditioningActive : Is Air conditioning active."}})
 
 (def IsBackUpLightOn
+  "is backup light on"
   {:db/ident :auto-vs/IsBackUpLightOn,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "is backup light on"},
    :rdfs/subClassOf :auto-vs/ActuableSignal})
 
 (def IsBackupLightOn
@@ -3180,10 +3231,13 @@
                      :rdf/value    "Turns on and off the left indicator"}})
 
 (def LeftIndicatorLight
+  "left indicator light"
   {:db/ident :auto-vs/LeftIndicatorLight,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "left indicator light"},
    :rdfs/subClassOf :auto-vs/ActuableSignal})
 
 (def LeftIndicatorSwitch
@@ -3199,10 +3253,13 @@
                      :rdf/value "Senses if the left indicator switch is on"}})
 
 (def Lidar
+  "lidar"
   {:db/ident :auto-vs/Lidar,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "lidar"},
    :rdfs/subClassOf :sosa/Sensor})
 
 (def LightIntensity
@@ -3489,10 +3546,13 @@
                      :rdf/value    "Controls the lumbar pressure"}})
 
 (def LumbarPressureSensor
+  "lumbar pressure sensor"
   {:db/ident :auto-vs/LumbarPressureSensor,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "lumbar pressure sensor"},
    :rdfs/subClassOf :auto-vs/VehicleSensor})
 
 (def LumbarUp
@@ -3533,10 +3593,13 @@
     "Signal.Drivetrain.InternalCombustionEngine.Engine.MAF / Signal.OBD.MAF / PID 10 : Grams of air drawn into engine per second."}})
 
 (def MAFSensor
+  "MAF sensor"
   {:db/ident :auto-vs/MAFSensor,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "MAF sensor"},
    :rdfs/subClassOf :auto-vs/VehicleSensor})
 
 (def MAP
@@ -4571,10 +4634,13 @@
                      :rdf/value    "Turns on and off the right indicator"}})
 
 (def RightIndicatorLight
+  "right indicator light"
   {:db/ident :auto-vs/RightIndicatorLight,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "right indicator light"},
    :rdfs/subClassOf :auto-vs/ActuableSignal})
 
 (def RightIndicatorSwitch
@@ -5015,10 +5081,13 @@
     "Signal.Cabin.Seat.RowX.PosY.SideBolster.Inflation : Lumbar support inflation. 0 = Fully deflated. 100 = Fully inflated."}})
 
 (def Sonar
+  "sonar"
   {:db/ident :auto-vs/Sonar,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "sonar"},
    :rdfs/subClassOf :sosa/Sensor})
 
 (def SpeedSet
@@ -5413,10 +5482,13 @@
     "Signal.OBD.ThrottleActuator : PID 4C - Commanded throttle actuator"}})
 
 (def ThrottleActuator
+  "throttle actuator"
   {:db/ident :auto-vs/ThrottleActuator,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "throttle actuator"},
    :rdfs/subClassOf :sosa/Actuator})
 
 (def ThrottlePosition
@@ -5816,6 +5888,7 @@
     "Signal.Vehicle.AngularVelocity.Roll : Vehicle rotation rate along X (longitudinal)."}})
 
 (def VehicleSensor
+  "vehicle sensor"
   {:db/ident :auto-vs/VehicleSensor,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
@@ -5887,10 +5960,13 @@
     "Signal.Vehicle.Acceleration.Vertical : Vehicle acceleration in Z (vertical acceleration)."}})
 
 (def VoltageSensor
+  "voltage sensor"
   {:db/ident :auto-vs/VoltageSensor,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "voltage sensor"},
    :rdfs/subClassOf :auto-vs/VehicleSensor})
 
 (def WarmupsSinceDTCClear

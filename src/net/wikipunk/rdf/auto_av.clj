@@ -46,7 +46,7 @@
     "This product contains SAE International copyrighted intellectual property, which has been and is licensed with permission for use by Licensee and its Sublicensee. The true authority of any SAE standard is the PDF version, which can be found at saemobilus.sae.org."},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Vehicle Automation Levels Ontology"},
-   :rdfs/seeAlso "https://onto.kul.pl/av/",
+   :rdfs/seeAlso ["https://onto.kul.pl/av/"],
    :sm/copyright {:rdf/language "en",
                   :rdf/value    "© SAE International, All rights reserved."},
    :sm/fileAbbreviation {:rdf/language "en",
@@ -75,6 +75,7 @@
     "Active safety systems are vehicle systems that sense and monitor conditions inside and outside the vehicle for the purpose of identifying perceived present and potential dangers to the vehicle, occupants, and/or other road users, and automatically intervene to help avoid or mitigate potential collisions via various methods, including alerts to the driver, vehicle system adjustments, and/or active control of the vehicle subsystems (brakes, throttle, suspension, etc.)."}})
 
 (def AutomatedDriving
+  "automated driving"
   {:db/ident :auto-av/AutomatedDriving,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
@@ -143,7 +144,8 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ADS dedicated vehicle"},
    :rdfs/subClassOf
-   [{:owl/minQualifiedCardinality 0,
+   [:auto-av/AutomatedDrivingSystemEquippedVehicle
+    {:owl/minQualifiedCardinality 0,
      :owl/onClass    {:owl/intersectionOf
                       [:auto-av/DriverlessOperation
                        {:owl/onProperty :auto-av/isDispatchedBy,
@@ -153,7 +155,6 @@
                       :rdf/type :owl/Class},
      :owl/onProperty :auto-av/isDispatchedIn,
      :rdf/type       :owl/Restriction}
-    :auto-av/AutomatedDrivingSystemEquippedVehicle
     {:owl/onProperty     :auto-av/operatedBy,
      :owl/someValuesFrom {:owl/intersectionOf
                           [:auto-av/AutomatedDrivingSystem
@@ -270,6 +271,7 @@
     :rdf/value    "commercial, cultural and often geographic heart of a city"}})
 
 (def Condition
+  "condition"
   {:db/ident :auto-av/Condition,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
@@ -307,11 +309,11 @@
    "https://spec.edmcouncil.org/auto/ontology/AV/VehicleAutomationLevels/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "conditional driving automation"},
-   :rdfs/subClassOf [{:owl/onProperty     :auto-av/resultsIn,
-                      :owl/someValuesFrom :auto-av/SubTripFeature,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :auto-av/hasUsageSpecification,
+   :rdfs/subClassOf [{:owl/onProperty     :auto-av/hasUsageSpecification,
                       :owl/someValuesFrom :auto-av/OperationalDesignDomain,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :auto-av/resultsIn,
+                      :owl/someValuesFrom :auto-av/SubTripFeature,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty :auto-av/hasUserWhileDASisEnagaged,
                       :owl/someValuesFrom
@@ -371,13 +373,13 @@
    "https://spec.edmcouncil.org/auto/ontology/AV/VehicleAutomationLevels/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "conventional vehicle"},
-   :rdfs/subClassOf [{:owl/onProperty     :auto-av/operatedBy,
+   :rdfs/subClassOf [{:owl/onProperty     :auto-av/isCapableToParticipateIn,
+                      :owl/someValuesFrom :auto-av/OperationWithDriver,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :auto-av/operatedBy,
                       :owl/someValuesFrom :auto-av/InVehicleDriver,
                       :rdf/type           :owl/Restriction}
-                     :auto-av/MotorVehicle
-                     {:owl/onProperty     :auto-av/isCapableToParticipateIn,
-                      :owl/someValuesFrom :auto-av/OperationWithDriver,
-                      :rdf/type           :owl/Restriction}],
+                     :auto-av/MotorVehicle],
    :skos/definition
    {:rdf/language "en",
     :rdf/value
@@ -436,8 +438,7 @@
    "https://spec.edmcouncil.org/auto/ontology/AV/VehicleAutomationLevels/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "DDT performance-relevant system failure"},
-   :rdfs/subClassOf [:auto-av/Operation
-                     {:owl/onProperty     :auto-av/isMalfunctionOf,
+   :rdfs/subClassOf [{:owl/onProperty     :auto-av/isMalfunctionOf,
                       :owl/someValuesFrom {:owl/intersectionOf
                                            [:auto-av/DrivingAutomationSystem
                                             {:owl/complementOf
@@ -447,7 +448,8 @@
                                               :rdf/type :owl/Restriction},
                                              :rdf/type :owl/Class}],
                                            :rdf/type :owl/Class},
-                      :rdf/type           :owl/Restriction}],
+                      :rdf/type           :owl/Restriction}
+                     :auto-av/Operation],
    :skos/definition
    {:rdf/language "en",
     :rdf/value
@@ -559,6 +561,7 @@
     "The sustained and ODD-specific execution by a driving automation system of either the lateral or the longitudinal vehicle motion control subtask of the DDT (but not both simultaneously) with the expectation that the driver performs the remainder of the DDT."}})
 
 (def DriverSupport
+  "driver support"
   {:db/ident :auto-av/DriverSupport,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
@@ -568,19 +571,22 @@
    :rdfs/subClassOf [{:owl/onProperty     :auto-av/hasParticipant,
                       :owl/someValuesFrom :auto-av/ConventionalVehicle,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :auto-av/hasUsageSpecification,
-                      :owl/someValuesFrom :auto-av/OperationalDesignDomain,
-                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom
+                      {:owl/unionOf [:auto-av/LateralVehicleMotionControl
+                                     :auto-av/LongitudinalVehicleMotionControl],
+                       :rdf/type    :owl/Class},
+                      :owl/onProperty :auto-av/realizes,
+                      :rdf/type :owl/Restriction}
                      :auto-av/DrivingAutomation
-                     {:owl/allValuesFrom :auto-av/DynamicDrivingSubtask,
-                      :owl/onProperty    :auto-av/realizes,
-                      :rdf/type          :owl/Restriction}
                      {:owl/onProperty :auto-av/realizes,
                       :owl/someValuesFrom
                       {:owl/unionOf [:auto-av/LateralVehicleMotionControl
                                      :auto-av/LongitudinalVehicleMotionControl],
                        :rdf/type    :owl/Class},
                       :rdf/type :owl/Restriction}
+                     {:owl/onProperty     :auto-av/hasUsageSpecification,
+                      :owl/someValuesFrom :auto-av/OperationalDesignDomain,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty :auto-av/hasUserAtAllTimes,
                       :owl/someValuesFrom
                       {:owl/intersectionOf
@@ -591,12 +597,9 @@
                          :rdf/type :owl/Restriction}],
                        :rdf/type :owl/Class},
                       :rdf/type :owl/Restriction}
-                     {:owl/allValuesFrom
-                      {:owl/unionOf [:auto-av/LateralVehicleMotionControl
-                                     :auto-av/LongitudinalVehicleMotionControl],
-                       :rdf/type    :owl/Class},
-                      :owl/onProperty :auto-av/realizes,
-                      :rdf/type :owl/Restriction}]})
+                     {:owl/allValuesFrom :auto-av/DynamicDrivingSubtask,
+                      :owl/onProperty    :auto-av/realizes,
+                      :rdf/type          :owl/Restriction}]})
 
 (def DriverSupportDrivingAutomationSystemFeature
   "A general term for Level 1 and Level 2 driving automation system features."
@@ -641,16 +644,16 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "driverless operation"},
    :rdfs/subClassOf
-   [{:owl/allValuesFrom :auto-av/AutomatedDrivingSystem,
-     :owl/onProperty    :auto-av/isPerformedBy,
-     :rdf/type          :owl/Restriction}
-    {:owl/allValuesFrom {:owl/complementOf
+   [{:owl/allValuesFrom {:owl/complementOf
                          {:owl/unionOf
                           [:auto-av/DynamicDriverTaskFallbackReadyUser
                            :auto-av/InVehicleDriver],
                           :rdf/type :owl/Class},
                          :rdf/type :owl/Class},
      :owl/onProperty    :auto-av/hasOnboardUser,
+     :rdf/type          :owl/Restriction}
+    {:owl/allValuesFrom :auto-av/AutomatedDrivingSystem,
+     :owl/onProperty    :auto-av/isPerformedBy,
      :rdf/type          :owl/Restriction}
     {:owl/allValuesFrom :auto-av/AutomatedDrivingSystemEquippedVehicle,
      :owl/onProperty    :auto-av/hasParticipant,
@@ -679,22 +682,22 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "driverless operation dispatcher"},
    :rdfs/subClassOf
-   [{:owl/minQualifiedCardinality 0,
-     :owl/onClass    :auto-av/FleetOperation,
-     :owl/onProperty :auto-av/performs,
-     :rdf/type       :owl/Restriction}
-    {:owl/onProperty     :auto-av/isUserInWhileDASisEnagaged,
+   [{:owl/onProperty     :auto-av/isUserInWhileDASisEnagaged,
      :owl/someValuesFrom {:owl/unionOf [:auto-av/FullDrivingAutomation
                                         :auto-av/HighDrivingAutomation],
                           :rdf/type    :owl/Class},
      :rdf/type           :owl/Restriction}
-    :auto-av/DriverlessOperationDispatchingEntity
-    :auto-av/HumanUser
     {:owl/allValuesFrom {:owl/unionOf [:auto-av/FullDrivingAutomation
                                        :auto-av/HighDrivingAutomation],
                          :rdf/type    :owl/Class},
      :owl/onProperty    :auto-av/isUserInWhileDASisEnagaged,
-     :rdf/type          :owl/Restriction}],
+     :rdf/type          :owl/Restriction}
+    :auto-av/DriverlessOperationDispatchingEntity
+    :auto-av/HumanUser
+    {:owl/minQualifiedCardinality 0,
+     :owl/onClass    :auto-av/FleetOperation,
+     :owl/onProperty :auto-av/performs,
+     :rdf/type       :owl/Restriction}],
    :skos/definition
    {:rdf/language "en",
     :rdf/value
@@ -794,14 +797,14 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "DAS feature"},
    :rdfs/subClassOf [:auto-av/Feature
-                     {:owl/allValuesFrom :auto-av/DrivingAutomationSystem,
-                      :owl/onProperty    :auto-av/isFeatureOf,
-                      :rdf/type          :owl/Restriction}
                      {:owl/onProperty     :auto-av/isFeatureOf,
                       :owl/someValuesFrom :auto-av/DrivingAutomationSystem,
                       :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom :auto-av/DrivingAutomation,
                       :owl/onProperty    :auto-av/isResultOf,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :auto-av/DrivingAutomationSystem,
+                      :owl/onProperty    :auto-av/isFeatureOf,
                       :rdf/type          :owl/Restriction}],
    :skos/definition
    {:rdf/language "en",
@@ -831,28 +834,28 @@
    "https://spec.edmcouncil.org/auto/ontology/AV/VehicleAutomationLevels/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "DDT fallback-ready user"},
-   :rdfs/subClassOf [{:owl/onProperty :auto-av/isReceptiveTo,
+   :rdfs/subClassOf [{:owl/allValuesFrom :auto-av/ConditionalDrivingAutomation,
+                      :owl/onProperty    :auto-av/isUserInWhileDASisEnagaged,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/onProperty :auto-av/isReceptiveTo,
                       :owl/someValuesFrom
                       :auto-av/DDTPerformanceRelevantSystemFailure,
                       :rdf/type :owl/Restriction}
-                     {:owl/minQualifiedCardinality 0,
-                      :owl/onClass    :auto-av/DynamicDrivingTaskFallback,
-                      :owl/onProperty :auto-av/performs,
-                      :rdf/type       :owl/Restriction}
+                     :auto-av/HumanUser
                      {:owl/minQualifiedCardinality 0,
                       :owl/onClass    :auto-av/MinimalRiskConditionAchievement,
                       :owl/onProperty :auto-av/performs,
                       :rdf/type       :owl/Restriction}
-                     :auto-av/HumanUser
-                     {:owl/onProperty     :auto-av/isUserInWhileDASisEnagaged,
-                      :owl/someValuesFrom :auto-av/ConditionalDrivingAutomation,
-                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :auto-av/isReceptiveTo,
                       :owl/someValuesFrom :auto-av/RequestToIntervene,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :auto-av/ConditionalDrivingAutomation,
-                      :owl/onProperty    :auto-av/isUserInWhileDASisEnagaged,
-                      :rdf/type          :owl/Restriction}],
+                     {:owl/minQualifiedCardinality 0,
+                      :owl/onClass    :auto-av/DynamicDrivingTaskFallback,
+                      :owl/onProperty :auto-av/performs,
+                      :rdf/type       :owl/Restriction}
+                     {:owl/onProperty     :auto-av/isUserInWhileDASisEnagaged,
+                      :owl/someValuesFrom :auto-av/ConditionalDrivingAutomation,
+                      :rdf/type           :owl/Restriction}],
    :skos/definition
    {:rdf/language "en",
     :rdf/value
@@ -901,17 +904,17 @@
                 :rdf/value    "dynamic driving task"},
    :rdfs/subClassOf
    [{:owl/onProperty     :auto-av/hasPart,
-     :owl/someValuesFrom :auto-av/ObjectAndEventDetectionAndResponse,
+     :owl/someValuesFrom :auto-av/LongitudinalVehicleMotionControl,
      :rdf/type           :owl/Restriction}
     :auto-cc/Task
     {:owl/onProperty     :auto-av/hasPart,
-     :owl/someValuesFrom :auto-av/LongitudinalVehicleMotionControl,
+     :owl/someValuesFrom :auto-av/Monitor,
      :rdf/type           :owl/Restriction}
     {:owl/onProperty     :auto-av/hasPart,
      :owl/someValuesFrom :auto-av/LateralVehicleMotionControl,
      :rdf/type           :owl/Restriction}
     {:owl/onProperty     :auto-av/hasPart,
-     :owl/someValuesFrom :auto-av/Monitor,
+     :owl/someValuesFrom :auto-av/ObjectAndEventDetectionAndResponse,
      :rdf/type           :owl/Restriction}],
    :skos/definition
    {:rdf/language "en",
@@ -947,17 +950,11 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "DDT fallback"},
    :rdfs/subClassOf
-   [{:owl/allValuesFrom {:owl/unionOf
-                         [:auto-av/DDTPerformanceRelevantSystemFailure
-                          :auto-av/OperationalDesignDomainExit],
-                         :rdf/type :owl/Class},
-     :owl/onProperty    :auto-av/isResultOf,
+   [{:owl/allValuesFrom {:owl/unionOf [:auto-av/AutomatedDrivingSystem
+                                       :auto-av/HumanUser],
+                         :rdf/type    :owl/Class},
+     :owl/onProperty    :auto-av/isPerformedBy,
      :rdf/type          :owl/Restriction}
-    {:owl/onProperty     :auto-av/isPerformedBy,
-     :owl/someValuesFrom {:owl/unionOf [:auto-av/AutomatedDrivingSystem
-                                        :auto-av/HumanUser],
-                          :rdf/type    :owl/Class},
-     :rdf/type           :owl/Restriction}
     {:owl/onProperty     :auto-av/hasParticipant,
      :owl/someValuesFrom :auto-av/MotorVehicle,
      :rdf/type           :owl/Restriction}
@@ -967,12 +964,18 @@
                            :auto-av/OperationalDesignDomainExit],
                           :rdf/type :owl/Class},
      :rdf/type           :owl/Restriction}
-    {:owl/allValuesFrom {:owl/unionOf [:auto-av/AutomatedDrivingSystem
-                                       :auto-av/HumanUser],
-                         :rdf/type    :owl/Class},
-     :owl/onProperty    :auto-av/isPerformedBy,
-     :rdf/type          :owl/Restriction}
+    {:owl/onProperty     :auto-av/isPerformedBy,
+     :owl/someValuesFrom {:owl/unionOf [:auto-av/AutomatedDrivingSystem
+                                        :auto-av/HumanUser],
+                          :rdf/type    :owl/Class},
+     :rdf/type           :owl/Restriction}
     :auto-av/Operation
+    {:owl/allValuesFrom {:owl/unionOf
+                         [:auto-av/DDTPerformanceRelevantSystemFailure
+                          :auto-av/OperationalDesignDomainExit],
+                         :rdf/type :owl/Class},
+     :owl/onProperty    :auto-av/isResultOf,
+     :rdf/type          :owl/Restriction}
     {:owl/unionOf [:auto-av/MinimalRiskConditionAchievement
                    {:owl/onProperty     :auto-av/realizes,
                     :owl/someValuesFrom :auto-av/DynamicDrivingTask,
@@ -1159,25 +1162,25 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "full driving automation"},
    :rdfs/subClassOf
-   [{:owl/onProperty     :auto-av/hasUserWhileDASisEnagaged,
-     :owl/someValuesFrom {:owl/unionOf [:auto-av/DriverlessOperationDispatcher
-                                        :auto-av/Passenger
-                                        :auto-av/RemoteAssistant],
-                          :rdf/type    :owl/Class},
-     :rdf/type           :owl/Restriction}
-    :auto-av/AutomatedDriving
+   [{:owl/complementOf {:owl/onProperty     :auto-av/hasUsageSpecification,
+                        :owl/someValuesFrom :auto-av/OperationalDesignDomain,
+                        :rdf/type           :owl/Restriction},
+     :rdf/type         :owl/Class}
     {:owl/minQualifiedCardinality 0,
      :owl/onClass    {:owl/onProperty     :auto-av/realizes,
                       :owl/someValuesFrom :auto-av/DynamicDrivingTaskFallback,
                       :rdf/type           :owl/Restriction},
      :owl/onProperty :auto-av/hasPart,
      :rdf/type       :owl/Restriction}
-    {:owl/complementOf {:owl/onProperty     :auto-av/hasUsageSpecification,
-                        :owl/someValuesFrom :auto-av/OperationalDesignDomain,
-                        :rdf/type           :owl/Restriction},
-     :rdf/type         :owl/Class}
+    :auto-av/AutomatedDriving
     {:owl/onProperty     :auto-av/resultsIn,
      :owl/someValuesFrom :auto-av/FullTripFeature,
+     :rdf/type           :owl/Restriction}
+    {:owl/onProperty     :auto-av/hasUserWhileDASisEnagaged,
+     :owl/someValuesFrom {:owl/unionOf [:auto-av/DriverlessOperationDispatcher
+                                        :auto-av/Passenger
+                                        :auto-av/RemoteAssistant],
+                          :rdf/type    :owl/Class},
      :rdf/type           :owl/Restriction}],
    :skos/definition
    {:rdf/language "en",
@@ -1251,12 +1254,8 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "high driving automation"},
    :rdfs/subClassOf
-   [:auto-av/AutomatedDriving
-    {:owl/onProperty     :auto-av/hasUserWhileDASisEnagaged,
-     :owl/someValuesFrom {:owl/unionOf [:auto-av/DriverlessOperationDispatcher
-                                        :auto-av/Passenger
-                                        :auto-av/RemoteAssistant],
-                          :rdf/type    :owl/Class},
+   [{:owl/onProperty     :auto-av/resultsIn,
+     :owl/someValuesFrom :auto-av/SubTripFeature,
      :rdf/type           :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
      :owl/onClass    {:owl/onProperty     :auto-av/realizes,
@@ -1264,11 +1263,15 @@
                       :rdf/type           :owl/Restriction},
      :owl/onProperty :auto-av/hasPart,
      :rdf/type       :owl/Restriction}
-    {:owl/onProperty     :auto-av/resultsIn,
-     :owl/someValuesFrom :auto-av/SubTripFeature,
-     :rdf/type           :owl/Restriction}
+    :auto-av/AutomatedDriving
     {:owl/onProperty     :auto-av/hasUsageSpecification,
      :owl/someValuesFrom :auto-av/OperationalDesignDomain,
+     :rdf/type           :owl/Restriction}
+    {:owl/onProperty     :auto-av/hasUserWhileDASisEnagaged,
+     :owl/someValuesFrom {:owl/unionOf [:auto-av/DriverlessOperationDispatcher
+                                        :auto-av/Passenger
+                                        :auto-av/RemoteAssistant],
+                          :rdf/type    :owl/Class},
      :rdf/type           :owl/Restriction}],
    :skos/definition
    {:rdf/language "en",
@@ -1326,18 +1329,26 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "human driver"},
    :rdfs/subClassOf
-   [{:owl/allValuesFrom {:owl/unionOf [:auto-av/DriverSupport
+   [{:owl/onProperty     :auto-av/isUserInWhileDASisUnengaged,
+     :owl/someValuesFrom :auto-av/AutomatedDriving,
+     :rdf/type           :owl/Restriction}
+    :auto-av/HumanUser
+    {:owl/onProperty     :auto-av/isUserInAtAllTimes,
+     :owl/someValuesFrom {:owl/unionOf [:auto-av/DriverSupport
+                                        :auto-av/NoDrivingAutomation],
+                          :rdf/type    :owl/Class},
+     :rdf/type           :owl/Restriction}
+    {:owl/onProperty     :auto-av/operates,
+     :owl/someValuesFrom :auto-av/ConventionalVehicle,
+     :rdf/type           :owl/Restriction}
+    {:owl/allValuesFrom {:owl/unionOf [:auto-av/DriverSupport
                                        :auto-av/NoDrivingAutomation],
                          :rdf/type    :owl/Class},
      :owl/onProperty    :auto-av/isUserInAtAllTimes,
      :rdf/type          :owl/Restriction}
-    :auto-av/HumanUser
     {:owl/allValuesFrom :auto-av/AutomatedDriving,
      :owl/onProperty    :auto-av/isUserInWhileDASisUnengaged,
      :rdf/type          :owl/Restriction}
-    {:owl/onProperty     :auto-av/isUserInWhileDASisUnengaged,
-     :owl/someValuesFrom :auto-av/AutomatedDriving,
-     :rdf/type           :owl/Restriction}
     {:owl/unionOf [{:owl/onProperty     :auto-av/performs,
                     :owl/someValuesFrom :auto-av/DynamicDrivingTaskFallback,
                     :rdf/type           :owl/Restriction}
@@ -1347,15 +1358,7 @@
                                           :auto-av/DynamicDrivingTask],
                                          :rdf/type :owl/Class},
                     :rdf/type           :owl/Restriction}],
-     :rdf/type    :owl/Class}
-    {:owl/onProperty     :auto-av/operates,
-     :owl/someValuesFrom :auto-av/ConventionalVehicle,
-     :rdf/type           :owl/Restriction}
-    {:owl/onProperty     :auto-av/isUserInAtAllTimes,
-     :owl/someValuesFrom {:owl/unionOf [:auto-av/DriverSupport
-                                        :auto-av/NoDrivingAutomation],
-                          :rdf/type    :owl/Class},
-     :rdf/type           :owl/Restriction}],
+     :rdf/type    :owl/Class}],
    :skos/definition
    {:rdf/language "en",
     :rdf/value
@@ -1402,12 +1405,12 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "in-vehicle driver"},
    :rdfs/subClassOf [:auto-av/HumanDriver
-                     {:owl/hasValue   true,
-                      :owl/onProperty :auto-av/occupiesSeatOfDriver,
-                      :rdf/type       :owl/Restriction}
                      {:owl/onProperty     :auto-av/operatesManually,
                       :owl/someValuesFrom :auto-av/ConventionalVehicle,
-                      :rdf/type           :owl/Restriction}],
+                      :rdf/type           :owl/Restriction}
+                     {:owl/hasValue   true,
+                      :owl/onProperty :auto-av/occupiesSeatOfDriver,
+                      :rdf/type       :owl/Restriction}],
    :skos/definition
    {:rdf/language "en",
     :rdf/value
@@ -1509,7 +1512,8 @@
    "https://spec.edmcouncil.org/auto/ontology/AV/VehicleAutomationLevels/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "maneuver-based feature"},
-   :rdfs/subClassOf [{:owl/onProperty     :auto-av/isResultOf,
+   :rdfs/subClassOf [:auto-av/DrivingAutomationSystemFeature
+                     {:owl/onProperty     :auto-av/isResultOf,
                       :owl/someValuesFrom {:owl/intersectionOf
                                            [:auto-av/DrivingAutomation
                                             {:owl/complementOf
@@ -1519,8 +1523,7 @@
                                               :rdf/type :owl/Class},
                                              :rdf/type :owl/Class}],
                                            :rdf/type :owl/Class},
-                      :rdf/type           :owl/Restriction}
-                     :auto-av/DrivingAutomationSystemFeature],
+                      :rdf/type           :owl/Restriction}],
    :skos/definition
    {:rdf/language "en",
     :rdf/value
@@ -1606,6 +1609,7 @@
      "A Level 4 ADS feature designed to operate a vehicle at high speeds on freeways experiences a DDT performance-relevant system failure and automatically removes the vehicle from active lanes of traffic before coming to a stop."}]})
 
 (def MinimalRiskConditionAchievement
+  "minimal risk condition achievement"
   {:db/ident :auto-av/MinimalRiskConditionAchievement,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
@@ -1799,19 +1803,19 @@
    "https://spec.edmcouncil.org/auto/ontology/AV/VehicleAutomationLevels/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "motor vehicle operation"},
-   :rdfs/subClassOf [{:owl/onProperty     :auto-av/realizes,
-                      :owl/someValuesFrom :auto-av/DynamicDrivingTask,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :auto-av/hasPart,
-                      :owl/someValuesFrom :auto-av/SustainedOperationOfVehicle,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :auto-av/isPerformedBy,
+   :rdfs/subClassOf [{:owl/onProperty     :auto-av/isPerformedBy,
                       :owl/someValuesFrom {:owl/unionOf
                                            [:auto-av/AutomatedDrivingSystem
                                             :auto-av/HumanDriver],
                                            :rdf/type :owl/Class},
                       :rdf/type           :owl/Restriction}
                      :auto-av/Operation
+                     {:owl/onProperty     :auto-av/realizes,
+                      :owl/someValuesFrom :auto-av/DynamicDrivingTask,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :auto-av/hasPart,
+                      :owl/someValuesFrom :auto-av/SustainedOperationOfVehicle,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :auto-av/hasParticipant,
                       :owl/someValuesFrom :auto-av/MotorVehicle,
                       :rdf/type           :owl/Restriction}],
@@ -1844,18 +1848,18 @@
    "https://spec.edmcouncil.org/auto/ontology/AV/VehicleAutomationLevels/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "no driving automation"},
-   :rdfs/subClassOf [{:owl/allValuesFrom :auto-av/HumanDriver,
-                      :owl/onProperty    :auto-av/hasUserAtAllTimes,
+   :rdfs/subClassOf [{:owl/onProperty     :auto-av/realizes,
+                      :owl/someValuesFrom :auto-av/DynamicDrivingTask,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :auto-av/HumanDriver,
+                      :owl/onProperty    :auto-av/isPerformedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/onProperty     :auto-av/hasUserAtAllTimes,
                       :owl/someValuesFrom :auto-av/HumanDriver,
                       :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom :auto-av/HumanDriver,
-                      :owl/onProperty    :auto-av/isPerformedBy,
+                      :owl/onProperty    :auto-av/hasUserAtAllTimes,
                       :rdf/type          :owl/Restriction}
-                     {:owl/onProperty     :auto-av/realizes,
-                      :owl/someValuesFrom :auto-av/DynamicDrivingTask,
-                      :rdf/type           :owl/Restriction}
                      :auto-av/SustainedOperationOfVehicle],
    :skos/definition
    {:rdf/language "en",
@@ -1939,7 +1943,11 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "operational design domain"},
    :rdfs/subClassOf [{:owl/minQualifiedCardinality 0,
-                      :owl/onClass    :auto-av/RoadType,
+                      :owl/onClass    :auto-av/TimeOfDay,
+                      :owl/onProperty :auto-av/hasOperatingCondition,
+                      :rdf/type       :owl/Restriction}
+                     {:owl/minQualifiedCardinality 0,
+                      :owl/onClass    :auto-av/TrafficType,
                       :owl/onProperty :auto-av/hasOperatingCondition,
                       :rdf/type       :owl/Restriction}
                      {:owl/minQualifiedCardinality 0,
@@ -1947,11 +1955,11 @@
                       :owl/onProperty :auto-av/hasOperatingCondition,
                       :rdf/type       :owl/Restriction}
                      {:owl/minQualifiedCardinality 0,
-                      :owl/onClass    :auto-av/WeatherType,
+                      :owl/onClass    :auto-av/RoadMaintenance,
                       :owl/onProperty :auto-av/hasOperatingCondition,
                       :rdf/type       :owl/Restriction}
                      {:owl/minQualifiedCardinality 0,
-                      :owl/onClass    :auto-av/TimeOfDay,
+                      :owl/onClass    :auto-av/RoadType,
                       :owl/onProperty :auto-av/hasOperatingCondition,
                       :rdf/type       :owl/Restriction}
                      {:owl/minQualifiedCardinality 0,
@@ -1959,11 +1967,7 @@
                       :owl/onProperty :auto-av/hasOperatingCondition,
                       :rdf/type       :owl/Restriction}
                      {:owl/minQualifiedCardinality 0,
-                      :owl/onClass    :auto-av/RoadMaintenance,
-                      :owl/onProperty :auto-av/hasOperatingCondition,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/minQualifiedCardinality 0,
-                      :owl/onClass    :auto-av/TrafficType,
+                      :owl/onClass    :auto-av/WeatherType,
                       :owl/onProperty :auto-av/hasOperatingCondition,
                       :rdf/type       :owl/Restriction}],
    :skos/definition
@@ -2068,16 +2072,16 @@
    "https://spec.edmcouncil.org/auto/ontology/AV/VehicleAutomationLevels/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "passenger"},
-   :rdfs/subClassOf [{:owl/onProperty     :auto-av/isUserInAtAllTimes,
-                      :owl/someValuesFrom :auto-av/SustainedOperationOfVehicle,
-                      :rdf/type           :owl/Restriction}
-                     :auto-av/InVehicleUser
-                     {:owl/complementOf {:owl/onProperty :auto-av/operates,
+   :rdfs/subClassOf [{:owl/complementOf {:owl/onProperty :auto-av/operates,
                                          :owl/someValuesFrom
                                          :auto-av/MotorVehicle,
                                          :rdf/type :owl/Restriction},
                       :rdf/type         :owl/Class}
-                     :auto-av/HumanUser],
+                     :auto-av/InVehicleUser
+                     :auto-av/HumanUser
+                     {:owl/onProperty     :auto-av/isUserInAtAllTimes,
+                      :owl/someValuesFrom :auto-av/SustainedOperationOfVehicle,
+                      :rdf/type           :owl/Restriction}],
    :skos/definition
    {:rdf/language "en",
     :rdf/value
@@ -2094,6 +2098,7 @@
      "The in-vehicle users of an ADS-DV shuttle on a university campus are passengers."}]})
 
 (def PoorRoadMaintenance
+  "road maintenance that offers a low degree of comfort and convenience for users, often meaning poor lane markings and construction or repair work"
   {:db/ident :auto-av/PoorRoadMaintenance,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
@@ -2138,9 +2143,7 @@
    "https://spec.edmcouncil.org/auto/ontology/AV/VehicleAutomationLevels/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "remote assistance"},
-   :rdfs/subClassOf [{:owl/onProperty     :auto-av/isPerformedBy,
-                      :owl/someValuesFrom :auto-av/RemoteAssistant,
-                      :rdf/type           :owl/Restriction}
+   :rdfs/subClassOf [:auto-av/Operation
                      {:owl/onProperty :auto-av/hasParticipant,
                       :owl/someValuesFrom
                       {:owl/intersectionOf
@@ -2153,7 +2156,9 @@
                      {:owl/allValuesFrom :auto-av/RemoteAssistant,
                       :owl/onProperty    :auto-av/isPerformedBy,
                       :rdf/type          :owl/Restriction}
-                     :auto-av/Operation],
+                     {:owl/onProperty     :auto-av/isPerformedBy,
+                      :owl/someValuesFrom :auto-av/RemoteAssistant,
+                      :rdf/type           :owl/Restriction}],
    :skos/definition
    {:rdf/language "en",
     :rdf/value
@@ -2180,13 +2185,13 @@
    "https://spec.edmcouncil.org/auto/ontology/AV/VehicleAutomationLevels/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "remote assistant"},
-   :rdfs/subClassOf [{:owl/allValuesFrom :auto-av/DriverlessOperation,
-                      :owl/onProperty    :auto-av/isUserInWhileDASisEnagaged,
-                      :rdf/type          :owl/Restriction}
+   :rdfs/subClassOf [:auto-av/HumanUser
                      {:owl/onProperty     :auto-av/performs,
                       :owl/someValuesFrom :auto-av/RemoteAssistance,
                       :rdf/type           :owl/Restriction}
-                     :auto-av/HumanUser
+                     {:owl/allValuesFrom :auto-av/DriverlessOperation,
+                      :owl/onProperty    :auto-av/isUserInWhileDASisEnagaged,
+                      :rdf/type          :owl/Restriction}
                      {:owl/onProperty     :auto-av/isUserInWhileDASisEnagaged,
                       :owl/someValuesFrom :auto-av/DriverlessOperation,
                       :rdf/type           :owl/Restriction}],
@@ -2214,10 +2219,10 @@
    "https://spec.edmcouncil.org/auto/ontology/AV/VehicleAutomationLevels/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "remote driver"},
-   :rdfs/subClassOf [:auto-av/HumanDriver
-                     {:owl/hasValue   false,
+   :rdfs/subClassOf [{:owl/hasValue   false,
                       :owl/onProperty :auto-av/occupiesSeatOfDriver,
                       :rdf/type       :owl/Restriction}
+                     :auto-av/HumanDriver
                      {:owl/onProperty     :auto-av/operatesRemotely,
                       :owl/someValuesFrom :auto-av/ConventionalVehicle,
                       :rdf/type           :owl/Restriction}],
@@ -2242,10 +2247,10 @@
    :fibo-fnd-utl-av/adaptedFrom "SAE-J3016 APR2021, sec. 3.24",
    :fibo-fnd-utl-av/explanatoryNote
    [{:rdf/language "en",
+     :rdf/value    "Remote driving is not driving automation."}
+    {:rdf/language "en",
      :rdf/value
      "Remote driving of a vehicle by a human is sometimes referred to as “teleoperation.” However, “teleoperation” is not defined consistently in the literature, and thus, to avoid confusion, is not used herein."}
-    {:rdf/language "en",
-     :rdf/value    "Remote driving is not driving automation."}
     {:rdf/language "en",
      :rdf/value
      "A receptive remote fallback-ready user becomes a remote driver when s/he performs the fallback."}
@@ -2265,15 +2270,15 @@
                                      :auto-av/DynamicDrivingTaskFallback],
                        :rdf/type    :owl/Class},
                       :rdf/type :owl/Restriction}
-                     {:owl/onProperty     :auto-av/isPerformedBy,
-                      :owl/someValuesFrom :auto-av/RemoteDriver,
-                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :auto-av/RemoteDriver,
+                      :owl/onProperty    :auto-av/isPerformedBy,
+                      :rdf/type          :owl/Restriction}
                      {:owl/onProperty     :auto-av/hasParticipant,
                       :owl/someValuesFrom :auto-av/MotorVehicle,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :auto-av/RemoteDriver,
-                      :owl/onProperty    :auto-av/isPerformedBy,
-                      :rdf/type          :owl/Restriction}],
+                     {:owl/onProperty     :auto-av/isPerformedBy,
+                      :owl/someValuesFrom :auto-av/RemoteDriver,
+                      :rdf/type           :owl/Restriction}],
    :skos/definition
    {:rdf/language "en",
     :rdf/value
@@ -2387,23 +2392,23 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "routine ADS operation"},
    :rdfs/subClassOf
-   [{:owl/complementOf {:owl/onProperty :auto-av/hasPart,
-                        :owl/someValuesFrom
-                        :auto-av/OperationalDesignDomainExit,
-                        :rdf/type :owl/Restriction},
-     :rdf/type         :owl/Class}
+   [{:owl/allValuesFrom :auto-av/AutomatedDrivingSystemEquippedVehicle,
+     :owl/onProperty    :auto-av/hasParticipant,
+     :rdf/type          :owl/Restriction}
+    {:owl/allValuesFrom :auto-av/AutomatedDrivingSystem,
+     :owl/onProperty    :auto-av/isPerformedBy,
+     :rdf/type          :owl/Restriction}
     {:owl/complementOf {:owl/onProperty :auto-av/hasPart,
                         :owl/someValuesFrom
                         :auto-av/DDTPerformanceRelevantSystemFailure,
                         :rdf/type :owl/Restriction},
      :rdf/type         :owl/Class}
-    {:owl/allValuesFrom :auto-av/AutomatedDrivingSystem,
-     :owl/onProperty    :auto-av/isPerformedBy,
-     :rdf/type          :owl/Restriction}
-    :auto-av/MotorVehicleOperation
-    {:owl/allValuesFrom :auto-av/AutomatedDrivingSystemEquippedVehicle,
-     :owl/onProperty    :auto-av/hasParticipant,
-     :rdf/type          :owl/Restriction}],
+    {:owl/complementOf {:owl/onProperty :auto-av/hasPart,
+                        :owl/someValuesFrom
+                        :auto-av/OperationalDesignDomainExit,
+                        :rdf/type :owl/Restriction},
+     :rdf/type         :owl/Class}
+    :auto-av/MotorVehicleOperation],
    :skos/definition
    {:rdf/language "en",
     :rdf/value
@@ -2534,14 +2539,14 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "sub-trip feature"},
    :rdfs/subClassOf
-   [:auto-av/DrivingAutomationSystemFeature
-    {:owl/onProperty     :auto-av/isResultOf,
+   [{:owl/onProperty     :auto-av/isResultOf,
      :owl/someValuesFrom {:owl/intersectionOf [:auto-av/DrivingAutomation
                                                {:owl/complementOf
                                                 :auto-av/FullDrivingAutomation,
                                                 :rdf/type :owl/Class}],
                           :rdf/type :owl/Class},
      :rdf/type           :owl/Restriction}
+    :auto-av/DrivingAutomationSystemFeature
     {:owl/allValuesFrom {:owl/onProperty     :auto-av/isPartOf,
                          :owl/someValuesFrom :auto-av/MotorVehicleOperation,
                          :rdf/type           :owl/Restriction},
@@ -2575,9 +2580,9 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "supervise DAS performance"},
    :rdfs/subClassOf
-   [{:owl/onProperty     :auto-av/isPerformedBy,
-     :owl/someValuesFrom :auto-av/HumanDriver,
-     :rdf/type           :owl/Restriction}
+   [{:owl/allValuesFrom :auto-av/HumanDriver,
+     :owl/onProperty    :auto-av/isPerformedBy,
+     :rdf/type          :owl/Restriction}
     {:owl/onProperty :auto-av/hasParticipant,
      :owl/someValuesFrom
      {:owl/intersectionOf
@@ -2594,9 +2599,9 @@
         :rdf/type :owl/Restriction}],
       :rdf/type :owl/Class},
      :rdf/type :owl/Restriction}
-    {:owl/allValuesFrom :auto-av/HumanDriver,
-     :owl/onProperty    :auto-av/isPerformedBy,
-     :rdf/type          :owl/Restriction}
+    {:owl/onProperty     :auto-av/isPerformedBy,
+     :owl/someValuesFrom :auto-av/HumanDriver,
+     :rdf/type           :owl/Restriction}
     :auto-av/Operation],
    :skos/definition
    {:rdf/language "en",
@@ -2625,19 +2630,19 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "sustained operation of a vehicle"},
    :rdfs/subClassOf
-   [{:owl/onProperty     :auto-av/isPerformedBy,
+   [:auto-av/Operation
+    {:owl/onProperty     :auto-av/isPerformedBy,
      :owl/someValuesFrom {:owl/unionOf [:auto-av/DrivingAutomationSystem
                                         :auto-av/HumanDriver],
                           :rdf/type    :owl/Class},
      :rdf/type           :owl/Restriction}
-    :auto-av/Operation
+    {:owl/onProperty     :auto-av/isPartOf,
+     :owl/someValuesFrom :auto-av/MotorVehicleOperation,
+     :rdf/type           :owl/Restriction}
     {:owl/onProperty     :auto-av/realizes,
      :owl/someValuesFrom {:owl/unionOf [:auto-av/DynamicDrivingSubtask
                                         :auto-av/DynamicDrivingTask],
                           :rdf/type    :owl/Class},
-     :rdf/type           :owl/Restriction}
-    {:owl/onProperty     :auto-av/isPartOf,
-     :owl/someValuesFrom :auto-av/MotorVehicleOperation,
      :rdf/type           :owl/Restriction}],
    :skos/definition
    {:rdf/language "en",
@@ -2734,6 +2739,7 @@
                      "links driving automation system (DAS) with its feature"}})
 
 (def hasOnboardUser
+  "has on-board user"
   {:db/ident :auto-av/hasOnboardUser,
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy
@@ -2757,6 +2763,7 @@
     "relates an operational design domain (ODD) with an operating condition"}})
 
 (def hasPart
+  "has part"
   {:db/ident :auto-av/hasPart,
    :owl/inverseOf :auto-av/isPartOf,
    :rdf/type :owl/ObjectProperty,
@@ -2766,6 +2773,7 @@
                 :rdf/value    "has part"}})
 
 (def hasParticipant
+  "has participant"
   {:db/ident :auto-av/hasParticipant,
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy
@@ -2855,6 +2863,7 @@
     "links a motor vehicle with a vehicle operation in which this vehicle is able to participate"}})
 
 (def isDispatchedBy
+  "is dispatched by"
   {:db/ident :auto-av/isDispatchedBy,
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy
@@ -2863,6 +2872,7 @@
                 :rdf/value    "is dispatched by"}})
 
 (def isDispatchedIn
+  "is dispatched in"
   {:db/ident :auto-av/isDispatchedIn,
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy
@@ -2871,6 +2881,7 @@
                 :rdf/value    "is dispatched in"}})
 
 (def isEquippedWith
+  "is equipped with"
   {:db/ident :auto-av/isEquippedWith,
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy
@@ -2891,6 +2902,7 @@
                      :rdf/value    "links a DAS feature with DAS"}})
 
 (def isMalfunctionOf
+  "is malfunction of"
   {:db/ident :auto-av/isMalfunctionOf,
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy
@@ -2899,6 +2911,7 @@
                 :rdf/value    "is malfunction of"}})
 
 (def isPartOf
+  "is part of"
   {:db/ident :auto-av/isPartOf,
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy
@@ -2907,6 +2920,7 @@
                 :rdf/value    "is part of"}})
 
 (def isPerformedBy
+  "is performed by"
   {:db/ident :auto-av/isPerformedBy,
    :owl/inverseOf :auto-av/performs,
    :rdf/type :owl/ObjectProperty,
@@ -2974,6 +2988,7 @@
                      :rdf/value    "links process with its result"}})
 
 (def isUserInAtAllTimes
+  "is user in at all times"
   {:db/ident :auto-av/isUserInAtAllTimes,
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy
@@ -2982,6 +2997,7 @@
                 :rdf/value    "is user in at all times"}})
 
 (def isUserInWhileDASisEnagaged
+  "is user in while DAS is engaged"
   {:db/ident :auto-av/isUserInWhileDASisEnagaged,
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy
@@ -2990,6 +3006,7 @@
                 :rdf/value    "is user in while DAS is engaged"}})
 
 (def isUserInWhileDASisUnengaged
+  "is user in while DAS is unengaged"
   {:db/ident :auto-av/isUserInWhileDASisUnengaged,
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy
@@ -2998,6 +3015,7 @@
                 :rdf/value    "is user in while DAS is unengaged"}})
 
 (def occupiesSeatOfDriver
+  "occupies the seat of driver"
   {:db/ident :auto-av/occupiesSeatOfDriver,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/domain :auto-av/HumanUser,
@@ -3032,6 +3050,7 @@
     "Collectively, the activities performed by a (human) driver (with or without support from one or more Level 1 or 2 driving automation features) or by an ADS (Level 3 to 5) to perform the entire DDT for a given vehicle."}})
 
 (def operates
+  "operates"
   {:db/ident :auto-av/operates,
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy
@@ -3040,6 +3059,7 @@
                 :rdf/value    "operates"}})
 
 (def operatesManually
+  "operates manually"
   {:db/ident :auto-av/operatesManually,
    :owl/propertyDisjointWith :auto-av/operatesRemotely,
    :rdf/type :owl/ObjectProperty,
@@ -3050,6 +3070,7 @@
    :rdfs/subPropertyOf :auto-av/operates})
 
 (def operatesRemotely
+  "operates remotely"
   {:db/ident :auto-av/operatesRemotely,
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy
@@ -3059,6 +3080,7 @@
    :rdfs/subPropertyOf :auto-av/operates})
 
 (def performs
+  "performs"
   {:db/ident :auto-av/performs,
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy
@@ -3067,6 +3089,7 @@
                 :rdf/value    "performs"}})
 
 (def realizes
+  "realizes"
   {:db/ident :auto-av/realizes,
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy
@@ -3075,6 +3098,7 @@
                 :rdf/value    "realizes"}})
 
 (def resultsIn
+  "results in"
   {:db/ident :auto-av/resultsIn,
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy

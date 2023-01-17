@@ -42,7 +42,7 @@
    :rdf/type [:owl/NamedIndividual :sm/Module],
    :rdfs/isDefinedBy "https://spec.edmcouncil.org/auto/ontology/VC/MetadataVC/",
    :rdfs/label "Vehicle Core",
-   :rdfs/seeAlso "https://spec.edmcouncil.org/auto/",
+   :rdfs/seeAlso ["https://spec.edmcouncil.org/auto/"],
    :sm/contributor ["W3C Automotive Ontology Community Group"
                     "Makolab SA"
                     "Hepp Research GmbH"
