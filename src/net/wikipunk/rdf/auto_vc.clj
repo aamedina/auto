@@ -1621,7 +1621,7 @@
                 {:rdf/language "pl",
                  :rdf/value    "duży pojazd specjalny"}],
    :rdfs/seeAlso
-   ["source: https://www.toyota-ti.ac.jp/Lab/Denshi/COIN/Ontology/TTICore-0.03/TTICarOnto.owl"],
+   "https://www.toyota-ti.ac.jp/Lab/Denshi/COIN/Ontology/TTICore-0.03/TTICarOnto.owl",
    :rdfs/subClassOf :auto-vc/SpecialVehicle,
    :skos/definition {:rdf/language "en",
                      :rdf/value "special vehicle which is considered large"}})
@@ -1923,9 +1923,7 @@
                 {:rdf/language "en",
                  :rdf/value    "my car"}],
    :rdfs/seeAlso
-   [[:rdf/value
-     "source: https://www.toyota-ti.ac.jp/Lab/Denshi/COIN/Ontology/TTICore-0.03/TTICarOnto.owl"]
-    [:rdf/language "en"]],
+   "https://www.toyota-ti.ac.jp/Lab/Denshi/COIN/Ontology/TTICore-0.03/TTICarOnto.owl",
    :rdfs/subClassOf :auto-mo/Role,
    :skos/definition {:rdf/language "en",
                      :rdf/value "vehicle that legally belongs to the subject"}})
@@ -2151,9 +2149,7 @@
                 {:rdf/language "en",
                  :rdf/value    "passenger car"}],
    :rdfs/seeAlso
-   [[:rdf/value
-     "source: https://www.toyota-ti.ac.jp/Lab/Denshi/COIN/Ontology/TTICore-0.03/TTICarOnto.owl"]
-    [:rdf/language "en"]],
+   "https://www.toyota-ti.ac.jp/Lab/Denshi/COIN/Ontology/TTICore-0.03/TTICarOnto.owl"
    :rdfs/subClassOf :auto-vc/RegularVehicle,
    :skos/definition
    [{:rdf/language "pl",
@@ -2359,9 +2355,7 @@
                 {:rdf/language "en",
                  :rdf/value    "regular vehicle"}],
    :rdfs/seeAlso
-   [[:rdf/value
-     "source: https://www.toyota-ti.ac.jp/Lab/Denshi/COIN/Ontology/TTICore-0.03/TTICarOnto.owl"]
-    [:rdf/language "en"]],
+   "https://www.toyota-ti.ac.jp/Lab/Denshi/COIN/Ontology/TTICore-0.03/TTICarOnto.owl",
    :rdfs/subClassOf :auto-vc/Car,
    :skos/definition {:rdf/language "en",
                      :rdf/value    "normal vehicle used for daily commuting"}})
@@ -2580,7 +2574,7 @@
                 {:rdf/language "pl",
                  :rdf/value    "mały pojazd specjalny"}],
    :rdfs/seeAlso
-   ["source: https://www.toyota-ti.ac.jp/Lab/Denshi/COIN/Ontology/TTICore-0.03/TTICarOnto.owl"],
+   "https://www.toyota-ti.ac.jp/Lab/Denshi/COIN/Ontology/TTICore-0.03/TTICarOnto.owl",
    :rdfs/subClassOf :auto-vc/SpecialVehicle,
    :skos/definition {:rdf/language "en",
                      :rdf/value "special vehicle which is considered small"}})
@@ -2652,9 +2646,7 @@
                 {:rdf/language "pl",
                  :rdf/value    "pojazd specjalny"}],
    :rdfs/seeAlso
-   [[:rdf/value
-     "source: https://www.toyota-ti.ac.jp/Lab/Denshi/COIN/Ontology/TTICore-0.03/TTICarOnto.owl"]
-    [:rdf/language "en"]],
+   "https://www.toyota-ti.ac.jp/Lab/Denshi/COIN/Ontology/TTICore-0.03/TTICarOnto.owl",
    :rdfs/subClassOf :auto-vc/Car,
    :skos/definition
    [{:rdf/language "pl",

@@ -179,7 +179,7 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Timer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/TimeUnit,
+                     {:owl/allValuesFrom :quantitykind/Time,
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -199,7 +199,7 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Timer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/TimeUnit,
+                     {:owl/allValuesFrom :quantitykind/Time,
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -218,7 +218,7 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Timer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/TimeUnit,
+                     {:owl/allValuesFrom :quantitykind/Time,
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -238,7 +238,7 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Timer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/TimeUnit,
+                     {:owl/allValuesFrom :quantitykind/Time,
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -258,7 +258,7 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Odometer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/LengthUnit,
+                     {:owl/allValuesFrom :quantitykind/Length,
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -378,7 +378,7 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/GPS,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/LengthUnit,
+                     {:owl/allValuesFrom :quantitykind/Length,
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -540,7 +540,9 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Barometer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/PressureOrStressUnit,
+                     {:owl/allValuesFrom {:owl/unionOf [:quantitykind/Pressure
+                                                        :quantitykind/Stress]
+                                          :rdf/type    :owl/Class}
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -1089,7 +1091,7 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/PowerMeter,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/PowerUnit,
+                     {:owl/allValuesFrom :quantitykind/Power,
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -1109,7 +1111,7 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Odometer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/TimeUnit,
+                     {:owl/allValuesFrom :quantitykind/Time,
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -1347,7 +1349,7 @@
                      {:owl/allValuesFrom :auto-vs/GPS,
                       :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/AngleUnit,
+                     {:owl/allValuesFrom :quantitykind/Angle
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal
@@ -1371,7 +1373,7 @@
                      {:owl/allValuesFrom :auto-vs/GPS,
                       :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/AngleUnit,
+                     {:owl/allValuesFrom :quantitykind/Angle,
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal
@@ -1414,7 +1416,7 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/DiagnosticSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/LengthUnit,
+                     {:owl/allValuesFrom :quantitykind/Length,
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -1434,7 +1436,7 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/ObstacleDetectionSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/LengthUnit,
+                     {:owl/allValuesFrom :quantitykind/Length,
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -1454,7 +1456,7 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Odometer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/LengthUnit,
+                     {:owl/allValuesFrom :quantitykind/Length,
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -1730,7 +1732,9 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/EVAPSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/PressureOrStressUnit,
+                     {:owl/allValuesFrom {:owl/unionOf [:quantitykind/Pressure
+                                                        :quantitykind/Stress]
+                                          :rdf/type    :owl/Class},
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -1750,7 +1754,9 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/EVAPSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/PressureOrStressUnit,
+                     {:owl/allValuesFrom {:owl/unionOf [:quantitykind/Pressure
+                                                        :quantitykind/Stress]
+                                          :rdf/type    :owl/Class},
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -1770,7 +1776,9 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/EVAPSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/PressureOrStressUnit,
+                     {:owl/allValuesFrom {:owl/unionOf [:quantitykind/Pressure
+                                                        :quantitykind/Stress]
+                                          :rdf/type    :owl/Class},
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -1977,7 +1985,7 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/CrankshaftPositionSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/AngleUnit,
+                     {:owl/allValuesFrom :quantitykind/Angle,
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -1997,7 +2005,9 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/FuelPressureSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/PressureOrStressUnit,
+                     {:owl/allValuesFrom {:owl/unionOf [:quantitykind/Pressure
+                                                        :quantitykind/Stress]
+                                          :rdf/type    :owl/Class},
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -2026,7 +2036,9 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/FuelRailPressureSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/PressureOrStressUnit,
+                     {:owl/allValuesFrom {:owl/unionOf [:quantitykind/Pressure
+                                                        :quantitykind/Stress]
+                                          :rdf/type    :owl/Class},
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -2046,7 +2058,9 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/FuelRailPressureSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/PressureOrStressUnit,
+                     {:owl/allValuesFrom {:owl/unionOf [:quantitykind/Pressure
+                                                        :quantitykind/Stress]
+                                          :rdf/type    :owl/Class},
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -2076,7 +2090,9 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/FuelRailPressureSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/PressureOrStressUnit,
+                     {:owl/allValuesFrom {:owl/unionOf [:quantitykind/Pressure
+                                                        :quantitykind/Stress]
+                                          :rdf/type    :owl/Class},
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -2176,7 +2192,7 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/GPS,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/LengthUnit,
+                     {:owl/allValuesFrom :quantitykind/Length,
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -2196,7 +2212,7 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/GPS,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/AngleUnit,
+                     {:owl/allValuesFrom :quantitykind/Angle,
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -3209,7 +3225,7 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/GPS,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/AngleUnit,
+                     {:owl/allValuesFrom :quantitykind/Angle,
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -3365,7 +3381,7 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/GPS,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/AngleUnit,
+                     {:owl/allValuesFrom :quantitykind/Angle,
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -3613,7 +3629,9 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/ManifoldAirPressureSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/PressureOrStressUnit,
+                     {:owl/allValuesFrom {:owl/unionOf [:quantitykind/Pressure
+                                                        :quantitykind/Stress]
+                                          :rdf/type    :owl/Class},
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -4421,7 +4439,7 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/FuelTankLevelSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/LengthUnit,
+                     {:owl/allValuesFrom :quantitykind/Length,
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -4698,7 +4716,7 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Timer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/TimeUnit,
+                     {:owl/allValuesFrom :quantitykind/Time,
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -4717,7 +4735,7 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Timer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/TimeUnit,
+                     {:owl/allValuesFrom :quantitykind/Time,
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -4956,7 +4974,7 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/SeatPositionSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/AngleUnit,
+                     {:owl/allValuesFrom :quantitykind/Angle,
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -5137,7 +5155,7 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/SteeringWheelAngleSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/AngleUnit,
+                     {:owl/allValuesFrom :quantitykind/Angle,
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -5554,7 +5572,7 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Timer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/TimeUnit,
+                     {:owl/allValuesFrom :quantitykind/Time,
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -5574,7 +5592,7 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Timer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/TimeUnit,
+                     {:owl/allValuesFrom :quantitykind/Time,
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -5606,7 +5624,7 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/DiagnosticSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/AngleUnit,
+                     {:owl/allValuesFrom :quantitykind/Angle,
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -5625,7 +5643,9 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/TirePressureMonitoringSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/PressureOrStressUnit,
+                     {:owl/allValuesFrom {:owl/unionOf [:quantitykind/Pressure
+                                                        :quantitykind/Stress]
+                                          :rdf/type    :owl/Class},
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
@@ -5754,7 +5774,7 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Odometer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/LengthUnit,
+                     {:owl/allValuesFrom :quantitykind/Length,
                       :owl/onProperty    :qudt/unit,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
