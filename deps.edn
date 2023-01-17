@@ -2,9 +2,9 @@
  {com.stuartsierra/component
   {:mvn/version "1.1.0"}
   io.github.aamedina/rdf
-  {:git/sha "5228be8dd4695a7d8527a4c94a29a60caac99329"}
+  {:git/sha "f51015bb5618f235201b7d62b9bdd473407bf9b8"}
   io.github.aamedina/fibo
-  {:git/sha "0cfcadc32572d60593a578dd7c3c64517185892d"}
+  {:git/sha "930edda6ee13efc5163b45f9ed73aa8f5df2c189"}
   org.clojure/clojure
   {:mvn/version "1.11.1"}}
  :paths ["src" "classes"]

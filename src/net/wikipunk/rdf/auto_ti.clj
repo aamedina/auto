@@ -1891,11 +1891,11 @@
 (def TrafficIncident
   "all road accidents - irrespective of whether there is an accident or serious material damage"
   {:db/ident :auto-ti/TrafficIncident,
-   :owl/equivalentClass [{:owl/onProperty     :auto-ti/hasCause,
-                          :owl/someValuesFrom :auto-ti/TrafficIncidentCauses,
-                          :rdf/type           :owl/Restriction}
-                         {:owl/onProperty     :auto-ti/hasEffect,
+   :owl/equivalentClass [{:owl/onProperty     :auto-ti/hasEffect,
                           :owl/someValuesFrom :auto-ti/TrafficIncidentEffect,
+                          :rdf/type           :owl/Restriction}
+                         {:owl/onProperty     :auto-ti/hasCause,
+                          :owl/someValuesFrom :auto-ti/TrafficIncidentCauses,
                           :rdf/type           :owl/Restriction}],
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
@@ -1904,10 +1904,10 @@
                  :rdf/value    "zdarzenie drogowe"}
                 {:rdf/language "en",
                  :rdf/value    "traffic incident"}],
-   :rdfs/subClassOf [:auto-mo/Process
-                     {:owl/onProperty     :auto-ti/hasTrafficUser,
+   :rdfs/subClassOf [{:owl/onProperty     :auto-ti/hasTrafficUser,
                       :owl/someValuesFrom :auto-ti/TrafficParticipant,
-                      :rdf/type           :owl/Restriction}],
+                      :rdf/type           :owl/Restriction}
+                     :auto-mo/Process],
    :skos/definition
    [{:rdf/language "en",
      :rdf/value

@@ -462,14 +462,14 @@
    :rdfs/seeAlso ["http://dbpedia.org/resource/Automobile"
                   "http://en.wikipedia.org/wiki/Automobile"],
    :rdfs/subClassOf [:auto-vc/MotorizedRoadVehicle
-                     {:owl/minQualifiedCardinality 0,
-                      :owl/onDataRange :xsd/string,
-                      :owl/onProperty  :auto-vc/acrissCode,
-                      :rdf/type        :owl/Restriction}
                      {:owl/onClass    :auto-vc/BodyStyleValue,
                       :owl/onProperty :auto-vc/bodyStyle,
                       :owl/qualifiedCardinality 1,
-                      :rdf/type       :owl/Restriction}],
+                      :rdf/type       :owl/Restriction}
+                     {:owl/minQualifiedCardinality 0,
+                      :owl/onDataRange :xsd/string,
+                      :owl/onProperty  :auto-vc/acrissCode,
+                      :rdf/type        :owl/Restriction}],
    :skos/definition
    [{:rdf/language "en",
      :rdf/value
@@ -582,12 +582,12 @@
 (def ChoiceOrComponent
   "A Choice or Component is a component (e.g. engine), add-on, feature (color \"ocean blue\"), or service that can be chosen to be part of a final vehicle configuration. Example: Engine 1.6 l TDI, color ocean blue, trailer hitch"
   {:db/ident :auto-vc/ChoiceOrComponent,
-   :owl/disjointWith [:auto-vc/PropertySpecification
-                      :auto-vc/Derivative
-                      :auto-vc/SpecItemCollection
+   :owl/disjointWith [:auto-vc/Derivative
                       :auto-vc/CompleteCarModel
                       :auto-vc/ConfigurationInfo
-                      :auto-vc/Trim],
+                      :auto-vc/Trim
+                      :auto-vc/SpecItemCollection
+                      :auto-vc/PropertySpecification],
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    ["https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/"
@@ -597,31 +597,22 @@
    :rdfs/subClassOf
    [{:owl/minQualifiedCardinality 0,
      :owl/onClass    :auto-vc/ChoiceOrComponent,
-     :owl/onProperty :auto-vc/incompatibleWith,
+     :owl/onProperty :auto-vc/dependsOn,
      :rdf/type       :owl/Restriction}
-    :auto-mo/Model
     {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onDataRange :xsd/string,
-                           :owl/onProperty  :auto-vc/productCode,
+                           :owl/onDataRange :xsd/int,
+                           :owl/onProperty  :auto-vc/displayPos,
                            :rdf/type        :owl/Restriction}
                           {:owl/maxQualifiedCardinality 1,
-                           :owl/onDataRange :xsd/string,
-                           :owl/onProperty  :auto-vc/productCode,
+                           :owl/onDataRange :xsd/int,
+                           :owl/onProperty  :auto-vc/displayPos,
                            :rdf/type        :owl/Restriction}],
      :rdf/type :owl/Class}
     {:owl/minQualifiedCardinality 0,
-     :owl/onClass    :auto-vc/ChoiceOrComponent,
-     :owl/onProperty :auto-vc/dependsOn,
+     :owl/onClass    :auto-vc/PropertySpecification,
+     :owl/onProperty :auto-vc/featureOverride,
      :rdf/type       :owl/Restriction}
-    :auto-mo/GenericallyDependentContinuant
-    {:owl/minQualifiedCardinality 0,
-     :owl/onClass    :auto-vc/ChoiceOrComponent,
-     :owl/onProperty :auto-vc/compatibleWith,
-     :rdf/type       :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onClass    :auto-vc/ChoiceOrComponent,
-     :owl/onProperty :auto-vc/includes,
-     :rdf/type       :owl/Restriction}
+    :auto-mo/Model
     {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
                            :owl/onClass    :auto-vc/RelativePriceSpecification,
                            :owl/onProperty :auto-vc/priceModifier,
@@ -631,19 +622,28 @@
                            :owl/onProperty :auto-vc/priceModifier,
                            :rdf/type       :owl/Restriction}],
      :rdf/type :owl/Class}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onClass    :auto-vc/PropertySpecification,
-     :owl/onProperty :auto-vc/featureOverride,
-     :rdf/type       :owl/Restriction}
     {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onDataRange :xsd/int,
-                           :owl/onProperty  :auto-vc/displayPos,
+                           :owl/onDataRange :xsd/string,
+                           :owl/onProperty  :auto-vc/productCode,
                            :rdf/type        :owl/Restriction}
                           {:owl/maxQualifiedCardinality 1,
-                           :owl/onDataRange :xsd/int,
-                           :owl/onProperty  :auto-vc/displayPos,
+                           :owl/onDataRange :xsd/string,
+                           :owl/onProperty  :auto-vc/productCode,
                            :rdf/type        :owl/Restriction}],
-     :rdf/type :owl/Class}],
+     :rdf/type :owl/Class}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onClass    :auto-vc/ChoiceOrComponent,
+     :owl/onProperty :auto-vc/includes,
+     :rdf/type       :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onClass    :auto-vc/ChoiceOrComponent,
+     :owl/onProperty :auto-vc/compatibleWith,
+     :rdf/type       :owl/Restriction}
+    :auto-mo/GenericallyDependentContinuant
+    {:owl/minQualifiedCardinality 0,
+     :owl/onClass    :auto-vc/ChoiceOrComponent,
+     :owl/onProperty :auto-vc/incompatibleWith,
+     :rdf/type       :owl/Restriction}],
    :skos/definition
    {:rdf/language "en",
     :rdf/value
@@ -714,18 +714,18 @@
     "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/"],
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "configuration info"},
-   :rdfs/subClassOf [{:owl/onDataRange :xsd/boolean,
-                      :owl/onProperty  :auto-vc/valid,
-                      :owl/qualifiedCardinality 1,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/minQualifiedCardinality 0,
+   :rdfs/subClassOf [{:owl/minQualifiedCardinality 0,
                       :owl/onClass    :auto-vc/PropertySpecification,
                       :owl/onProperty :auto-vc/featureOverride,
                       :rdf/type       :owl/Restriction}
                      :auto-mo/GenericallyDependentContinuant
                      {:owl/onProperty     :auto-vc/includesChoices,
                       :owl/someValuesFrom :auto-vc/ChoiceOrComponent,
-                      :rdf/type           :owl/Restriction}],
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onDataRange :xsd/boolean,
+                      :owl/onProperty  :auto-vc/valid,
+                      :owl/qualifiedCardinality 1,
+                      :rdf/type        :owl/Restriction}],
    :skos/definition
    {:rdf/language "en",
     :rdf/value
@@ -789,19 +789,11 @@
                      :auto-mo/Process
                      {:owl/minQualifiedCardinality 0,
                       :owl/onDataRange :xsd/boolean,
-                      :owl/onProperty  :auto-vc/structuralDamage,
+                      :owl/onProperty  :auto-vc/originalPartsOnly,
                       :rdf/type        :owl/Restriction}
                      {:owl/minQualifiedCardinality 0,
                       :owl/onDataRange :xsd/boolean,
                       :owl/onProperty  :auto-vc/notAtFaultAccident,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/minQualifiedCardinality 0,
-                      :owl/onDataRange :xsd/boolean,
-                      :owl/onProperty  :auto-vc/airbagDeployment,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/minQualifiedCardinality 0,
-                      :owl/onDataRange :xsd/boolean,
-                      :owl/onProperty  :auto-vc/originalPartsOnly,
                       :rdf/type        :owl/Restriction}
                      {:owl/minQualifiedCardinality 0,
                       :owl/onClass    {:owl/unionOf
@@ -809,7 +801,15 @@
                                         :auto-vc/BusinessEntityType],
                                        :rdf/type :owl/Class},
                       :owl/onProperty :auto-vc/carriedOutBy,
-                      :rdf/type       :owl/Restriction}],
+                      :rdf/type       :owl/Restriction}
+                     {:owl/minQualifiedCardinality 0,
+                      :owl/onDataRange :xsd/boolean,
+                      :owl/onProperty  :auto-vc/airbagDeployment,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/minQualifiedCardinality 0,
+                      :owl/onDataRange :xsd/boolean,
+                      :owl/onProperty  :auto-vc/structuralDamage,
+                      :rdf/type        :owl/Restriction}],
    :skos/definition {:rdf/language "en",
                      :rdf/value
                      "an event in which the vehicle is being damaged"}})
@@ -844,15 +844,6 @@
                       :owl/onClass    :auto-vc/ConfigurationInfo,
                       :owl/onProperty :auto-vc/compatibility,
                       :rdf/type       :owl/Restriction}
-                     {:owl/minQualifiedCardinality 0,
-                      :owl/onClass    :auto-vc/SpecItemCollection,
-                      :owl/onProperty :auto-vc/hasSpecItems,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/minQualifiedCardinality 0,
-                      :owl/onClass    :auto-vc/CompleteCarModel,
-                      :owl/onProperty :auto-vc/hasCompleteCarModel,
-                      :rdf/type       :owl/Restriction}
-                     :auto-mo/Model
                      {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
                                             :owl/onDataRange :xsd/string,
                                             :owl/onProperty  :auto-vc/capCode,
@@ -862,6 +853,15 @@
                                             :owl/onProperty  :auto-vc/capCode,
                                             :rdf/type        :owl/Restriction}],
                       :rdf/type :owl/Class}
+                     {:owl/minQualifiedCardinality 0,
+                      :owl/onClass    :auto-vc/CompleteCarModel,
+                      :owl/onProperty :auto-vc/hasCompleteCarModel,
+                      :rdf/type       :owl/Restriction}
+                     {:owl/minQualifiedCardinality 0,
+                      :owl/onClass    :auto-vc/SpecItemCollection,
+                      :owl/onProperty :auto-vc/hasSpecItems,
+                      :rdf/type       :owl/Restriction}
+                     :auto-mo/Model
                      {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
                                             :owl/onDataRange :xsd/string,
                                             :owl/onProperty  :auto-vc/dhCode,
@@ -983,27 +983,27 @@
                 :rdf/value    "engine specification"},
    :rdfs/subClassOf [{:owl/minQualifiedCardinality 0,
                       :owl/onClass    :auto-mo/QuantitativeValue,
-                      :owl/onProperty :auto-vc/engineDisplacement,
+                      :owl/onProperty :auto-vc/torque,
                       :rdf/type       :owl/Restriction}
                      {:owl/minQualifiedCardinality 0,
                       :owl/onClass    :auto-mo/QuantitativeValue,
-                      :owl/onProperty :auto-vc/torque,
+                      :owl/onProperty :auto-vc/enginePower,
                       :rdf/type       :owl/Restriction}
                      {:owl/minQualifiedCardinality 0,
                       :owl/onClass    :auto-mo/QualitativeValue,
                       :owl/onProperty :auto-vc/engineType,
-                      :rdf/type       :owl/Restriction}
-                     :auto-mo/GenericallyDependentContinuant
-                     {:owl/minQualifiedCardinality 0,
-                      :owl/onClass    :auto-mo/QuantitativeValue,
-                      :owl/onProperty :auto-vc/enginePower,
                       :rdf/type       :owl/Restriction}
                      {:owl/onProperty     :auto-vc/fuelType,
                       :owl/someValuesFrom {:owl/unionOf
                                            [:auto-mo/QualitativeValue
                                             :auto-mo/TextValue],
                                            :rdf/type :owl/Class},
-                      :rdf/type           :owl/Restriction}],
+                      :rdf/type           :owl/Restriction}
+                     :auto-mo/GenericallyDependentContinuant
+                     {:owl/minQualifiedCardinality 0,
+                      :owl/onClass    :auto-mo/QuantitativeValue,
+                      :owl/onProperty :auto-vc/engineDisplacement,
+                      :rdf/type       :owl/Restriction}],
    :skos/definition
    {:rdf/language "en",
     :rdf/value
@@ -1123,6 +1123,87 @@
    :rdfs/subClassOf
    [{:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
                            :owl/onClass    :auto-vc/PriceSpecification,
+                           :owl/onProperty :auto-vc/excessMileage,
+                           :rdf/type       :owl/Restriction}
+                          {:owl/maxQualifiedCardinality 1,
+                           :owl/onClass    :auto-vc/PriceSpecification,
+                           :owl/onProperty :auto-vc/excessMileage,
+                           :rdf/type       :owl/Restriction}],
+     :rdf/type :owl/Class}
+    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                           :owl/onDataRange :rdf/PlainLiteral,
+                           :owl/onProperty  :auto-vc/termsAndConditions,
+                           :rdf/type        :owl/Restriction}
+                          {:owl/maxQualifiedCardinality 1,
+                           :owl/onDataRange :rdf/PlainLiteral,
+                           :owl/onProperty  :auto-vc/termsAndConditions,
+                           :rdf/type        :owl/Restriction}],
+     :rdf/type :owl/Class}
+    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                           :owl/onClass    :auto-vc/PriceSpecification,
+                           :owl/onProperty :auto-vc/firstMonthlyPaymentFee,
+                           :rdf/type       :owl/Restriction}
+                          {:owl/maxQualifiedCardinality 1,
+                           :owl/onClass    :auto-vc/PriceSpecification,
+                           :owl/onProperty :auto-vc/firstMonthlyPaymentFee,
+                           :rdf/type       :owl/Restriction}],
+     :rdf/type :owl/Class}
+    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                           :owl/onDataRange :rdf/PlainLiteral,
+                           :owl/onProperty  :auto-vc/shortSubtitle,
+                           :rdf/type        :owl/Restriction}
+                          {:owl/maxQualifiedCardinality 1,
+                           :owl/onDataRange :rdf/PlainLiteral,
+                           :owl/onProperty  :auto-vc/shortSubtitle,
+                           :rdf/type        :owl/Restriction}],
+     :rdf/type :owl/Class}
+    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                           :owl/onClass    :auto-vc/PriceSpecification,
+                           :owl/onProperty :auto-vc/customerDeposit,
+                           :rdf/type       :owl/Restriction}
+                          {:owl/maxQualifiedCardinality 1,
+                           :owl/onClass    :auto-vc/PriceSpecification,
+                           :owl/onProperty :auto-vc/customerDeposit,
+                           :rdf/type       :owl/Restriction}],
+     :rdf/type :owl/Class}
+    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                           :owl/onClass    :auto-vc/PriceSpecification,
+                           :owl/onProperty :auto-vc/scrappageContribution,
+                           :rdf/type       :owl/Restriction}
+                          {:owl/maxQualifiedCardinality 1,
+                           :owl/onClass    :auto-vc/PriceSpecification,
+                           :owl/onProperty :auto-vc/scrappageContribution,
+                           :rdf/type       :owl/Restriction}],
+     :rdf/type :owl/Class}
+    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                           :owl/onDataRange :rdf/PlainLiteral,
+                           :owl/onProperty  :auto-vc/shortTitle,
+                           :rdf/type        :owl/Restriction}
+                          {:owl/maxQualifiedCardinality 1,
+                           :owl/onDataRange :rdf/PlainLiteral,
+                           :owl/onProperty  :auto-vc/shortTitle,
+                           :rdf/type        :owl/Restriction}],
+     :rdf/type :owl/Class}
+    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                           :owl/onDataRange :xsd/decimal,
+                           :owl/onProperty  :auto-vc/finalPayment,
+                           :rdf/type        :owl/Restriction}
+                          {:owl/maxQualifiedCardinality 1,
+                           :owl/onDataRange :xsd/decimal,
+                           :owl/onProperty  :auto-vc/finalPayment,
+                           :rdf/type        :owl/Restriction}],
+     :rdf/type :owl/Class}
+    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                           :owl/onClass    :auto-vc/PriceSpecification,
+                           :owl/onProperty :auto-vc/finalPaymentFee,
+                           :rdf/type       :owl/Restriction}
+                          {:owl/maxQualifiedCardinality 1,
+                           :owl/onClass    :auto-vc/PriceSpecification,
+                           :owl/onProperty :auto-vc/finalPaymentFee,
+                           :rdf/type       :owl/Restriction}],
+     :rdf/type :owl/Class}
+    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                           :owl/onClass    :auto-vc/PriceSpecification,
                            :owl/onProperty :auto-vc/totalPayable,
                            :rdf/type       :owl/Restriction}
                           {:owl/maxQualifiedCardinality 1,
@@ -1150,11 +1231,11 @@
      :rdf/type :owl/Class}
     {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
                            :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/otrRetailPrice,
+                           :owl/onProperty :auto-vc/monthlyPayment,
                            :rdf/type       :owl/Restriction}
                           {:owl/maxQualifiedCardinality 1,
                            :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/otrRetailPrice,
+                           :owl/onProperty :auto-vc/monthlyPayment,
                            :rdf/type       :owl/Restriction}],
      :rdf/type :owl/Class}
     {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
@@ -1168,11 +1249,20 @@
      :rdf/type :owl/Class}
     {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
                            :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/scrappageContribution,
+                           :owl/onProperty :auto-vc/otrRetailPrice,
                            :rdf/type       :owl/Restriction}
                           {:owl/maxQualifiedCardinality 1,
                            :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/scrappageContribution,
+                           :owl/onProperty :auto-vc/otrRetailPrice,
+                           :rdf/type       :owl/Restriction}],
+     :rdf/type :owl/Class}
+    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                           :owl/onClass    :auto-vc/PriceSpecification,
+                           :owl/onProperty :auto-vc/depositContribution,
+                           :rdf/type       :owl/Restriction}
+                          {:owl/maxQualifiedCardinality 1,
+                           :owl/onClass    :auto-vc/PriceSpecification,
+                           :owl/onProperty :auto-vc/depositContribution,
                            :rdf/type       :owl/Restriction}],
      :rdf/type :owl/Class}
     {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
@@ -1185,24 +1275,6 @@
                            :rdf/type       :owl/Restriction}],
      :rdf/type :owl/Class}
     {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onDataRange :rdf/PlainLiteral,
-                           :owl/onProperty  :auto-vc/shortTitle,
-                           :rdf/type        :owl/Restriction}
-                          {:owl/maxQualifiedCardinality 1,
-                           :owl/onDataRange :rdf/PlainLiteral,
-                           :owl/onProperty  :auto-vc/shortTitle,
-                           :rdf/type        :owl/Restriction}],
-     :rdf/type :owl/Class}
-    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/discount,
-                           :rdf/type       :owl/Restriction}
-                          {:owl/maxQualifiedCardinality 1,
-                           :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/discount,
-                           :rdf/type       :owl/Restriction}],
-     :rdf/type :owl/Class}
-    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
                            :owl/onClass    :auto-vc/PriceSpecification,
                            :owl/onProperty :auto-vc/customerCashPrice,
                            :rdf/type       :owl/Restriction}
@@ -1210,96 +1282,24 @@
                            :owl/onClass    :auto-vc/PriceSpecification,
                            :owl/onProperty :auto-vc/customerCashPrice,
                            :rdf/type       :owl/Restriction}],
-     :rdf/type :owl/Class}
-    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onDataRange :rdf/PlainLiteral,
-                           :owl/onProperty  :auto-vc/termsAndConditions,
-                           :rdf/type        :owl/Restriction}
-                          {:owl/maxQualifiedCardinality 1,
-                           :owl/onDataRange :rdf/PlainLiteral,
-                           :owl/onProperty  :auto-vc/termsAndConditions,
-                           :rdf/type        :owl/Restriction}],
-     :rdf/type :owl/Class}
-    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/firstMonthlyPaymentFee,
-                           :rdf/type       :owl/Restriction}
-                          {:owl/maxQualifiedCardinality 1,
-                           :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/firstMonthlyPaymentFee,
-                           :rdf/type       :owl/Restriction}],
-     :rdf/type :owl/Class}
-    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onDataRange :xsd/decimal,
-                           :owl/onProperty  :auto-vc/finalPayment,
-                           :rdf/type        :owl/Restriction}
-                          {:owl/maxQualifiedCardinality 1,
-                           :owl/onDataRange :xsd/decimal,
-                           :owl/onProperty  :auto-vc/finalPayment,
-                           :rdf/type        :owl/Restriction}],
-     :rdf/type :owl/Class}
-    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/monthlyPayment,
-                           :rdf/type       :owl/Restriction}
-                          {:owl/maxQualifiedCardinality 1,
-                           :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/monthlyPayment,
-                           :rdf/type       :owl/Restriction}],
-     :rdf/type :owl/Class}
-    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/excessMileage,
-                           :rdf/type       :owl/Restriction}
-                          {:owl/maxQualifiedCardinality 1,
-                           :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/excessMileage,
-                           :rdf/type       :owl/Restriction}],
-     :rdf/type :owl/Class}
-    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onDataRange :xsd/decimal,
-                           :owl/onProperty  :auto-vc/noOfMonthlyPayments,
-                           :rdf/type        :owl/Restriction}
-                          {:owl/maxQualifiedCardinality 1,
-                           :owl/onDataRange :xsd/decimal,
-                           :owl/onProperty  :auto-vc/noOfMonthlyPayments,
-                           :rdf/type        :owl/Restriction}],
-     :rdf/type :owl/Class}
-    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onDataRange :rdf/PlainLiteral,
-                           :owl/onProperty  :auto-vc/shortSubtitle,
-                           :rdf/type        :owl/Restriction}
-                          {:owl/maxQualifiedCardinality 1,
-                           :owl/onDataRange :rdf/PlainLiteral,
-                           :owl/onProperty  :auto-vc/shortSubtitle,
-                           :rdf/type        :owl/Restriction}],
      :rdf/type :owl/Class}
     :auto-vc/PaymentMethod
     {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/finalPaymentFee,
-                           :rdf/type       :owl/Restriction}
+                           :owl/onDataRange :xsd/decimal,
+                           :owl/onProperty  :auto-vc/noOfMonthlyPayments,
+                           :rdf/type        :owl/Restriction}
                           {:owl/maxQualifiedCardinality 1,
-                           :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/finalPaymentFee,
-                           :rdf/type       :owl/Restriction}],
+                           :owl/onDataRange :xsd/decimal,
+                           :owl/onProperty  :auto-vc/noOfMonthlyPayments,
+                           :rdf/type        :owl/Restriction}],
      :rdf/type :owl/Class}
     {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
                            :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/depositContribution,
+                           :owl/onProperty :auto-vc/discount,
                            :rdf/type       :owl/Restriction}
                           {:owl/maxQualifiedCardinality 1,
                            :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/depositContribution,
-                           :rdf/type       :owl/Restriction}],
-     :rdf/type :owl/Class}
-    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/customerDeposit,
-                           :rdf/type       :owl/Restriction}
-                          {:owl/maxQualifiedCardinality 1,
-                           :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/customerDeposit,
+                           :owl/onProperty :auto-vc/discount,
                            :rdf/type       :owl/Restriction}],
      :rdf/type :owl/Class}],
    :skos/definition
@@ -1700,29 +1700,18 @@
     "http://purl.org/uco/ns#"],
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "modification or maintenance"},
-   :rdfs/subClassOf [{:owl/minCardinality 0,
-                      :owl/onProperty     :auto-vc/partAdded,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minQualifiedCardinality 0,
+   :rdfs/subClassOf [{:owl/minQualifiedCardinality 0,
                       :owl/onDataRange :xsd/boolean,
-                      :owl/onProperty  :auto-vc/originalPartsOnly,
+                      :owl/onProperty  :auto-vc/structuralDamage,
                       :rdf/type        :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :auto-vc/partRemoved,
+                      :rdf/type           :owl/Restriction}
                      {:owl/minQualifiedCardinality 0,
                       :owl/onDataRange :xsd/boolean,
                       :owl/onProperty  :auto-vc/repaired,
                       :rdf/type        :owl/Restriction}
                      :auto-mo/Process
-                     {:owl/minQualifiedCardinality 0,
-                      :owl/onDataRange :xsd/boolean,
-                      :owl/onProperty  :auto-vc/structuralDamage,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/minQualifiedCardinality 0,
-                      :owl/onDataRange :xsd/boolean,
-                      :owl/onProperty  :auto-vc/airbagDeployment,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :auto-vc/partRemoved,
-                      :rdf/type           :owl/Restriction}
                      {:owl/minQualifiedCardinality 0,
                       :owl/onDataRange :xsd/boolean,
                       :owl/onProperty  :auto-vc/notAtFaultAccident,
@@ -1734,6 +1723,17 @@
                                        :rdf/type :owl/Class},
                       :owl/onProperty :auto-vc/carriedOutBy,
                       :rdf/type       :owl/Restriction}
+                     {:owl/minQualifiedCardinality 0,
+                      :owl/onDataRange :xsd/boolean,
+                      :owl/onProperty  :auto-vc/airbagDeployment,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :auto-vc/partAdded,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minQualifiedCardinality 0,
+                      :owl/onDataRange :xsd/boolean,
+                      :owl/onProperty  :auto-vc/originalPartsOnly,
+                      :rdf/type        :owl/Restriction}
                      {:owl/minCardinality 0,
                       :owl/onProperty     :auto-vc/partReplaced,
                       :rdf/type           :owl/Restriction}],
@@ -1889,7 +1889,7 @@
                   "http://dbpedia.org/resource/Motor_vehicle"],
    :rdfs/subClassOf [{:owl/minQualifiedCardinality 0,
                       :owl/onDataRange :xsd/string,
-                      :owl/onProperty  :auto-vc/insuranceGroup50,
+                      :owl/onProperty  :auto-vc/insuranceGroup,
                       :rdf/type        :owl/Restriction}
                      :auto-vc/RoadVehicle
                      {:owl/minQualifiedCardinality 0,
@@ -1898,11 +1898,11 @@
                       :rdf/type        :owl/Restriction}
                      {:owl/minQualifiedCardinality 0,
                       :owl/onDataRange :xsd/string,
-                      :owl/onProperty  :auto-vc/productCode,
+                      :owl/onProperty  :auto-vc/insuranceGroup50,
                       :rdf/type        :owl/Restriction}
                      {:owl/minQualifiedCardinality 0,
                       :owl/onDataRange :xsd/string,
-                      :owl/onProperty  :auto-vc/insuranceGroup,
+                      :owl/onProperty  :auto-vc/productCode,
                       :rdf/type        :owl/Restriction}],
    :skos/definition
    [{:rdf/language "en",
@@ -1939,6 +1939,33 @@
    :rdfs/label "offering",
    :rdfs/subClassOf
    [{:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                           :owl/onDataRange :rdf/PlainLiteral,
+                           :owl/onProperty  :auto-vc/shortTitle,
+                           :rdf/type        :owl/Restriction}
+                          {:owl/maxQualifiedCardinality 1,
+                           :owl/onDataRange :rdf/PlainLiteral,
+                           :owl/onProperty  :auto-vc/shortTitle,
+                           :rdf/type        :owl/Restriction}],
+     :rdf/type :owl/Class}
+    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                           :owl/onDataRange :rdf/PlainLiteral,
+                           :owl/onProperty  :auto-vc/shortSubtitle,
+                           :rdf/type        :owl/Restriction}
+                          {:owl/maxQualifiedCardinality 1,
+                           :owl/onDataRange :rdf/PlainLiteral,
+                           :owl/onProperty  :auto-vc/shortSubtitle,
+                           :rdf/type        :owl/Restriction}],
+     :rdf/type :owl/Class}
+    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                           :owl/onDataRange :rdf/PlainLiteral,
+                           :owl/onProperty  :auto-vc/termsAndConditions,
+                           :rdf/type        :owl/Restriction}
+                          {:owl/maxQualifiedCardinality 1,
+                           :owl/onDataRange :rdf/PlainLiteral,
+                           :owl/onProperty  :auto-vc/termsAndConditions,
+                           :rdf/type        :owl/Restriction}],
+     :rdf/type :owl/Class}
+    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
                            :owl/onDataRange :xsd/string,
                            :owl/onProperty  :auto-vc/offerPromoCode,
                            :rdf/type        :owl/Restriction}
@@ -1948,33 +1975,6 @@
                            :rdf/type        :owl/Restriction}],
      :rdf/type :owl/Class}
     :auto-mo/GenericallyDependentContinuant
-    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onDataRange :rdf/PlainLiteral,
-                           :owl/onProperty  :auto-vc/shortTitle,
-                           :rdf/type        :owl/Restriction}
-                          {:owl/maxQualifiedCardinality 1,
-                           :owl/onDataRange :rdf/PlainLiteral,
-                           :owl/onProperty  :auto-vc/shortTitle,
-                           :rdf/type        :owl/Restriction}],
-     :rdf/type :owl/Class}
-    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onDataRange :rdf/PlainLiteral,
-                           :owl/onProperty  :auto-vc/termsAndConditions,
-                           :rdf/type        :owl/Restriction}
-                          {:owl/maxQualifiedCardinality 1,
-                           :owl/onDataRange :rdf/PlainLiteral,
-                           :owl/onProperty  :auto-vc/termsAndConditions,
-                           :rdf/type        :owl/Restriction}],
-     :rdf/type :owl/Class}
-    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onDataRange :rdf/PlainLiteral,
-                           :owl/onProperty  :auto-vc/shortSubtitle,
-                           :rdf/type        :owl/Restriction}
-                          {:owl/maxQualifiedCardinality 1,
-                           :owl/onDataRange :rdf/PlainLiteral,
-                           :owl/onProperty  :auto-vc/shortSubtitle,
-                           :rdf/type        :owl/Restriction}],
-     :rdf/type :owl/Class}
     {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
                            :owl/onDataRange :rdf/PlainLiteral,
                            :owl/onProperty  :auto-vc/subtitle,
@@ -2014,25 +2014,25 @@
                 :rdf/value    "ownership info"},
    :rdfs/subClassOf
    [{:owl/minQualifiedCardinality 0,
-     :owl/onClass    {:owl/unionOf [:auto-mo/Organization :auto-mo/Person],
-                      :rdf/type    :owl/Class},
-     :owl/onProperty :auto-vc/owner,
-     :rdf/type       :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
      :owl/onDataRange :xsd/string,
      :owl/onProperty  :auto-vc/licensePlate,
+     :rdf/type        :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onClass    :auto-mo/QuantitativeValue,
+     :owl/onProperty :auto-vc/mileageEnd,
+     :rdf/type       :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onDataRange :xsd/boolean,
+     :owl/onProperty  :auto-vc/smoking,
      :rdf/type        :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
      :owl/onClass    :auto-mo/QualitativeValue,
      :owl/onProperty :auto-vc/mileageInitial,
      :rdf/type       :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
-     :owl/onClass    :auto-mo/QuantitativeValue,
-     :owl/onProperty :auto-vc/mileageEnd,
-     :rdf/type       :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onClass    :auto-vc/ParkingType,
-     :owl/onProperty :auto-vc/parking,
+     :owl/onClass    {:owl/unionOf [:auto-mo/Organization :auto-mo/Person],
+                      :rdf/type    :owl/Class},
+     :owl/onProperty :auto-vc/owner,
      :rdf/type       :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
      :owl/onDataRange :xsd/dateTime,
@@ -2043,36 +2043,36 @@
      :owl/onProperty :auto-vc/contains,
      :rdf/type       :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
+     :owl/onDataRange :xsd/dateTime,
+     :owl/onProperty  :auto-vc/from,
+     :rdf/type        :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onClass    :auto-vc/CarUsageType,
+     :owl/onProperty :auto-vc/usage,
+     :rdf/type       :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
      :owl/onClass    {:owl/unionOf [:auto-mo/Location :auto-mo/PostalAddress],
                       :rdf/type    :owl/Class},
      :owl/onProperty :auto-vc/mainLocation,
      :rdf/type       :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
-     :owl/onClass    {:owl/unionOf [:auto-mo/Organization :auto-mo/Person],
-                      :rdf/type    :owl/Class},
-     :owl/onProperty :auto-vc/currentOwner,
+     :owl/onClass    :auto-vc/ParkingType,
+     :owl/onProperty :auto-vc/parking,
      :rdf/type       :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onDataRange :xsd/dateTime,
-     :owl/onProperty  :auto-vc/from,
-     :rdf/type        :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onClass    :auto-vc/Species,
-     :owl/onProperty :auto-vc/pets,
-     :rdf/type       :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onClass    :auto-vc/CarUsageType,
-     :owl/onProperty :auto-vc/usage,
-     :rdf/type       :owl/Restriction}
-    :auto-mo/Quality
     {:owl/minQualifiedCardinality 0,
      :owl/onDataRange :xsd/integer,
      :owl/onProperty  :auto-vc/numberOfDrivers,
      :rdf/type        :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
-     :owl/onDataRange :xsd/boolean,
-     :owl/onProperty  :auto-vc/smoking,
-     :rdf/type        :owl/Restriction}],
+     :owl/onClass    {:owl/unionOf [:auto-mo/Organization :auto-mo/Person],
+                      :rdf/type    :owl/Class},
+     :owl/onProperty :auto-vc/currentOwner,
+     :rdf/type       :owl/Restriction}
+    :auto-mo/Quality
+    {:owl/minQualifiedCardinality 0,
+     :owl/onClass    :auto-vc/Species,
+     :owl/onProperty :auto-vc/pets,
+     :rdf/type       :owl/Restriction}],
    :skos/definition
    {:rdf/language "en",
     :rdf/value
@@ -2595,18 +2595,18 @@
     "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/"],
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "spec item collection"},
-   :rdfs/subClassOf [{:owl/onProperty     :auto-vc/availableChoice,
-                      :owl/someValuesFrom :auto-vc/ChoiceOrComponent,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+   :rdfs/subClassOf [{:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
                                             :owl/onDataRange :xsd/int,
-                                            :owl/onProperty  :auto-vc/max,
-                                            :rdf/type        :owl/Restriction}
+                                            :owl/onProperty :auto-vc/displayPos,
+                                            :rdf/type :owl/Restriction}
                                            {:owl/maxQualifiedCardinality 1,
                                             :owl/onDataRange :xsd/int,
-                                            :owl/onProperty  :auto-vc/max,
-                                            :rdf/type        :owl/Restriction}],
+                                            :owl/onProperty :auto-vc/displayPos,
+                                            :rdf/type :owl/Restriction}],
                       :rdf/type :owl/Class}
+                     {:owl/onProperty     :auto-vc/availableChoice,
+                      :owl/someValuesFrom :auto-vc/ChoiceOrComponent,
+                      :rdf/type           :owl/Restriction}
                      :auto-mo/GenericallyDependentContinuant
                      {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
                                             :owl/onDataRange :xsd/int,
@@ -2619,12 +2619,12 @@
                       :rdf/type :owl/Class}
                      {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
                                             :owl/onDataRange :xsd/int,
-                                            :owl/onProperty :auto-vc/displayPos,
-                                            :rdf/type :owl/Restriction}
+                                            :owl/onProperty  :auto-vc/max,
+                                            :rdf/type        :owl/Restriction}
                                            {:owl/maxQualifiedCardinality 1,
                                             :owl/onDataRange :xsd/int,
-                                            :owl/onProperty :auto-vc/displayPos,
-                                            :rdf/type :owl/Restriction}],
+                                            :owl/onProperty  :auto-vc/max,
+                                            :rdf/type        :owl/Restriction}],
                       :rdf/type :owl/Class}
                      {:owl/intersectionOf
                       [{:owl/minQualifiedCardinality 0,
@@ -3302,38 +3302,83 @@
                   "http://dbpedia.org/resource/Vehicle"],
    :rdfs/subClassOf
    [{:owl/minQualifiedCardinality 0,
-     :owl/onClass    :auto-vc/OwnershipInfo,
-     :owl/onProperty :auto-vc/hasOwnershipInfo,
+     :owl/onClass    {:owl/unionOf [:auto-mo/Organization :auto-mo/Person],
+                      :rdf/type    :owl/Class},
+     :owl/onProperty :auto-vc/currentOwner,
      :rdf/type       :owl/Restriction}
     :auto-mo/Object
     {:owl/minQualifiedCardinality 0,
-     :owl/onDataRange :xsd/boolean,
-     :owl/onProperty  :auto-vc/structuralDamage,
-     :rdf/type        :owl/Restriction}
+     :owl/onClass    :auto-vc/OwnershipInfo,
+     :owl/onProperty :auto-vc/hasOwnershipInfo,
+     :rdf/type       :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
      :owl/onDataRange :xsd/boolean,
      :owl/onProperty  :auto-vc/indicationOfOdometerRollback,
      :rdf/type        :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onDataRange :rdf/PlainLiteral,
+     :owl/onProperty  :auto-vc/termsAndConditions,
+     :rdf/type        :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onDataRange :xsd/integer,
+     :owl/onProperty  :auto-vc/numberOfOwners,
+     :rdf/type        :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onDataRange :xsd/dateTime,
+     :owl/onProperty  :auto-vc/purchaseDate,
+     :rdf/type        :owl/Restriction}
+    {:owl/minCardinality 0,
+     :owl/onProperty     :auto-vc/condition,
+     :rdf/type           :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onDataRange :xsd/boolean,
+     :owl/onProperty  :auto-vc/structuralDamage,
+     :rdf/type        :owl/Restriction}
+    {:owl/onProperty     :auto-vc/marketingName,
+     :owl/someValuesFrom :xsd/string,
+     :rdf/type           :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
      :owl/onClass    :auto-vc/CarUsageType,
      :owl/onProperty :auto-vc/usage,
      :rdf/type       :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
      :owl/onClass    :auto-vc/PriceSpecification,
-     :owl/onProperty :auto-vc/listPrice,
+     :owl/onProperty :auto-vc/valuation,
      :rdf/type       :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onDataRange :rdf/PlainLiteral,
+     :owl/onProperty  :auto-vc/shortTitle,
+     :rdf/type        :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onDataRange :xsd/integer,
+     :owl/onProperty  :auto-vc/numberOfDrivers,
+     :rdf/type        :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onDataRange :xsd/boolean,
+     :owl/onProperty  :auto-vc/repaired,
+     :rdf/type        :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onDataRange :xsd/string,
+     :owl/onProperty  :auto-vc/knownVehicleDamages,
+     :rdf/type        :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
      :owl/onDataRange :rdf/PlainLiteral,
      :owl/onProperty  :auto-vc/subtitle,
      :rdf/type        :owl/Restriction}
-    {:owl/onDataRange :xsd/boolean,
-     :owl/onProperty  :auto-vc/airbagDeployment,
-     :owl/qualifiedCardinality 1,
-     :rdf/type        :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
-     :owl/onDataRange :xsd/dateTime,
-     :owl/onProperty  :auto-vc/purchaseDate,
-     :rdf/type        :owl/Restriction}
+     :owl/onClass    {:owl/unionOf [:auto-mo/Organization :auto-mo/Person],
+                      :rdf/type    :owl/Class},
+     :owl/onProperty :auto-vc/owner,
+     :rdf/type       :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onClass    {:owl/unionOf [:auto-mo/Location :auto-mo/PostalAddress],
+                      :rdf/type    :owl/Class},
+     :owl/onProperty :auto-vc/currentLocation,
+     :rdf/type       :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onClass    :auto-vc/PriceSpecification,
+     :owl/onProperty :auto-vc/listPrice,
+     :rdf/type       :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
      :owl/onDataRange :rdf/PlainLiteral,
      :owl/onProperty  :auto-vc/shortSubtitle,
@@ -3347,77 +3392,32 @@
      :owl/onProperty  :auto-vc/rentalUsage,
      :rdf/type        :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
-     :owl/onClass    :auto-vc/ParkingType,
-     :owl/onProperty :auto-vc/parking,
-     :rdf/type       :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onDataRange :rdf/PlainLiteral,
-     :owl/onProperty  :auto-vc/shortTitle,
-     :rdf/type        :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onClass    {:owl/unionOf [:auto-mo/Organization :auto-mo/Person],
-                      :rdf/type    :owl/Class},
-     :owl/onProperty :auto-vc/currentOwner,
-     :rdf/type       :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onClass    {:owl/unionOf [:auto-mo/Location :auto-mo/PostalAddress],
-                      :rdf/type    :owl/Class},
-     :owl/onProperty :auto-vc/currentLocation,
-     :rdf/type       :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onDataRange :xsd/integer,
-     :owl/onProperty  :auto-vc/numberOfDrivers,
-     :rdf/type        :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onDataRange :xsd/boolean,
-     :owl/onProperty  :auto-vc/repaired,
-     :rdf/type        :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onClass    :auto-mo/QuantitativeValue,
-     :owl/onProperty :auto-vc/cargoVolume,
-     :rdf/type       :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onDataRange :rdf/PlainLiteral,
-     :owl/onProperty  :auto-vc/termsAndConditions,
-     :rdf/type        :owl/Restriction}
-    {:owl/onProperty     :auto-vc/marketingName,
-     :owl/someValuesFrom :xsd/string,
-     :rdf/type           :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onClass    :auto-vc/PriceSpecification,
-     :owl/onProperty :auto-vc/valuation,
-     :rdf/type       :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onClass    {:owl/unionOf [:auto-mo/Organization :auto-mo/Person],
-                      :rdf/type    :owl/Class},
-     :owl/onProperty :auto-vc/owner,
-     :rdf/type       :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
      :owl/onClass    :auto-mo/QuantitativeValueFloat,
      :owl/onProperty :auto-vc/accelerationTime,
      :rdf/type       :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
-     :owl/onDataRange :xsd/boolean,
-     :owl/onProperty  :auto-vc/smoking,
-     :rdf/type        :owl/Restriction}
+     :owl/onClass    :auto-vc/ParkingType,
+     :owl/onProperty :auto-vc/parking,
+     :rdf/type       :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
-     :owl/onDataRange :xsd/integer,
-     :owl/onProperty  :auto-vc/numberOfOwners,
+     :owl/onDataRange :xsd/dateTime,
+     :owl/onProperty  :auto-vc/vehicleModelDate,
      :rdf/type        :owl/Restriction}
-    {:owl/minCardinality 0,
-     :owl/onProperty     :auto-vc/condition,
-     :rdf/type           :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onDataRange :xsd/string,
-     :owl/onProperty  :auto-vc/knownVehicleDamages,
+    {:owl/onDataRange :xsd/boolean,
+     :owl/onProperty  :auto-vc/airbagDeployment,
+     :owl/qualifiedCardinality 1,
      :rdf/type        :owl/Restriction}
     {:owl/minCardinality 0,
      :owl/onProperty     :auto-vc/knownVehicleDamages,
      :rdf/type           :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
-     :owl/onDataRange :xsd/dateTime,
-     :owl/onProperty  :auto-vc/vehicleModelDate,
-     :rdf/type        :owl/Restriction}],
+     :owl/onDataRange :xsd/boolean,
+     :owl/onProperty  :auto-vc/smoking,
+     :rdf/type        :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onClass    :auto-mo/QuantitativeValue,
+     :owl/onProperty :auto-vc/cargoVolume,
+     :rdf/type       :owl/Restriction}],
    :skos/definition
    {:rdf/language "en",
     :rdf/value

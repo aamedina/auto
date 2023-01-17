@@ -151,27 +151,27 @@
                 :rdf/value    "dynamic driving task"},
    :rdfs/subClassOf
    [{:owl/onProperty     :auto-mo/hasPart,
-     :owl/someValuesFrom :auto-cc/ObjectAndEventDetectionAndResponse,
-     :rdf/type           :owl/Restriction}
-    {:owl/onProperty     :auto-mo/hasPart,
      :owl/someValuesFrom :auto-cc/LongitudinalVehicleMotionControl,
      :rdf/type           :owl/Restriction}
     :auto-cc/Task
     {:owl/onProperty     :auto-mo/hasPart,
-     :owl/someValuesFrom :auto-cc/LateralVehicleMotionControl,
+     :owl/someValuesFrom :auto-cc/ObjectAndEventDetectionAndResponse,
      :rdf/type           :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onClass    :auto-cc/OperateMotorVehicle,
-     :owl/onProperty :auto-cc/hasRealizationIn,
-     :rdf/type       :owl/Restriction}
+    {:owl/onProperty     :auto-mo/hasPart,
+     :owl/someValuesFrom :auto-cc/EnhancingConspicuity,
+     :rdf/type           :owl/Restriction}
     {:owl/onProperty     :auto-mo/hasPart,
      :owl/someValuesFrom :auto-cc/ManeuverPlanning,
      :rdf/type           :owl/Restriction}
     {:owl/onProperty     :auto-mo/hasPart,
      :owl/someValuesFrom :auto-cc/Monitor,
      :rdf/type           :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onClass    :auto-cc/OperateMotorVehicle,
+     :owl/onProperty :auto-cc/hasRealizationIn,
+     :rdf/type       :owl/Restriction}
     {:owl/onProperty     :auto-mo/hasPart,
-     :owl/someValuesFrom :auto-cc/EnhancingConspicuity,
+     :owl/someValuesFrom :auto-cc/LateralVehicleMotionControl,
      :rdf/type           :owl/Restriction}],
    :skos/definition
    {:rdf/language "en",

@@ -271,14 +271,14 @@
    "https://spec.edmcouncil.org/auto/ontology/MO/MiddleOntology/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "quantitative value"},
-   :rdfs/subClassOf [{:owl/onDataRange :xsd/string,
+   :rdfs/subClassOf [{:owl/onProperty     :auto-mo/hasValue,
+                      :owl/someValuesFrom :rdfs/Literal,
+                      :rdf/type           :owl/Restriction}
+                     :auto-mo/ValueSpace
+                     {:owl/onDataRange :xsd/string,
                       :owl/onProperty  :auto-mo/hasUnit,
                       :owl/qualifiedCardinality 1,
-                      :rdf/type        :owl/Restriction}
-                     :auto-mo/ValueSpace
-                     {:owl/onProperty     :auto-mo/hasValue,
-                      :owl/someValuesFrom :rdfs/Literal,
-                      :rdf/type           :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}],
    :skos/definition
    {:rdf/language "en",
     :rdf/value
