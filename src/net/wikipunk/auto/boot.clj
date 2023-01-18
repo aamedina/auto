@@ -73,7 +73,8 @@
    {"auto-cc" "https://spec.edmcouncil.org/auto/ontology/DE/CarControl/"}})
 
 (def auto-vs
-  {:rdfa/prefix "auto-vs"
+  {:dcat/downloadURL "https://raw.githubusercontent.com/edmcouncil/auto/master/VS/VehicleSignals.rdf"
+   :rdfa/prefix "auto-vs"
    :rdfa/uri    "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/"
    :rdf/type    :rdfa/PrefixMapping
    :rdf/ns-prefix-map
