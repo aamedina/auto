@@ -6,27 +6,11 @@
    "This Vehicle Signals Ontology (VSSO) describes the car's parts and signals. It is based on the GENIVI's Vehicle Signal Specification.",
    :dcterms/created #inst "2018-01-10T05:00:00.000-00:00",
    :dcterms/license "http://creativecommons.org/licenses/by/4.0/",
-   :fibo-fnd-utl-av/hasMaturityLevel :fibo-fnd-utl-av/Provisional,
    :owl/imports
    ["https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/"
     "https://spec.edmcouncil.org/auto/ontology/VC/VehicleParts/"],
    :rdf/ns-prefix-map
-   {"auto-vs" "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
-    "cdt" "http://w3id.org/lindt/custom_datatypes#",
-    "dcterms" "http://purl.org/dc/terms/",
-    "fibo-fnd-utl-av"
-    "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/",
-    "foaf" "http://xmlns.com/foaf/0.1/",
-    "owl" "http://www.w3.org/2002/07/owl#",
-    "qudt" "http://qudt.org/schema/qudt/",
-    "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-    "schema" "http://schema.org/",
-    "skos" "http://www.w3.org/2004/02/skos/core#",
-    "sm" "http://www.omg.org/techprocess/ab/SpecificationMetadata/",
-    "sosa" "http://www.w3.org/ns/sosa/",
-    "vann" "http://purl.org/vocab/vann/",
-    "xsd" "http://www.w3.org/2001/XMLSchema#"},
+   {"auto-vs" "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/"},
    :rdf/type :owl/Ontology,
    :rdf/uri "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
    :rdfa/prefix "auto-vs",
@@ -37,7 +21,9 @@
     "The GENIVI VSS Ontology (VSSO) has been initially created by Benjamin Klotz, Daniel Wilms, and Raphael Troncy (see http://automotive.eurecom.fr/vsso). VSSO, as created by Benjamin Klotz, Daniel Wilms, and Raphael Troncy, is available under the Creative Commons Attribution 4.0 International license; see http://creativecommons.org/licenses/by/4.0/. VSSO describes the car's attributes, branches and signals defined in GENIVI's Vehicle Signal Specification."},
    :rdfs/label "Vehicle signals ontology (VS)",
    :sm/fileAbbreviation "auto-ec-vsso",
-   :sm/filename "VehicleSignals.rdf"})
+   :sm/filename "VehicleSignals.rdf",
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/hasMaturityLevel"
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/Provisional"})
 
 (def ABSError
   "Signal.ADAS.ABS.Error : Indicates if ABS incurred an error condition. True = Error. False = No Error."
@@ -48,9 +34,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/AntilockBrakingSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -67,11 +54,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/AntilockBrakingSystem,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -88,9 +76,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/AntilockBrakingSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -106,9 +95,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/DiagnosticSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition {:rdf/language "en",
                      :rdf/value
@@ -123,9 +113,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/PedalPositionSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -141,9 +132,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/PedalPositionSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -169,8 +161,8 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Timer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/TimeUnit,
-                      :owl/onProperty    :qudt/unit,
+                     {:owl/allValuesFrom "http://qudt.org/schema/qudt/TimeUnit",
+                      :owl/onProperty    "http://qudt.org/schema/qudt/unit",
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
@@ -187,8 +179,8 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Timer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/TimeUnit,
-                      :owl/onProperty    :qudt/unit,
+                     {:owl/allValuesFrom "http://qudt.org/schema/qudt/TimeUnit",
+                      :owl/onProperty    "http://qudt.org/schema/qudt/unit",
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
@@ -204,8 +196,8 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Timer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/TimeUnit,
-                      :owl/onProperty    :qudt/unit,
+                     {:owl/allValuesFrom "http://qudt.org/schema/qudt/TimeUnit",
+                      :owl/onProperty    "http://qudt.org/schema/qudt/unit",
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
@@ -222,8 +214,8 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Timer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/TimeUnit,
-                      :owl/onProperty    :qudt/unit,
+                     {:owl/allValuesFrom "http://qudt.org/schema/qudt/TimeUnit",
+                      :owl/onProperty    "http://qudt.org/schema/qudt/unit",
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
@@ -240,9 +232,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Odometer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/LengthUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/LengthUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition {:rdf/language "en",
                      :rdf/value
@@ -279,11 +272,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/FanControl,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -301,11 +295,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/DiagnosticSystem,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition {:rdf/language "en",
@@ -346,9 +341,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/GPS,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/LengthUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/LengthUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -364,9 +360,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Thermometer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/TemperatureUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/TemperatureUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -382,9 +379,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/LightSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -413,11 +411,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/DiagnosticSystem,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -434,9 +433,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/FlowSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/VolumePerDistanceUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/VolumePerDistanceUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -488,9 +488,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Barometer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/PressureOrStressUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/PressureOrStressUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -505,9 +506,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/BatteryMonitor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -541,9 +543,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Thermometer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/TemperatureUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/TemperatureUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -569,9 +572,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/BrakeFluidLevelSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -587,9 +591,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/BrakeFluidLevelSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -645,9 +650,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/PedalPositionSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -694,9 +700,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/CatalystTemperatureSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/TemperatureUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/TemperatureUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -730,9 +737,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/ClutchWearIndicator,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -758,9 +766,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/EGRSystemMonitor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -777,11 +786,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/EVAPSystem,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -798,9 +808,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/DiagnosticSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -816,9 +827,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/FlowSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/VolumeUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/VolumeUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -834,9 +846,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/VoltageSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/EnergyPerElectricChargeUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/EnergyPerElectricChargeUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -852,9 +865,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/CoolantTemperatureSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/TemperatureUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/TemperatureUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -896,9 +910,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/CruiseControlSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -915,11 +930,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/CruiseControlSystem,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -948,11 +964,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/Gearbox,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -969,9 +986,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/PowerMeter,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/PowerUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/PowerUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -987,8 +1005,8 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Odometer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/TimeUnit,
-                      :owl/onProperty    :qudt/unit,
+                     {:owl/allValuesFrom "http://qudt.org/schema/qudt/TimeUnit",
+                      :owl/onProperty    "http://qudt.org/schema/qudt/unit",
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
@@ -1049,9 +1067,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/CushionPositionSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -1067,9 +1086,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/CushionPositionSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -1118,9 +1138,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/DiagnosticSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -1137,7 +1158,7 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :xsd/anyURI,
-                      :owl/onProperty    :qudt/unit,
+                      :owl/onProperty    "http://qudt.org/schema/qudt/unit",
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
@@ -1195,11 +1216,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/GPS,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/AngleUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/AngleUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -1217,11 +1239,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/GPS,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/AngleUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/AngleUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -1256,9 +1279,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/DiagnosticSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/LengthUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/LengthUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -1274,9 +1298,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/ObstacleDetectionSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/LengthUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/LengthUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -1292,9 +1317,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Odometer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/LengthUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/LengthUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -1342,11 +1368,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/DoorLock,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -1364,11 +1391,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/DoorContactActuator,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -1405,9 +1433,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/CoolantThermometer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/TemperatureUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/TemperatureUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -1423,9 +1452,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/EGRSystemMonitor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -1449,9 +1479,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/OilPressureSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/TemperatureUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/TemperatureUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -1464,14 +1495,14 @@
    :rdf/type :owl/Class,
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Error"},
-   :rdfs/subClassOf [{:owl/allValuesFrom
-                      :auto-vs/ElectronicStabilityControlSystem,
-                      :owl/onProperty :sosa/isObservedBy,
-                      :rdf/type :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
-                     :auto-vs/ObservableSignal],
+   :rdfs/subClassOf
+   [{:owl/allValuesFrom :auto-vs/ElectronicStabilityControlSystem,
+     :owl/onProperty    :sosa/isObservedBy,
+     :rdf/type          :owl/Restriction}
+    {:owl/allValuesFrom "http://qudt.org/schema/qudt/DimensionlessUnit",
+     :owl/onProperty    "http://qudt.org/schema/qudt/unit",
+     :rdf/type          :owl/Restriction}
+    :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
     :rdf/value
@@ -1488,10 +1519,10 @@
      :owl/onProperty    :sosa/isObservedBy,
      :rdf/type          :owl/Restriction}
     {:owl/allValuesFrom :auto-vs/ElectronicStabilityControlSystem,
-     :owl/onProperty    :sosa/isActedOnBy,
+     :owl/onProperty    :sosa/isActuatedBy,
      :rdf/type          :owl/Restriction}
-    #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-     :owl/onProperty    :qudt/unit,
+    {:owl/allValuesFrom "http://qudt.org/schema/qudt/DimensionlessUnit",
+     :owl/onProperty    "http://qudt.org/schema/qudt/unit",
      :rdf/type          :owl/Restriction}
     :auto-vs/ObservableSignal
     :auto-vs/ActuableSignal],
@@ -1506,14 +1537,14 @@
    :rdf/type :owl/Class,
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "IsEngaged"},
-   :rdfs/subClassOf [{:owl/allValuesFrom
-                      :auto-vs/ElectronicStabilityControlSystem,
-                      :owl/onProperty :sosa/isObservedBy,
-                      :rdf/type :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
-                     :auto-vs/ObservableSignal],
+   :rdfs/subClassOf
+   [{:owl/allValuesFrom :auto-vs/ElectronicStabilityControlSystem,
+     :owl/onProperty    :sosa/isObservedBy,
+     :rdf/type          :owl/Restriction}
+    {:owl/allValuesFrom "http://qudt.org/schema/qudt/DimensionlessUnit",
+     :owl/onProperty    "http://qudt.org/schema/qudt/unit",
+     :rdf/type          :owl/Restriction}
+    :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
     :rdf/value
@@ -1536,9 +1567,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/EVAPSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/PressureOrStressUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/PressureOrStressUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -1554,9 +1586,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/EVAPSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/PressureOrStressUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/PressureOrStressUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -1572,9 +1605,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/EVAPSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/PressureOrStressUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/PressureOrStressUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -1601,9 +1635,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/DiagnosticSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -1619,9 +1654,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/OilThermometer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/TemperatureUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/TemperatureUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -1637,9 +1673,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/FluidSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -1676,11 +1713,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/FanControl,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -1715,9 +1753,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/DiagnosticSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -1753,9 +1792,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/CrankshaftPositionSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/AngleUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/AngleUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -1771,9 +1811,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/FuelPressureSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/PressureOrStressUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/PressureOrStressUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition {:rdf/language "en",
                      :rdf/value
@@ -1796,9 +1837,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/FuelRailPressureSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/PressureOrStressUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/PressureOrStressUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -1814,9 +1856,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/FuelRailPressureSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/PressureOrStressUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/PressureOrStressUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -1840,9 +1883,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/FuelRailPressureSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/PressureOrStressUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/PressureOrStressUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -1858,9 +1902,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/FlowSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/VolumePerTimeUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/VolumePerTimeUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition {:rdf/language "en",
                      :rdf/value
@@ -1875,9 +1920,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/DiagnosticSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition {:rdf/language "en",
                      :rdf/value
@@ -1902,9 +1948,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/DiagnosticSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition {:rdf/language "en",
                      :rdf/value    "Signal.OBD.FuelType : PID 51 - Fuel type"}})
@@ -1928,9 +1975,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/GPS,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/LengthUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/LengthUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -1946,9 +1994,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/GPS,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/AngleUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/AngleUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -1965,11 +2014,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/DriveSystem,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -1996,9 +2046,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Thermometer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/TemperatureUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/TemperatureUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -2081,9 +2132,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/HeadRestraintSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -2146,11 +2198,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/HoodLatch,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -2178,11 +2231,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/HornSystem,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -2209,9 +2263,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/BatterySensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -2257,9 +2312,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/FlowSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/VolumePerDistanceUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/VolumePerDistanceUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -2283,9 +2339,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Intake-AirTemperatureSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/TemperatureUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/TemperatureUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition {:rdf/language "en",
                      :rdf/value
@@ -2301,11 +2358,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/AirConditioningSystem,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -2330,11 +2388,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/BackupLight,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -2350,9 +2409,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/BeltSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -2368,11 +2428,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/BrakeLight,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition {:rdf/language "en",
@@ -2389,11 +2450,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/ChildLock,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -2410,11 +2472,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/DomeLight,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -2432,11 +2495,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/Defroster,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -2454,11 +2518,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/FrontFogLight,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -2475,11 +2540,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/GloveBoxLight,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -2496,11 +2562,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/HazardLight,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition {:rdf/language "en",
@@ -2517,11 +2584,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/HighBeamLight,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition {:rdf/language "en",
@@ -2538,11 +2606,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/LeftIndicatorLight,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -2560,11 +2629,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/LowBeamLight,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition {:rdf/language "en",
@@ -2581,11 +2651,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/ParkingLight,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition {:rdf/language "en",
@@ -2602,11 +2673,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/PassengerLight,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -2624,11 +2696,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/Defroster,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -2646,11 +2719,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/RearFogLight,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition {:rdf/language "en",
@@ -2667,11 +2741,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/RecirculationSystem,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -2689,11 +2764,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/RightIndicatorLight,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -2711,7 +2787,7 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/RunningLight,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
@@ -2728,9 +2804,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/LightSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -2747,11 +2824,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/TrunkLight,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -2767,9 +2845,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/LaneDepartureDetectionSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -2786,11 +2865,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/LaneDepartureDetectionSensor,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -2817,9 +2897,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/LaneDepartureDetectionSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -2835,9 +2916,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Accelerometer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/LinearAccelerationUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/LinearAccelerationUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -2853,9 +2935,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/GPS,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/AngleUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/AngleUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -2907,9 +2990,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/LightSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -2936,11 +3020,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/TemperatureSwitch,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/TemperatureUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/TemperatureUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -2953,9 +3038,10 @@
    :rdf/type :owl/Class,
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "LongTermFuelTrim1"},
-   :rdfs/subClassOf [#_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+   :rdfs/subClassOf [{:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -2971,9 +3057,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/DiagnosticSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -2989,9 +3076,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/GPS,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/AngleUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/AngleUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -3007,9 +3095,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Accelerometer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/LinearAccelerationUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/LinearAccelerationUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -3075,9 +3164,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/LumbarPositionSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -3108,9 +3198,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/LumbarPositionSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -3179,9 +3270,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/MassAirFlowSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/MassPerTimeUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/MassPerTimeUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -3205,9 +3297,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/ManifoldAirPressureSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/PressureOrStressUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/PressureOrStressUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -3223,9 +3316,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/DiagnosticSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -3272,9 +3366,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/MAFSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/MassPerTimeUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/MassPerTimeUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -3291,11 +3386,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/MultimediaSystem,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -3312,9 +3408,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/MultimediaSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -3330,9 +3427,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/MultimediaSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -3349,11 +3447,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/MultimediaSystem,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -3370,9 +3469,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/MultimediaSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -3389,7 +3489,7 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :xsd/anyURI,
-                      :owl/onProperty    :qudt/unit,
+                      :owl/onProperty    "http://qudt.org/schema/qudt/unit",
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
@@ -3407,11 +3507,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/MultimediaSystem,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -3429,11 +3530,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/Mirrorheater,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -3451,11 +3553,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/MirrorPanActuator,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -3493,11 +3596,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/MirrorTiltActuator,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -3551,9 +3655,10 @@
    :rdf/type :owl/Class,
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Current"},
-   :rdfs/subClassOf [#_{:owl/allValuesFrom :qudt/ElectricCurrentUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+   :rdfs/subClassOf [{:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/ElectricCurrentUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -3566,9 +3671,10 @@
    :rdf/type :owl/Class,
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Voltage"},
-   :rdfs/subClassOf [#_{:owl/allValuesFrom :qudt/EnergyPerElectricChargeUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+   :rdfs/subClassOf [{:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/EnergyPerElectricChargeUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -3581,9 +3687,10 @@
    :rdf/type :owl/Class,
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Voltage"},
-   :rdfs/subClassOf [#_{:owl/allValuesFrom :qudt/EnergyPerElectricChargeUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+   :rdfs/subClassOf [{:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/EnergyPerElectricChargeUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -3610,9 +3717,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/ObstacleDetectionSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -3629,11 +3737,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/ObstacleDetectionSensor,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -3702,9 +3811,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/BrakePadWearSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -3718,14 +3828,15 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "IsEngaged"},
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/ParkingBrakeSwitch,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/ParkingBrakeSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -3804,11 +3915,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/DriveSystem,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -3825,9 +3937,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/DiagnosticSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -3843,9 +3956,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/DiagnosticSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -3861,9 +3975,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/DiagnosticSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -3889,9 +4004,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/RainSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -3917,9 +4033,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/FuelTankLevelSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/LengthUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/LengthUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition {:rdf/language "en",
                      :rdf/value
@@ -4005,11 +4122,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/DimmingSystem,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -4066,9 +4184,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/PedalPositionSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -4084,9 +4203,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/ThrottlePositionSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -4130,9 +4250,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/RotationalSpeedSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/AngularVelocityUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/AngularVelocityUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -4158,8 +4279,8 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Timer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/TimeUnit,
-                      :owl/onProperty    :qudt/unit,
+                     {:owl/allValuesFrom "http://qudt.org/schema/qudt/TimeUnit",
+                      :owl/onProperty    "http://qudt.org/schema/qudt/unit",
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition {:rdf/language "en",
@@ -4175,8 +4296,8 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Timer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/TimeUnit,
-                      :owl/onProperty    :qudt/unit,
+                     {:owl/allValuesFrom "http://qudt.org/schema/qudt/TimeUnit",
+                      :owl/onProperty    "http://qudt.org/schema/qudt/unit",
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition {:rdf/language "en",
@@ -4282,9 +4403,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/OccupantClassificationSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -4310,9 +4432,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/SeatHeater,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -4328,9 +4451,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/MassageSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -4346,9 +4470,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/SeatPositionSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -4384,9 +4509,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/SeatPositionSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/AngleUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/AngleUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -4433,10 +4559,10 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/MultimediaSystem,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :xsd/anyURI,
-                      :owl/onProperty    :qudt/unit,
+                      :owl/onProperty    "http://qudt.org/schema/qudt/unit",
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
@@ -4451,9 +4577,10 @@
    :rdf/type :owl/Class,
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ShortTermFuelTrim1"},
-   :rdfs/subClassOf [#_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+   :rdfs/subClassOf [{:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -4469,9 +4596,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/DiagnosticSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -4487,9 +4615,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/LumbarPressureSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -4514,11 +4643,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/CruiseControlSystem,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/LinearVelocityUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/LinearVelocityUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -4545,9 +4675,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/SteeringWheelAngleSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/AngleUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/AngleUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -4575,11 +4706,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/SteeringWheelPositionActuator,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -4618,11 +4750,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/SteeringWheelPositionActuator,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -4669,9 +4802,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/SunroofPositionSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -4723,9 +4857,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/TractionControlSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -4742,11 +4877,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/TractionControlSystem,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -4763,9 +4899,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/TractionControlSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -4781,9 +4918,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/ThrottlePositionSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -4799,9 +4937,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/FuelTankLevelSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -4839,11 +4978,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/ThrottleActuator,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -4868,9 +5008,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/ThrottlePositionSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -4886,9 +5027,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/ThrottlePositionSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -4914,8 +5056,8 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Timer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/TimeUnit,
-                      :owl/onProperty    :qudt/unit,
+                     {:owl/allValuesFrom "http://qudt.org/schema/qudt/TimeUnit",
+                      :owl/onProperty    "http://qudt.org/schema/qudt/unit",
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
@@ -4932,8 +5074,8 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Timer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/TimeUnit,
-                      :owl/onProperty    :qudt/unit,
+                     {:owl/allValuesFrom "http://qudt.org/schema/qudt/TimeUnit",
+                      :owl/onProperty    "http://qudt.org/schema/qudt/unit",
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
@@ -4960,9 +5102,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/DiagnosticSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/AngleUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/AngleUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -4977,9 +5120,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/TirePressureMonitoringSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/PressureOrStressUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/PressureOrStressUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -4995,9 +5139,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/TirePressureMonitoringSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -5023,9 +5168,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/TireTemperatureSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/TemperatureUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/TemperatureUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -5051,9 +5197,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/TorqueMeter,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/BendingMomentOrTorqueUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/BendingMomentOrTorqueUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -5090,9 +5237,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Odometer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/LengthUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/LengthUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -5109,11 +5257,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/TrunkLock,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -5131,11 +5280,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/TrunkLatch,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -5182,9 +5332,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Gyroscope,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/AngularVelocityUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/AngularVelocityUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -5200,9 +5351,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Gyroscope,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/AngularVelocityUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/AngularVelocityUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -5223,15 +5375,15 @@
    :rdf/type :owl/Class,
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Speed"},
-   :rdfs/subClassOf [{:owl/allValuesFrom {:owl/oneOf [:auto-vs/GPS
-                                                      :auto-vs/Speedometer],
-                                          :rdf/type  :owl/Class},
-                      :owl/onProperty    :sosa/isObservedBy,
-                      :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/LinearVelocityUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
-                     :auto-vs/ObservableSignal],
+   :rdfs/subClassOf
+   [{:owl/allValuesFrom {:owl/oneOf [:auto-vs/GPS :auto-vs/Speedometer],
+                         :rdf/type  :owl/Class},
+     :owl/onProperty    :sosa/isObservedBy,
+     :rdf/type          :owl/Restriction}
+    {:owl/allValuesFrom "http://qudt.org/schema/qudt/LinearVelocityUnit",
+     :owl/onProperty    "http://qudt.org/schema/qudt/unit",
+     :rdf/type          :owl/Restriction}
+    :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
     :rdf/value
@@ -5246,9 +5398,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Gyroscope,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/AngularVelocityUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/AngularVelocityUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -5264,9 +5417,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/Accelerometer,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/LinearAccelerationUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/LinearAccelerationUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -5290,9 +5444,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/DiagnosticSystem,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -5308,9 +5463,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/WasherFuildLevelSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -5326,9 +5482,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/WasherFuildLevelSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -5354,9 +5511,10 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/WindowPositionSensor,
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal],
    :skos/definition
    {:rdf/language "en",
@@ -5380,7 +5538,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Position"},
    :rdfs/subClassOf [{:owl/allValuesFrom :auto-vs/RearShadeActuator,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -5448,11 +5606,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/WindshieldHeater,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -5490,11 +5649,12 @@
                       :owl/onProperty    :sosa/isObservedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :auto-vs/Wiper,
-                      :owl/onProperty    :sosa/isActedOnBy,
+                      :owl/onProperty    :sosa/isActuatedBy,
                       :rdf/type          :owl/Restriction}
-                     #_{:owl/allValuesFrom :qudt/DimensionlessUnit,
-                      :owl/onProperty    :qudt/unit,
-                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom
+                      "http://qudt.org/schema/qudt/DimensionlessUnit",
+                      :owl/onProperty "http://qudt.org/schema/qudt/unit",
+                      :rdf/type :owl/Restriction}
                      :auto-vs/ObservableSignal
                      :auto-vs/ActuableSignal],
    :skos/definition
@@ -5511,3 +5671,124 @@
                      :rdf/value    "has signal"},
    :skos/definition {:rdf/language "en",
                      :rdf/value    "Property of having signals in a branch"}})
+
+(def ^{:private true} AcceleratorPedal
+  {:db/ident        :auto-vp/AcceleratorPedal,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf {:owl/allValuesFrom :auto-vs/AcceleratorPedalPosition,
+                     :owl/onProperty    :auto-vs/hasSignal,
+                     :rdf/type          :owl/Restriction}})
+
+(def ^{:private true} Airbag
+  {:db/ident        :auto-vp/Airbag,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf {:owl/allValuesFrom :auto-vs/AirbagIsDeployed,
+                     :owl/onProperty    :auto-vs/hasSignal,
+                     :rdf/type          :owl/Restriction}})
+
+(def ^{:private true} BrakePedal
+  {:db/ident        :auto-vp/BrakePedal,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf {:owl/allValuesFrom :auto-vs/BrakePedalPosition,
+                     :owl/onProperty    :auto-vs/hasSignal,
+                     :rdf/type          :owl/Restriction}})
+
+(def ^{:private true} DistanceToObject
+  {:db/ident        :auto-vp/DistanceToObject,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf {:owl/allValuesFrom :auto-vs/DistanceToObjectSignal,
+                     :owl/onProperty    :auto-vs/hasSignal,
+                     :rdf/type          :owl/Restriction}})
+
+(def ^{:private true} HeadRestraint
+  {:db/ident        :auto-vp/HeadRestraint,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf {:owl/allValuesFrom :auto-vs/HeadRestraintHeight,
+                     :owl/onProperty    :auto-vs/hasSignal,
+                     :rdf/type          :owl/Restriction}})
+
+(def ^{:private true} Hood
+  {:db/ident        :auto-vp/Hood,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf {:owl/allValuesFrom :auto-vs/HoodIsOpen,
+                     :owl/onProperty    :auto-vs/hasSignal,
+                     :rdf/type          :owl/Restriction}})
+
+(def ^{:private true} Horn
+  {:db/ident        :auto-vp/Horn,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf {:owl/allValuesFrom :auto-vs/HornIsActive,
+                     :owl/onProperty    :auto-vs/hasSignal,
+                     :rdf/type          :owl/Restriction}})
+
+(def ^{:private true} MirrorHeating
+  {:db/ident        :auto-vp/MirrorHeating,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf {:owl/allValuesFrom :auto-vs/MirrorHeatingStatus,
+                     :owl/onProperty    :auto-vs/hasSignal,
+                     :rdf/type          :owl/Restriction}})
+
+(def ^{:private true} ParkingBrake
+  {:db/ident        :auto-vp/ParkingBrake,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf {:owl/allValuesFrom :auto-vs/ParkingBrakeIsEngaged,
+                     :owl/onProperty    :auto-vs/hasSignal,
+                     :rdf/type          :owl/Restriction}})
+
+(def ^{:private true} Raindetection
+  {:db/ident        :auto-vp/Raindetection,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf {:owl/allValuesFrom :auto-vs/RainIntensity,
+                     :owl/onProperty    :auto-vs/hasSignal,
+                     :rdf/type          :owl/Restriction}})
+
+(def ^{:private true} RearviewMirror
+  {:db/ident        :auto-vp/RearviewMirror,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf {:owl/allValuesFrom :auto-vs/RearviewMirrorDimmingLevel,
+                     :owl/onProperty    :auto-vs/hasSignal,
+                     :rdf/type          :owl/Restriction}})
+
+(def ^{:private true} SideBolster
+  {:db/ident        :auto-vp/SideBolster,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf {:owl/allValuesFrom :auto-vs/SideBolsterInflation,
+                     :owl/onProperty    :auto-vs/hasSignal,
+                     :rdf/type          :owl/Restriction}})
+
+(def ^{:private true} VehiclePart
+  "vehicle part"
+  {:db/ident   :auto-vp/VehiclePart,
+   :rdf/type   :owl/Class,
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "vehicle part"}})
+
+(def ^{:private true} WindshieldHeating
+  {:db/ident        :auto-vp/WindshieldHeating,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf {:owl/allValuesFrom :auto-vs/WindshieldHeatingStatus,
+                     :owl/onProperty    :auto-vs/hasSignal,
+                     :rdf/type          :owl/Restriction}})
+
+(def ^{:private true} Wiping
+  {:db/ident        :auto-vp/Wiping,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf {:owl/allValuesFrom :auto-vs/WipingStatus,
+                     :owl/onProperty    :auto-vs/hasSignal,
+                     :rdf/type          :owl/Restriction}})
+
+(def ^{:private true} Actuator
+  {:db/ident :sosa/Actuator,
+   :rdf/type :owl/Class})
+
+(def ^{:private true} Sensor
+  {:db/ident :sosa/Sensor,
+   :rdf/type :owl/Class})
+
+(def ^{:private true} isActuatedBy
+  {:db/ident :sosa/isActuatedBy,
+   :rdf/type :owl/ObjectProperty})
+
+(def ^{:private true} isObservedBy
+  {:db/ident :sosa/isObservedBy,
+   :rdf/type :owl/ObjectProperty})

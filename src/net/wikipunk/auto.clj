@@ -6,7 +6,8 @@
    [net.wikipunk.boot]
    [net.wikipunk.ext]
    [net.wikipunk.auto.boot]
-   [net.wikipunk.rdf :as rdf]))
+   [net.wikipunk.rdf :as rdf]
+   [net.wikipunk.rdf.dcam :as dcam]))
 
 (defn quickstart
   []

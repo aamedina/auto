@@ -5,22 +5,11 @@
     :rdf/value
     "The Car Control Ontology (CC) has been constructed to describe driving actions and paths of autonomous vehicles."},
    :dcterms/license "https://creativecommons.org/licenses/by-nc-sa/4.0/",
-   :fibo-fnd-utl-av/hasMaturityLevel :fibo-fnd-utl-av/Provisional,
    :owl/imports
    ["https://spec.edmcouncil.org/auto/ontology/master/latest/MO/MiddleOntology/"
     "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/"],
    :rdf/ns-prefix-map
-   {"auto-cc" "https://spec.edmcouncil.org/auto/ontology/DE/CarControl/",
-    "auto-mo" "https://spec.edmcouncil.org/auto/ontology/MO/MiddleOntology/",
-    "dcterms" "http://purl.org/dc/terms/",
-    "fibo-fnd-utl-av"
-    "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/",
-    "owl" "http://www.w3.org/2002/07/owl#",
-    "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-    "skos" "http://www.w3.org/2004/02/skos/core#",
-    "sm" "http://www.omg.org/techprocess/ab/SpecificationMetadata/",
-    "xsd" "http://www.w3.org/2001/XMLSchema#"},
+   {"auto-cc" "https://spec.edmcouncil.org/auto/ontology/DE/CarControl/"},
    :rdf/type :owl/Ontology,
    :rdf/uri "https://spec.edmcouncil.org/auto/ontology/DE/CarControl/",
    :rdfa/prefix "auto-cc",
@@ -34,7 +23,9 @@
    :sm/contentLanguage "http://www.w3.org/standards/techs/owl#w3c_all",
    :sm/dependsOn "https://spec.edmcouncil.org/auto/ontology/EC/",
    :sm/fileAbbreviation "auto-de-cc",
-   :sm/filename "CarControl.rdf"})
+   :sm/filename "CarControl.rdf",
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/hasMaturityLevel"
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/Provisional"})
 
 (def Acceleration
   "increase in the speed of something"
@@ -130,10 +121,44 @@
 (def DynamicDrivingTask
   "all of the real-time operational and tactical functions required to operate a vehicle in on-road traffic, excluding the strategic functions"
   {:db/ident :auto-cc/DynamicDrivingTask,
-   :fibo-fnd-utl-av/abbreviation "DDT",
-   :fibo-fnd-utl-av/adaptedFrom {:rdf/language "en",
-                                 :rdf/value    "J3016 JUN2018, section 3.13"},
-   :fibo-fnd-utl-av/explanatoryNote
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "https://spec.edmcouncil.org/auto/ontology/DE/CarControl/",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "dynamic driving task"},
+   :rdfs/subClassOf
+   [{:owl/onProperty     :auto-mo/hasPart,
+     :owl/someValuesFrom :auto-cc/LateralVehicleMotionControl,
+     :rdf/type           :owl/Restriction}
+    {:owl/onProperty     :auto-mo/hasPart,
+     :owl/someValuesFrom :auto-cc/LongitudinalVehicleMotionControl,
+     :rdf/type           :owl/Restriction}
+    {:owl/onProperty     :auto-mo/hasPart,
+     :owl/someValuesFrom :auto-cc/Monitor,
+     :rdf/type           :owl/Restriction}
+    {:owl/onProperty     :auto-mo/hasPart,
+     :owl/someValuesFrom :auto-cc/ObjectAndEventDetectionAndResponse,
+     :rdf/type           :owl/Restriction}
+    :auto-cc/Task
+    {:owl/minQualifiedCardinality 0,
+     :owl/onClass    :auto-cc/OperateMotorVehicle,
+     :owl/onProperty :auto-cc/hasRealizationIn,
+     :rdf/type       :owl/Restriction}
+    {:owl/onProperty     :auto-mo/hasPart,
+     :owl/someValuesFrom :auto-cc/ManeuverPlanning,
+     :rdf/type           :owl/Restriction}
+    {:owl/onProperty     :auto-mo/hasPart,
+     :owl/someValuesFrom :auto-cc/EnhancingConspicuity,
+     :rdf/type           :owl/Restriction}],
+   :skos/definition
+   {:rdf/language "en",
+    :rdf/value
+    "all of the real-time operational and tactical functions required to operate a vehicle in on-road traffic, excluding the strategic functions"},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/abbreviation"
+   "DDT",
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   {:rdf/language "en",
+    :rdf/value    "J3016 JUN2018, section 3.13"},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/explanatoryNote"
    [{:rdf/language "en",
      :rdf/value
      "For purposes of DDT performance: \n- level 1 encompasses automation of part of the innermost loop (i.e., either lateral vehicle motion control functionality or longitudinal vehicle motion control functionality and limited OEDR associated with the given axis of vehicle motion control); \n- level 2 encompasses automation of the innermost loop (lateral and longitudinal vehicle motion control and limited OEDR associated with vehicle motion control), and \n- levels 3-5 encompass automation of both inner loops (lateral and longitudinal vehicle motion control and complete OEDR). Note that DDT performance does not include strategic aspects of driving (e.g., determining whether, when and where to travel)."}
@@ -144,39 +169,7 @@
      "In this document, reference is made to “complete(ing) the DDT.” This means fully performing all of the subtasks of the DDT, whether by the (human) driver, by the driving automation system, or by both."}
     {:rdf/language "en",
      :rdf/value
-     "For simplification and to provide a useful shorthand term, subtasks: \n- Monitoring the driving environment via object and event detection, recognition, classification, and response preparation (operational and tactical) and\n- Object and event response execution \nare referred to collectively as object and event detection and response (OEDR)."}],
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://spec.edmcouncil.org/auto/ontology/DE/CarControl/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "dynamic driving task"},
-   :rdfs/subClassOf
-   [{:owl/onProperty     :auto-mo/hasPart,
-     :owl/someValuesFrom :auto-cc/LongitudinalVehicleMotionControl,
-     :rdf/type           :owl/Restriction}
-    :auto-cc/Task
-    {:owl/onProperty     :auto-mo/hasPart,
-     :owl/someValuesFrom :auto-cc/ObjectAndEventDetectionAndResponse,
-     :rdf/type           :owl/Restriction}
-    {:owl/onProperty     :auto-mo/hasPart,
-     :owl/someValuesFrom :auto-cc/EnhancingConspicuity,
-     :rdf/type           :owl/Restriction}
-    {:owl/onProperty     :auto-mo/hasPart,
-     :owl/someValuesFrom :auto-cc/ManeuverPlanning,
-     :rdf/type           :owl/Restriction}
-    {:owl/onProperty     :auto-mo/hasPart,
-     :owl/someValuesFrom :auto-cc/Monitor,
-     :rdf/type           :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onClass    :auto-cc/OperateMotorVehicle,
-     :owl/onProperty :auto-cc/hasRealizationIn,
-     :rdf/type       :owl/Restriction}
-    {:owl/onProperty     :auto-mo/hasPart,
-     :owl/someValuesFrom :auto-cc/LateralVehicleMotionControl,
-     :rdf/type           :owl/Restriction}],
-   :skos/definition
-   {:rdf/language "en",
-    :rdf/value
-    "all of the real-time operational and tactical functions required to operate a vehicle in on-road traffic, excluding the strategic functions"}})
+     "For simplification and to provide a useful shorthand term, subtasks: \n- Monitoring the driving environment via object and event detection, recognition, classification, and response preparation (operational and tactical) and\n- Object and event response execution \nare referred to collectively as object and event detection and response (OEDR)."}]})
 
 (def DynamicDrivingTaskSubtask
   "specific real-time tactical or operational function required to operate a vehicle in on-road traffic"
@@ -198,10 +191,6 @@
 (def EnhancingConspicuity
   "DDT subtask comprising activities which make the vehicle more visible and distinguishable from its surroundings, such as by lightning, sounding the horn, gesturing etc."
   {:db/ident :auto-cc/EnhancingConspicuity,
-   :fibo-fnd-utl-av/explanatoryNote
-   {:rdf/language "en",
-    :rdf/value
-    "Enhancing conspicuity via lighting, signaling and gesturing, etc."},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://spec.edmcouncil.org/auto/ontology/DE/CarControl/",
    :rdfs/label {:rdf/language "en",
@@ -210,7 +199,11 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "DDT subtask comprising activities which make the vehicle more visible and distinguishable from its surroundings, such as by lightning, sounding the horn, gesturing etc."}})
+    "DDT subtask comprising activities which make the vehicle more visible and distinguishable from its surroundings, such as by lightning, sounding the horn, gesturing etc."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/explanatoryNote"
+   {:rdf/language "en",
+    :rdf/value
+    "Enhancing conspicuity via lighting, signaling and gesturing, etc."}})
 
 (def ForwardCollisionWarning
   "notice of a possible collision with an object in front of the vehicle"
@@ -303,12 +296,6 @@
 (def LateralVehicleMotionControl
   "the DDT subtask comprising the activities necessary for the real-time, sustained regulation of the y-axis component of vehicle motion"
   {:db/ident :auto-cc/LateralVehicleMotionControl,
-   :fibo-fnd-utl-av/adaptedFrom {:rdf/language "en",
-                                 :rdf/value    "J3016 JUN2018, section 3.15"},
-   :fibo-fnd-utl-av/explanatoryNote
-   {:rdf/language "en",
-    :rdf/value
-    "Lateral vehicle motion control includes the detection of the vehicle positioning relative to lane boundaries and application of steering and/or differential braking inputs to maintain appropriate lateral positioning."},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://spec.edmcouncil.org/auto/ontology/DE/CarControl/",
    :rdfs/label {:rdf/language "en",
@@ -317,7 +304,14 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "the DDT subtask comprising the activities necessary for the real-time, sustained regulation of the y-axis component of vehicle motion"}})
+    "the DDT subtask comprising the activities necessary for the real-time, sustained regulation of the y-axis component of vehicle motion"},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   {:rdf/language "en",
+    :rdf/value    "J3016 JUN2018, section 3.15"},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/explanatoryNote"
+   {:rdf/language "en",
+    :rdf/value
+    "Lateral vehicle motion control includes the detection of the vehicle positioning relative to lane boundaries and application of steering and/or differential braking inputs to maintain appropriate lateral positioning."}})
 
 (def LeftLaneChange
   "action during which a vehicle changes lanes, moving to the one on the left"
@@ -335,12 +329,6 @@
 (def LongitudinalVehicleMotionControl
   "the DDT subtask comprising the activities necessary for the real-time, sustained regulation of the x-axis component of vehicle motion"
   {:db/ident :auto-cc/LongitudinalVehicleMotionControl,
-   :fibo-fnd-utl-av/adaptedFrom {:rdf/language "en",
-                                 :rdf/value    "J3016 JUN2018, section 3.16"},
-   :fibo-fnd-utl-av/explanatoryNote
-   {:rdf/language "en",
-    :rdf/value
-    "Longitudinal vehicle motion control includes maintaining set speed as well as detecting a preceding vehicle in the path of the subject vehicle, maintaining an appropriate gap to the preceding vehicle and applying propulsion or braking inputs to cause the vehicle to maintain that speed or gap."},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://spec.edmcouncil.org/auto/ontology/DE/CarControl/",
    :rdfs/label {:rdf/language "en",
@@ -349,7 +337,14 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "the DDT subtask comprising the activities necessary for the real-time, sustained regulation of the x-axis component of vehicle motion"}})
+    "the DDT subtask comprising the activities necessary for the real-time, sustained regulation of the x-axis component of vehicle motion"},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   {:rdf/language "en",
+    :rdf/value    "J3016 JUN2018, section 3.16"},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/explanatoryNote"
+   {:rdf/language "en",
+    :rdf/value
+    "Longitudinal vehicle motion control includes maintaining set speed as well as detecting a preceding vehicle in the path of the subject vehicle, maintaining an appropriate gap to the preceding vehicle and applying propulsion or braking inputs to cause the vehicle to maintain that speed or gap."}})
 
 (def ManeuverPlanning
   "function that includes deciding whether and when to overtake another vehicle or change lanes"
@@ -367,18 +362,6 @@
 (def Monitor
   "a range of functions involving real-time human or machine sensing and processing of data used to operate a vehicle, or to support its operation"
   {:db/ident :auto-cc/Monitor,
-   :fibo-fnd-utl-av/adaptedFrom {:rdf/language "en",
-                                 :rdf/value    "J3016 JUN2018, section 3.19"},
-   :fibo-fnd-utl-av/explanatoryNote
-   [{:rdf/language "en",
-     :rdf/value
-     "The following four terms (1 – monitor the user, 2 – monitor the driving environment, 3 – monitor vehicle performance, and 4 – monitor driving automation system performance) describe categories of monitoring (see Scope regarding primary actors)."}
-    {:rdf/language "en",
-     :rdf/value
-     "The terms below describing types of monitoring should be used when the general term “monitor” and its derivatives are insufficiently precise."}
-    {:rdf/language "en",
-     :rdf/value
-     "The driver state or condition of being receptive to alerts or other indicators of a DDT performance-relevant system failure, as assumed in level 3, is not a form of monitoring. The difference between receptivity and monitoring is best illustrated by example: A person who becomes aware of a fire alarm or a telephone ringing may not necessarily have been monitoring the fire alarm or the telephone. Likewise, a user who becomes aware of a trailer hitch falling off may not necessarily have been monitoring the trailer hitch. By contrast, a driver in a vehicle with an active level 1 adaptive cruise control (ACC) system is expected to monitor both the driving environment and the ACC performance and otherwise not to wait for an alert to draw his/her attention to a situation requiring a response (see 3.23)."}],
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://spec.edmcouncil.org/auto/ontology/DE/CarControl/",
    :rdfs/label {:rdf/language "en",
@@ -387,14 +370,37 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "a range of functions involving real-time human or machine sensing and processing of data used to operate a vehicle, or to support its operation"}})
+    "a range of functions involving real-time human or machine sensing and processing of data used to operate a vehicle, or to support its operation"},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   {:rdf/language "en",
+    :rdf/value    "J3016 JUN2018, section 3.19"},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/explanatoryNote"
+   [{:rdf/language "en",
+     :rdf/value
+     "The following four terms (1 – monitor the user, 2 – monitor the driving environment, 3 – monitor vehicle performance, and 4 – monitor driving automation system performance) describe categories of monitoring (see Scope regarding primary actors)."}
+    {:rdf/language "en",
+     :rdf/value
+     "The terms below describing types of monitoring should be used when the general term “monitor” and its derivatives are insufficiently precise."}
+    {:rdf/language "en",
+     :rdf/value
+     "The driver state or condition of being receptive to alerts or other indicators of a DDT performance-relevant system failure, as assumed in level 3, is not a form of monitoring. The difference between receptivity and monitoring is best illustrated by example: A person who becomes aware of a fire alarm or a telephone ringing may not necessarily have been monitoring the fire alarm or the telephone. Likewise, a user who becomes aware of a trailer hitch falling off may not necessarily have been monitoring the trailer hitch. By contrast, a driver in a vehicle with an active level 1 adaptive cruise control (ACC) system is expected to monitor both the driving environment and the ACC performance and otherwise not to wait for an alert to draw his/her attention to a situation requiring a response (see 3.23)."}]})
 
 (def MonitorDrivingAutomationSystemPerformance
   "the activities automated routines for evaluating whether the driving automation system is performing part or all of the DDT appropriately"
   {:db/ident :auto-cc/MonitorDrivingAutomationSystemPerformance,
-   :fibo-fnd-utl-av/adaptedFrom {:rdf/language "en",
-                                 :rdf/value    "J3016 JUN2018, section 3.19.4"},
-   :fibo-fnd-utl-av/explanatoryNote
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "https://spec.edmcouncil.org/auto/ontology/DE/CarControl/",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "monitor driving automation system performance"},
+   :rdfs/subClassOf :auto-cc/Monitor,
+   :skos/definition
+   {:rdf/language "en",
+    :rdf/value
+    "the activities automated routines for evaluating whether the driving automation system is performing part or all of the DDT appropriately"},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   {:rdf/language "en",
+    :rdf/value    "J3016 JUN2018, section 3.19.4"},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/explanatoryNote"
    [{:rdf/language "en",
      :rdf/value
      "The term monitor driving automation system performance should not be used in lieu of supervise, which includes both monitoring and responding as needed to perform the DDT and is therefore more comprehensive."}
@@ -407,35 +413,17 @@
     {:rdf/language "en",
      :rdf/value
      "At levels 1-2, the driver monitors the driving automation system’s performance."}],
-   :fibo-fnd-utl-av/usageNote
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/usageNote"
    [{:rdf/language "en",
      :rdf/value
      "A remote driver engaging a level 2 automated parking feature monitors the pathway of the vehicle to ensure that the feature is responsive to pedestrians and obstacles."}
     {:rdf/language "en",
      :rdf/value
-     "A conventional driver verifies that an engaged ACC system is maintaining an appropriate gap while following a preceding vehicle in a curve."}],
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://spec.edmcouncil.org/auto/ontology/DE/CarControl/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "monitor driving automation system performance"},
-   :rdfs/subClassOf :auto-cc/Monitor,
-   :skos/definition
-   {:rdf/language "en",
-    :rdf/value
-    "the activities automated routines for evaluating whether the driving automation system is performing part or all of the DDT appropriately"}})
+     "A conventional driver verifies that an engaged ACC system is maintaining an appropriate gap while following a preceding vehicle in a curve."}]})
 
 (def MonitorDrivingEnvironment
   "the activities automated routines that accomplish real-time roadway environmental object and event detection, recognition, classification, and response preparation (excluding actual response), as needed to operate a vehicle"
   {:db/ident :auto-cc/MonitorDrivingEnvironment,
-   :fibo-fnd-utl-av/adaptedFrom {:rdf/language "en",
-                                 :rdf/value    "J3016 JUN2018, section 3.19.2"},
-   :fibo-fnd-utl-av/explanatoryNote
-   [{:rdf/language "en",
-     :rdf/value
-     "When operating conventional vehicles that are not equipped with an engaged ADS, drivers visually sample the road scene sufficiently to competently perform the DDT while also performing secondary tasks that require short periods of eyes-off-road time (e.g., adjusting cabin comfort settings, scanning road signs, tuning a radio, etc.). Thus, monitoring the driving environment does not necessarily entail continuous eyes- on-road time by the driver."}
-    {:rdf/language "en",
-     :rdf/value
-     "Monitoring the driving environment via object and event detection, recognition, classification, and response preparation"}],
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://spec.edmcouncil.org/auto/ontology/DE/CarControl/",
    :rdfs/label {:rdf/language "en",
@@ -444,20 +432,21 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "the activities automated routines that accomplish real-time roadway environmental object and event detection, recognition, classification, and response preparation (excluding actual response), as needed to operate a vehicle"}})
+    "the activities automated routines that accomplish real-time roadway environmental object and event detection, recognition, classification, and response preparation (excluding actual response), as needed to operate a vehicle"},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   {:rdf/language "en",
+    :rdf/value    "J3016 JUN2018, section 3.19.2"},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/explanatoryNote"
+   [{:rdf/language "en",
+     :rdf/value
+     "When operating conventional vehicles that are not equipped with an engaged ADS, drivers visually sample the road scene sufficiently to competently perform the DDT while also performing secondary tasks that require short periods of eyes-off-road time (e.g., adjusting cabin comfort settings, scanning road signs, tuning a radio, etc.). Thus, monitoring the driving environment does not necessarily entail continuous eyes- on-road time by the driver."}
+    {:rdf/language "en",
+     :rdf/value
+     "Monitoring the driving environment via object and event detection, recognition, classification, and response preparation"}]})
 
 (def MonitorUser
   "the activities and/or automated routines designed to assess whether and to what degree the user is performing the role specified for him/her"
   {:db/ident :auto-cc/MonitorUser,
-   :fibo-fnd-utl-av/adaptedFrom {:rdf/language "en",
-                                 :rdf/value    "J3016 JUN2018, section 3.19.1"},
-   :fibo-fnd-utl-av/explanatoryNote
-   [{:rdf/language "en",
-     :rdf/value
-     "User monitoring is primarily useful for levels 2 and 3, as evidence from the field on the use of level 1 features has not identified significant incidence of misuse or abuse of driving automation technology, and above these levels the ADS is by definition capable of achieving a minimal risk condition automatically."}
-    {:rdf/language "en",
-     :rdf/value
-     "User monitoring in the context of driving automation is most likely to be deployed as a countermeasure for misuse or abuse (including over-reliance due to complacency) of a driving automation system but may also serve other purposes."}],
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://spec.edmcouncil.org/auto/ontology/DE/CarControl/",
    :rdfs/label {:rdf/language "en",
@@ -466,25 +455,22 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "the activities and/or automated routines designed to assess whether and to what degree the user is performing the role specified for him/her"}})
+    "the activities and/or automated routines designed to assess whether and to what degree the user is performing the role specified for him/her"},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   {:rdf/language "en",
+    :rdf/value    "J3016 JUN2018, section 3.19.1"},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/explanatoryNote"
+   [{:rdf/language "en",
+     :rdf/value
+     "User monitoring is primarily useful for levels 2 and 3, as evidence from the field on the use of level 1 features has not identified significant incidence of misuse or abuse of driving automation technology, and above these levels the ADS is by definition capable of achieving a minimal risk condition automatically."}
+    {:rdf/language "en",
+     :rdf/value
+     "User monitoring in the context of driving automation is most likely to be deployed as a countermeasure for misuse or abuse (including over-reliance due to complacency) of a driving automation system but may also serve other purposes."}]})
 
 (def MonitorVehiclePerformanceForDDTPerformanceRelevantSystemFailures
   "the activities and/or automated routines that accomplish real-time evaluation of the vehicle performance, and response preparation, as needed to operate a vehicle"
   {:db/ident
    :auto-cc/MonitorVehiclePerformanceForDDTPerformanceRelevantSystemFailures,
-   :fibo-fnd-utl-av/adaptedFrom {:rdf/language "en",
-                                 :rdf/value    "J3016 JUN2018, section 3.19.3"},
-   :fibo-fnd-utl-av/explanatoryNote
-   {:rdf/language "en",
-    :rdf/value
-    "While performing the DDT, level 4 and 5 ADSs monitor vehicle performance. However, for level 3 ADSs, as well as for level 1 and 2 driving automation systems, the human driver is assumed to be receptive to vehicle conditions that adversely affect performance of the DDT (see definition of receptivity at 3.23)."},
-   :fibo-fnd-utl-av/usageNote
-   [{:rdf/language "en",
-     :rdf/value
-     "While a level 4 ADS is engaged in stop-and-go traffic, a malfunctioning brake caliper causes the vehicle to pull to the left when the brakes are applied."}
-    {:rdf/language "en",
-     :rdf/value
-     "While a level 2 driving automation system is engaged in stop-and-go traffic, a malfunctioning brake caliper causes the vehicle to pull slightly to the left when the brakes are applied."}],
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://spec.edmcouncil.org/auto/ontology/DE/CarControl/",
    :rdfs/label
@@ -495,14 +481,25 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "the activities and/or automated routines that accomplish real-time evaluation of the vehicle performance, and response preparation, as needed to operate a vehicle"}})
+    "the activities and/or automated routines that accomplish real-time evaluation of the vehicle performance, and response preparation, as needed to operate a vehicle"},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   {:rdf/language "en",
+    :rdf/value    "J3016 JUN2018, section 3.19.3"},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/explanatoryNote"
+   {:rdf/language "en",
+    :rdf/value
+    "While performing the DDT, level 4 and 5 ADSs monitor vehicle performance. However, for level 3 ADSs, as well as for level 1 and 2 driving automation systems, the human driver is assumed to be receptive to vehicle conditions that adversely affect performance of the DDT (see definition of receptivity at 3.23)."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/usageNote"
+   [{:rdf/language "en",
+     :rdf/value
+     "While a level 4 ADS is engaged in stop-and-go traffic, a malfunctioning brake caliper causes the vehicle to pull to the left when the brakes are applied."}
+    {:rdf/language "en",
+     :rdf/value
+     "While a level 2 driving automation system is engaged in stop-and-go traffic, a malfunctioning brake caliper causes the vehicle to pull slightly to the left when the brakes are applied."}]})
 
 (def ObjectAndEventDetectionAndResponse
   "the subtasks of the DDT that include monitoring the driving environment (detecting, recognizing, and classifying objects and events and preparing to respond as needed) and executing an appropriate response to such objects and events (i.e., as needed to complete the DDT and/or DDT fallback)"
   {:db/ident :auto-cc/ObjectAndEventDetectionAndResponse,
-   :fibo-fnd-utl-av/abbreviation "OEDR",
-   :fibo-fnd-utl-av/adaptedFrom {:rdf/language "en",
-                                 :rdf/value    "J3016 JUN2018, section 3.20"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://spec.edmcouncil.org/auto/ontology/DE/CarControl/",
    :rdfs/label {:rdf/language "en",
@@ -513,20 +510,16 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "the subtasks of the DDT that include monitoring the driving environment (detecting, recognizing, and classifying objects and events and preparing to respond as needed) and executing an appropriate response to such objects and events (i.e., as needed to complete the DDT and/or DDT fallback)"}})
+    "the subtasks of the DDT that include monitoring the driving environment (detecting, recognizing, and classifying objects and events and preparing to respond as needed) and executing an appropriate response to such objects and events (i.e., as needed to complete the DDT and/or DDT fallback)"},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/abbreviation"
+   "OEDR",
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   {:rdf/language "en",
+    :rdf/value    "J3016 JUN2018, section 3.20"}})
 
 (def OperateMotorVehicle
   "the activities performed by a (human) driver (with or without support from one or more level 1 or 2 driving automation features ) or by an ADS (level 3-5) to perform the entire DDT for a given vehicle during a trip"
   {:db/ident :auto-cc/OperateMotorVehicle,
-   :fibo-fnd-utl-av/adaptedFrom {:rdf/language "en",
-                                 :rdf/value    "J3016 JUN2018, section 3.21"},
-   :fibo-fnd-utl-av/explanatoryNote
-   [{:rdf/language "en",
-     :rdf/value
-     "The term “drive” is not used in this document, however, in many cases it could be used correctly in lieu of “operate.”"}
-    {:rdf/language "en",
-     :rdf/value
-     "Although use of the term operate/operating implies the existence of a vehicle “operator,” this term is not defined or used in this document, which otherwise provides very specific terms and definitions for the various types of ADS-equipped vehicle users."}],
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://spec.edmcouncil.org/auto/ontology/DE/CarControl/",
    :rdfs/label {:rdf/language "en",
@@ -535,13 +528,21 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "the activities performed by a (human) driver (with or without support from one or more level 1 or 2 driving automation features ) or by an ADS (level 3-5) to perform the entire DDT for a given vehicle during a trip"}})
+    "the activities performed by a (human) driver (with or without support from one or more level 1 or 2 driving automation features ) or by an ADS (level 3-5) to perform the entire DDT for a given vehicle during a trip"},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   {:rdf/language "en",
+    :rdf/value    "J3016 JUN2018, section 3.21"},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/explanatoryNote"
+   [{:rdf/language "en",
+     :rdf/value
+     "The term “drive” is not used in this document, however, in many cases it could be used correctly in lieu of “operate.”"}
+    {:rdf/language "en",
+     :rdf/value
+     "Although use of the term operate/operating implies the existence of a vehicle “operator,” this term is not defined or used in this document, which otherwise provides very specific terms and definitions for the various types of ADS-equipped vehicle users."}]})
 
 (def OperationalFunction
   "a function that involves split-second reactions that can be considered pre-cognitive or innate, such as making micro-corrections to steering, braking and accelerating to maintain lane position in traffic or to avoid a sudden obstacle or hazardous event in the vehicle’s pathway"
   {:db/ident :auto-cc/OperationalFunction,
-   :fibo-fnd-utl-av/adaptedFrom {:rdf/language "en",
-                                 :rdf/value    "J3016 JUN2018, section 8.11"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://spec.edmcouncil.org/auto/ontology/DE/CarControl/",
    :rdfs/label {:rdf/language "en",
@@ -550,7 +551,10 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "a function that involves split-second reactions that can be considered pre-cognitive or innate, such as making micro-corrections to steering, braking and accelerating to maintain lane position in traffic or to avoid a sudden obstacle or hazardous event in the vehicle’s pathway"}})
+    "a function that involves split-second reactions that can be considered pre-cognitive or innate, such as making micro-corrections to steering, braking and accelerating to maintain lane position in traffic or to avoid a sudden obstacle or hazardous event in the vehicle’s pathway"},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   {:rdf/language "en",
+    :rdf/value    "J3016 JUN2018, section 8.11"}})
 
 (def OverSpeedWarning
   "notice that the speed of a vehicle is above the legally determined value"
@@ -704,8 +708,6 @@
 (def TacticalFunction
   "a function that involves maneuvering the vehicle in traffic during a trip, including deciding whether and when to overtake another vehicle or change lanes, selecting an appropriate speed, checking mirrors, etc"
   {:db/ident :auto-cc/TacticalFunction,
-   :fibo-fnd-utl-av/adaptedFrom {:rdf/language "en",
-                                 :rdf/value    "J3016 JUN2018, section 8.11"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://spec.edmcouncil.org/auto/ontology/DE/CarControl/",
    :rdfs/label {:rdf/language "en",
@@ -714,7 +716,10 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "a function that involves maneuvering the vehicle in traffic during a trip, including deciding whether and when to overtake another vehicle or change lanes, selecting an appropriate speed, checking mirrors, etc"}})
+    "a function that involves maneuvering the vehicle in traffic during a trip, including deciding whether and when to overtake another vehicle or change lanes, selecting an appropriate speed, checking mirrors, etc"},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   {:rdf/language "en",
+    :rdf/value    "J3016 JUN2018, section 8.11"}})
 
 (def Task
   "function that a human or an automated driver can perform"
@@ -1054,3 +1059,15 @@
                       :rdf/value    "start lane"},
    :skos/definition  {:rdf/language "en",
                       :rdf/value    "relates a path to its starting lane"}})
+
+(def ^{:private true} hasPart
+  {:db/ident :auto-mo/hasPart,
+   :rdf/type :owl/ObjectProperty})
+
+(def ^{:private true} isPartOf
+  {:db/ident :auto-mo/isPartOf,
+   :rdf/type :owl/ObjectProperty})
+
+(def ^{:private true} altLabel
+  {:db/ident :skos/altLabel,
+   :rdf/type :owl/AnnotationProperty})

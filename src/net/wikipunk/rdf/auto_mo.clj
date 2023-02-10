@@ -2,20 +2,10 @@
   "The EDMC-AUTO middle ontology"
   {:dcterms/abstract "The EDMC-AUTO middle ontology",
    :dcterms/license "http://opensource.org/licenses/MIT",
-   :fibo-fnd-utl-av/hasMaturityLevel :fibo-fnd-utl-av/Provisional,
    :owl/imports
    "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/",
    :rdf/ns-prefix-map
-   {"auto-mo" "https://spec.edmcouncil.org/auto/ontology/MO/MiddleOntology/",
-    "dcterms" "http://purl.org/dc/terms/",
-    "fibo-fnd-utl-av"
-    "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/",
-    "owl" "http://www.w3.org/2002/07/owl#",
-    "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-    "skos" "http://www.w3.org/2004/02/skos/core#",
-    "sm" "http://www.omg.org/techprocess/ab/SpecificationMetadata/",
-    "xsd" "http://www.w3.org/2001/XMLSchema#"},
+   {"auto-mo" "https://spec.edmcouncil.org/auto/ontology/MO/MiddleOntology/"},
    :rdf/type :owl/Ontology,
    :rdf/uri "https://spec.edmcouncil.org/auto/ontology/MO/MiddleOntology/",
    :rdfa/prefix "auto-mo",
@@ -26,7 +16,9 @@
    :sm/copyright "Copyright (c) 2020 EDM Council, Inc.",
    :sm/dependsOn "https://spec.edmcouncil.org/auto/ontology/MO/",
    :sm/fileAbbreviation "auto-mo-mo",
-   :sm/filename "MiddleOntology.rdf"})
+   :sm/filename "MiddleOntology.rdf",
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/hasMaturityLevel"
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/Provisional"})
 
 (def Action
   "QName: auto-mo-mo:Action"
@@ -102,15 +94,16 @@
 (def Location
   "QName: auto-mo-mo:Location"
   {:db/ident :auto-mo/Location,
-   :fibo-fnd-utl-av/synonym {:rdf/language "en",
-                             :rdf/value    "place"},
    :rdf/type :owl/Class,
    :rdfs/comment "QName: auto-mo-mo:Location",
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/MO/MiddleOntology/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "location"},
-   :rdfs/subClassOf :auto-mo/ImmaterialEntity})
+   :rdfs/subClassOf :auto-mo/ImmaterialEntity,
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/synonym"
+   {:rdf/language "en",
+    :rdf/value    "place"}})
 
 (def MaterialEntity
   "Material entity"
@@ -178,7 +171,6 @@
 (def Person
   "Any living human."
   {:db/ident :auto-mo/Person,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.1.1",
    :rdf/type :owl/Class,
    :rdfs/comment
    [{:rdf/language "en",
@@ -191,7 +183,9 @@
                 :rdf/value    "person"},
    :rdfs/subClassOf :auto-mo/Agent,
    :skos/definition {:rdf/language "en",
-                     :rdf/value    "Any living human."}})
+                     :rdf/value    "Any living human."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.1.1"})
 
 (def PostalAddress
   "QName: auto-mo-mo:PostalAddress"

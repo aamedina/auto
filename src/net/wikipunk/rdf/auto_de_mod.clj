@@ -9,15 +9,7 @@
    :owl/versionIRI
    "https://spec.edmcouncil.org/auto/ontology/master/latest/DE/MetadataDE/",
    :rdf/ns-prefix-map
-   {"auto-de-mod" "https://spec.edmcouncil.org/auto/ontology/DE/MetadataDE/",
-    "dcterms" "http://purl.org/dc/terms/",
-    "fibo-fnd-utl-av"
-    "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/",
-    "owl" "http://www.w3.org/2002/07/owl#",
-    "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-    "sm" "http://www.omg.org/techprocess/ab/SpecificationMetadata/",
-    "xsd" "http://www.w3.org/2001/XMLSchema#"},
+   {"auto-de-mod" "https://spec.edmcouncil.org/auto/ontology/DE/MetadataDE/"},
    :rdf/type :owl/Ontology,
    :rdf/uri "https://spec.edmcouncil.org/auto/ontology/DE/MetadataDE/",
    :rdfa/prefix "auto-de-mod",

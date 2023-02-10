@@ -5,23 +5,12 @@
     :rdf/value
     "A sophisticated machine understandable map is required for autonomous vehicles to perceive driving environments. Therefore, we construct a map ontology."},
    :dcterms/license "https://creativecommons.org/licenses/by-nc-sa/4.0/",
-   :fibo-fnd-utl-av/hasMaturityLevel :fibo-fnd-utl-av/Provisional,
    :owl/imports
    ["https://spec.edmcouncil.org/auto/ontology/master/latest/MO/MiddleOntology/"
     "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/"],
    :rdf/ns-prefix-map
    {"auto-ev"
-    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
-    "auto-mo" "https://spec.edmcouncil.org/auto/ontology/MO/MiddleOntology/",
-    "dcterms" "http://purl.org/dc/terms/",
-    "fibo-fnd-utl-av"
-    "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/",
-    "owl" "http://www.w3.org/2002/07/owl#",
-    "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-    "skos" "http://www.w3.org/2004/02/skos/core#",
-    "sm" "http://www.omg.org/techprocess/ab/SpecificationMetadata/",
-    "xsd" "http://www.w3.org/2001/XMLSchema#"},
+    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/"},
    :rdf/type :owl/Ontology,
    :rdf/uri "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
    :rdfa/prefix "auto-ev",
@@ -35,7 +24,9 @@
    :sm/contentLanguage "http://www.w3.org/standards/techs/owl#w3c_all",
    :sm/dependsOn "https://spec.edmcouncil.org/auto/ontology/EC/",
    :sm/fileAbbreviation "auto-de-map",
-   :sm/filename "Map.rdf"}
+   :sm/filename "Map.rdf",
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/hasMaturityLevel"
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/Provisional"}
   (:refer-clojure :exclude [name]))
 
 (def Airport
@@ -55,7 +46,6 @@
 (def Airway
   "A transport way reserved primarily for use by aircraft taking off, in flight, or landing."
   {:db/ident :auto-ev/Airway,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.1.9",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -65,7 +55,9 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A transport way reserved primarily for use by aircraft taking off, in flight, or landing."}})
+    "A transport way reserved primarily for use by aircraft taking off, in flight, or landing."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.1.9"})
 
 (def Amenity
   "something that helps to provide comfort, convenience, or enjoyment"
@@ -84,7 +76,6 @@
 (def AtGradeIntersection
   "An intersection where all roadways cross or join at the same level."
   {:db/ident :auto-ev/AtGradeIntersection,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.5.12",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -94,7 +85,9 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "An intersection where all roadways cross or join at the same level."}})
+    "An intersection where all roadways cross or join at the same level."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.5.12"})
 
 (def AuxiliaryRoadSign
   "sign that provides information such as direction, time and temperature displays, hours of operation, or warning; auxiliary signs are intended for the convenience of the public. An auxiliary sign may include the business name and/or logo, but may not include its product or services"
@@ -127,7 +120,6 @@
 (def BicycleLane
   "A bikeway adjacent to travel lanes which has been designated for preferential or exclusive use by pedalcyclists through striping, signage or pavement markings"
   {:db/ident :auto-ev/BicycleLane,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.45",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -137,7 +129,9 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A bikeway adjacent to travel lanes which has been designated for preferential or exclusive use by pedalcyclists through striping, signage or pavement markings"}})
+    "A bikeway adjacent to travel lanes which has been designated for preferential or exclusive use by pedalcyclists through striping, signage or pavement markings"},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.2.45"})
 
 (def BicycleTrail
   "A bikeway reserved for pedalcycles and separated from roadways by open space or barriers."
@@ -239,7 +233,6 @@
 (def ChannelizedIntersection
   "An at-grade intersection in which traffic is diverted into definite paths by raised or painted traffic islands."
   {:db/ident :auto-ev/ChannelizedIntersection,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.5.13",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -249,12 +242,13 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "An at-grade intersection in which traffic is diverted into definite paths by raised or painted traffic islands."}})
+    "An at-grade intersection in which traffic is diverted into definite paths by raised or painted traffic islands."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.5.13"})
 
 (def CityStreet
   "A trafficway within a city trafficway system that is not an Interstate highway, other U.S. route numbered highway, other state route numbered highway, or county road."
   {:db/ident :auto-ev/CityStreet,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.5.8",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -264,7 +258,9 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A trafficway within a city trafficway system that is not an Interstate highway, other U.S. route numbered highway, other state route numbered highway, or county road."}})
+    "A trafficway within a city trafficway system that is not an Interstate highway, other U.S. route numbered highway, other state route numbered highway, or county road."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.5.8"})
 
 (def College
   "institution offering instruction, usually in a professional, vocational, or technical field"
@@ -296,7 +292,6 @@
 (def CountyRoad
   "A trafficway within a county trafficway system that is not an Interstate highway, other U.S. route numbered highway, or other state route numbered highway."
   {:db/ident :auto-ev/CountyRoad,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.5.7",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -306,12 +301,13 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A trafficway within a county trafficway system that is not an Interstate highway, other U.S. route numbered highway, or other state route numbered highway."}})
+    "A trafficway within a county trafficway system that is not an Interstate highway, other U.S. route numbered highway, or other state route numbered highway."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.5.7"})
 
 (def Crosswalk
   "(1) that part of a roadway at an intersection included within the connections of the lateral lines of the sidewalks on opposite sides of the roadway measured from the curbs or, in the absence of curbs, from the edges of the traversable roadway, or (2) any portion of a roadway at an intersection or elsewhere distinctly indicated for pedestrian crossing by lines or other markings on the surface of the roadway."
   {:db/ident :auto-ev/Crosswalk,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.5.21",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -321,7 +317,9 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "(1) that part of a roadway at an intersection included within the connections of the lateral lines of the sidewalks on opposite sides of the roadway measured from the curbs or, in the absence of curbs, from the edges of the traversable roadway, or (2) any portion of a roadway at an intersection or elsewhere distinctly indicated for pedestrian crossing by lines or other markings on the surface of the roadway."}})
+    "(1) that part of a roadway at an intersection included within the connections of the lateral lines of the sidewalks on opposite sides of the roadway measured from the curbs or, in the absence of curbs, from the edges of the traversable roadway, or (2) any portion of a roadway at an intersection or elsewhere distinctly indicated for pedestrian crossing by lines or other markings on the surface of the roadway."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.5.21"})
 
 (def CrosswalkRoadSegment
   "road segment which contains a crosswalk"
@@ -338,7 +336,6 @@
 (def CurbReturn
   "The curved section of curb used at intersections in joining straight sections of curb."
   {:db/ident :auto-ev/CurbReturn,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.5.20",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -348,7 +345,9 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "The curved section of curb used at intersections in joining straight sections of curb."}})
+    "The curved section of curb used at intersections in joining straight sections of curb."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.5.20"})
 
 (def DirectionalRoadSign
   "sign installed on public land that advertises the direction to be taken to a service, tourist attraction or a townsite/locality"
@@ -367,7 +366,6 @@
 (def Driveway
   "A private way which provides vehicular access to the public from a trafficway to property, parking or loading areas outside the boundaries of the trafficway, but is considered to be not open to the public for transportation purposes as a trafficway."
   {:db/ident :auto-ev/Driveway,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.5.9.1",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -381,12 +379,13 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A private way which provides vehicular access to the public from a trafficway to property, parking or loading areas outside the boundaries of the trafficway, but is considered to be not open to the public for transportation purposes as a trafficway."}})
+    "A private way which provides vehicular access to the public from a trafficway to property, parking or loading areas outside the boundaries of the trafficway, but is considered to be not open to the public for transportation purposes as a trafficway."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.5.9.1"})
 
 (def DrivewayAccess
   "A portion of the trafficway at the end of a driveway (See 2.5.9.1), providing access to property adjacent to a trafficway."
   {:db/ident :auto-ev/DrivewayAccess,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.5.9",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -396,7 +395,9 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A portion of the trafficway at the end of a driveway (See 2.5.9.1), providing access to property adjacent to a trafficway."}})
+    "A portion of the trafficway at the end of a driveway (See 2.5.9.1), providing access to property adjacent to a trafficway."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.5.9"})
 
 (def EducationalInstitute
   "institute that provides education as its main purpose"
@@ -480,7 +481,6 @@
 (def FrontageRoad
   "A roadway generally paralleling an expressway, freeway, parkway or through street so designed as to intercept, collect and distribute traffic desiring to cross, enter or leave such facility and to furnish access to property which otherwise would be isolated as a result of controlled-access features."
   {:db/ident :auto-ev/FrontageRoad,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.5.18",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -494,12 +494,13 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A roadway generally paralleling an expressway, freeway, parkway or through street so designed as to intercept, collect and distribute traffic desiring to cross, enter or leave such facility and to furnish access to property which otherwise would be isolated as a result of controlled-access features."}})
+    "A roadway generally paralleling an expressway, freeway, parkway or through street so designed as to intercept, collect and distribute traffic desiring to cross, enter or leave such facility and to furnish access to property which otherwise would be isolated as a result of controlled-access features."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.5.18"})
 
 (def Fully-controlledAccessHighway
   "A trafficway on which preference is given to through traffic by permitting access only from other trafficways and by providing grade separations at all crossing trafficways."
   {:db/ident :auto-ev/Fully-controlledAccessHighway,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.5.15",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -509,7 +510,9 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A trafficway on which preference is given to through traffic by permitting access only from other trafficways and by providing grade separations at all crossing trafficways."}})
+    "A trafficway on which preference is given to through traffic by permitting access only from other trafficways and by providing grade separations at all crossing trafficways."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.5.15"})
 
 (def GasStation
   "retail station for servicing motor vehicles, especially with gasoline and oil"
@@ -528,7 +531,6 @@
 (def Gore
   "An area of land where two roadways diverge or converge."
   {:db/ident :auto-ev/Gore,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.5.19",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -539,14 +541,15 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "gore"},
    :rdfs/subClassOf :auto-ev/RoadPart,
-   :skos/definition
-   {:rdf/language "en",
-    :rdf/value    "An area of land where two roadways diverge or converge."}})
+   :skos/definition {:rdf/language "en",
+                     :rdf/value
+                     "An area of land where two roadways diverge or converge."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.5.19"})
 
 (def GradeSeparation
   "A crossing at different levels of two trafficways, or a trafficway and a railway."
   {:db/ident :auto-ev/GradeSeparation,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.5.14",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -556,7 +559,9 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A crossing at different levels of two trafficways, or a trafficway and a railway."}})
+    "A crossing at different levels of two trafficways, or a trafficway and a railway."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.5.14"})
 
 (def Highway
   "road that is part of the strategic traffic network for automobiles across the country and connects areas of political/economic importance or areas that are critical to the nation's interests"
@@ -631,7 +636,6 @@
 (def Interchange
   "A system of interconnecting roadways in conjunction with one or more grade separations, providing for the movement of traffic between two or more roadways on different levels."
   {:db/ident :auto-ev/Interchange,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.5.16",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -641,12 +645,13 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A system of interconnecting roadways in conjunction with one or more grade separations, providing for the movement of traffic between two or more roadways on different levels."}})
+    "A system of interconnecting roadways in conjunction with one or more grade separations, providing for the movement of traffic between two or more roadways on different levels."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.5.16"})
 
 (def Intersection
   "An area which (1) contains a crossing or connection of two or more roadways not classified as driveway access and (2) is embraced within the prolongation of the lateral curb lines or, if none, the lateral boundary lines of the roadways."
   {:db/ident :auto-ev/Intersection,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.5.10",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -660,7 +665,9 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "An area which (1) contains a crossing or connection of two or more roadways not classified as driveway access and (2) is embraced within the prolongation of the lateral curb lines or, if none, the lateral boundary lines of the roadways."}})
+    "An area which (1) contains a crossing or connection of two or more roadways not classified as driveway access and (2) is embraced within the prolongation of the lateral curb lines or, if none, the lateral boundary lines of the roadways."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.5.10"})
 
 (def IntersectionSegment
   "path segment that contains an intersection of two or more lanes"
@@ -680,7 +687,6 @@
 (def InterstateHighway
   "A trafficway on the Interstate System."
   {:db/ident :auto-ev/InterstateHighway,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.5.4",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -688,12 +694,13 @@
                 :rdf/value    "interstate highway"},
    :rdfs/subClassOf :auto-ev/Trafficway,
    :skos/definition {:rdf/language "en",
-                     :rdf/value    "A trafficway on the Interstate System."}})
+                     :rdf/value    "A trafficway on the Interstate System."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.5.4"})
 
 (def InterstateSystem
   "The National System of Interstate and Defense Highways as defined in Section 101, Title 23, United States Code."
   {:db/ident :auto-ev/InterstateSystem,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.5.3",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -703,12 +710,13 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "The National System of Interstate and Defense Highways as defined in Section 101, Title 23, United States Code."}})
+    "The National System of Interstate and Defense Highways as defined in Section 101, Title 23, United States Code."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.5.3"})
 
 (def Junction
   "An intersection or the connection between a driveway access and a roadway other than a driveway access."
   {:db/ident :auto-ev/Junction,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.5.11",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -718,7 +726,9 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "An intersection or the connection between a driveway access and a roadway other than a driveway access."}})
+    "An intersection or the connection between a driveway access and a roadway other than a driveway access."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.5.11"})
 
 (def Kindergarten
   "school or class for children usually from four to six years old"
@@ -839,7 +849,6 @@
 (def Median
   "An area of a trafficway between parallel roads separating travel in opposite directions."
   {:db/ident :auto-ev/Median,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.29",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -853,7 +862,9 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "An area of a trafficway between parallel roads separating travel in opposite directions."}})
+    "An area of a trafficway between parallel roads separating travel in opposite directions."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.2.29"})
 
 (def MetroStation
   "station for a rapid transit system, which as a whole is usually called a \"metro\" or \"subway\""
@@ -968,7 +979,6 @@
 (def OtherStateRouteNumberedHighway
   "A trafficway within a state trafficway system, but not an interstate highway or other U.S. route numbered highway."
   {:db/ident :auto-ev/OtherStateRouteNumberedHighway,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.5.6",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -978,12 +988,13 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A trafficway within a state trafficway system, but not an interstate highway or other U.S. route numbered highway."}})
+    "A trafficway within a state trafficway system, but not an interstate highway or other U.S. route numbered highway."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.5.6"})
 
 (def OtherUSRouteNumberedHighwayAnother
   "A trafficway numbered by the American Association of State Highway Officials, but not an interstate highway."
   {:db/ident :auto-ev/OtherUSRouteNumberedHighwayAnother,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.5.5",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -993,7 +1004,9 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A trafficway numbered by the American Association of State Highway Officials, but not an interstate highway."}})
+    "A trafficway numbered by the American Association of State Highway Officials, but not an interstate highway."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.5.5"})
 
 (def Park
   "piece of ground in or near a city or town kept for ornament and recreation"
@@ -1012,7 +1025,6 @@
 (def ParkingLot
   "An area used primarily for parking road vehicles."
   {:db/ident :auto-ev/ParkingLot,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.5.22",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -1025,12 +1037,13 @@
    :rdfs/subClassOf :auto-ev/Infrastructure,
    :skos/definition {:rdf/language "en",
                      :rdf/value
-                     "An area used primarily for parking road vehicles."}})
+                     "An area used primarily for parking road vehicles."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.5.22"})
 
 (def ParkingLotWay
   "A parking lots open to the public are trafficways."
   {:db/ident :auto-ev/ParkingLotWay,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.5.22.1",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -1039,7 +1052,9 @@
    :rdfs/subClassOf :auto-ev/Trafficway,
    :skos/definition {:rdf/language "en",
                      :rdf/value
-                     "A parking lots open to the public are trafficways."}})
+                     "A parking lots open to the public are trafficways."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.5.22.1"})
 
 (def ParkingPlace
   "place to park a car, truck, etc"
@@ -1146,7 +1161,6 @@
 (def PrivateWay
   "Any land way other than a trafficway."
   {:db/ident :auto-ev/PrivateWay,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.2",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -1158,12 +1172,13 @@
                 :rdf/value    "private way"},
    :rdfs/subClassOf :auto-ev/Trafficway,
    :skos/definition {:rdf/language "en",
-                     :rdf/value    "Any land way other than a trafficway."}})
+                     :rdf/value    "Any land way other than a trafficway."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.2.2"})
 
 (def Railway
   "Any private way reserved primarily for land vehicles moving persons or property from one place to another on rails."
   {:db/ident :auto-ev/Railway,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.3",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -1173,7 +1188,9 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "Any private way reserved primarily for land vehicles moving persons or property from one place to another on rails."}})
+    "Any private way reserved primarily for land vehicles moving persons or property from one place to another on rails."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.2.3"})
 
 (def RailwayStation
   "building containing accommodations for railroad passengers or freight"
@@ -1192,7 +1209,6 @@
 (def Ramp
   "An auxiliary roadway used for entering or leaving through-traffic lanes."
   {:db/ident :auto-ev/Ramp,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.5.17",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -1206,7 +1222,9 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "An auxiliary roadway used for entering or leaving through-traffic lanes."}})
+    "An auxiliary roadway used for entering or leaving through-traffic lanes."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.5.17"})
 
 (def RegulatoryRoadSign
   "sign used to inform road users of selected traffic laws or regulations and indicate the applicability of the legal requirements"
@@ -1282,7 +1300,6 @@
 (def Road
   "A part of a trafficway which includes both the roadway and any shoulder alongside the roadway."
   {:db/ident :auto-ev/Road,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.33",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -1292,7 +1309,9 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A part of a trafficway which includes both the roadway and any shoulder alongside the roadway."}})
+    "A part of a trafficway which includes both the roadway and any shoulder alongside the roadway."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.2.33"})
 
 (def RoadPart
   "part of the road"
@@ -1361,7 +1380,6 @@
 (def Roadside
   "The outermost part of the trafficway from the property line or other boundary in to the edge of the first road."
   {:db/ident :auto-ev/Roadside,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.31",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -1371,12 +1389,13 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "The outermost part of the trafficway from the property line or other boundary in to the edge of the first road."}})
+    "The outermost part of the trafficway from the property line or other boundary in to the edge of the first road."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.2.31"})
 
 (def Roadway
   "A part of a trafficway designed, improved and ordinarily used for motor vehicle travel or, where various classes of motor vehicles are segregated, that part of a trafficway used by a particular class."
   {:db/ident :auto-ev/Roadway,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.28",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -1390,7 +1409,9 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A part of a trafficway designed, improved and ordinarily used for motor vehicle travel or, where various classes of motor vehicles are segregated, that part of a trafficway used by a particular class."}})
+    "A part of a trafficway designed, improved and ordinarily used for motor vehicle travel or, where various classes of motor vehicles are segregated, that part of a trafficway used by a particular class."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.2.28"})
 
 (def Roundabout
   "circular intersection with yield control at entry, which permits a vehicle on the circulatory roadway to proceed, and with deflection of the approaching vehicle counter-clockwise around a central island"
@@ -1421,7 +1442,6 @@
 (def Separator
   "The area of a trafficway between parallel roads separating travel in the same direction or separating a frontage road (See 2.5.18) from other roads."
   {:db/ident :auto-ev/Separator,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.30",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -1431,12 +1451,13 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "The area of a trafficway between parallel roads separating travel in the same direction or separating a frontage road (See 2.5.18) from other roads."}})
+    "The area of a trafficway between parallel roads separating travel in the same direction or separating a frontage road (See 2.5.18) from other roads."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.2.30"})
 
 (def SharedRoad
   "Any bikeway which is part of a roadway, but not a bicycle lane."
   {:db/ident :auto-ev/SharedRoad,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.46",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -1446,7 +1467,9 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "Any bikeway which is part of a roadway, but not a bicycle lane."}})
+    "Any bikeway which is part of a roadway, but not a bicycle lane."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.2.46"})
 
 (def Shop
   "small retail establishment or a department in a large one offering a specified line of goods or services"
@@ -1465,7 +1488,6 @@
 (def Shoulder
   "A part of a trafficway contiguous with the roadway for emergency use, for accommodation of stopped road vehicles, and for lateral support of the roadway structure."
   {:db/ident :auto-ev/Shoulder,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.32",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -1475,7 +1497,9 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A part of a trafficway contiguous with the roadway for emergency use, for accommodation of stopped road vehicles, and for lateral support of the roadway structure."}})
+    "A part of a trafficway contiguous with the roadway for emergency use, for accommodation of stopped road vehicles, and for lateral support of the roadway structure."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.2.32"})
 
 (def SpeedLimit
   "maximum (or minimum) speed applicable to a section of highway as established by law or regulation"
@@ -1694,7 +1718,6 @@
 (def Trafficway
   "Any land way open to the public as a matter of right or custom for moving persons or property from one place to another."
   {:db/ident :auto-ev/Trafficway,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.1",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -1704,12 +1727,13 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "Any land way open to the public as a matter of right or custom for moving persons or property from one place to another."}})
+    "Any land way open to the public as a matter of right or custom for moving persons or property from one place to another."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.2.1"})
 
 (def TransportWay
   "Any way or place reserved or commonly used for the operation of transport vehicles."
   {:db/ident :auto-ev/TransportWay,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.1.8",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -1719,7 +1743,9 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "Any way or place reserved or commonly used for the operation of transport vehicles."}})
+    "Any way or place reserved or commonly used for the operation of transport vehicles."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.1.8"})
 
 (def Turn
   "instant change of direction of a singular road"
@@ -1737,7 +1763,6 @@
 (def TurnLane
   "A lane exclusively designated for vehicles turning from one trafficway to another."
   {:db/ident :auto-ev/TurnLane,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.5.23",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -1747,7 +1772,9 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A lane exclusively designated for vehicles turning from one trafficway to another."}})
+    "A lane exclusively designated for vehicles turning from one trafficway to another."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.5.23"})
 
 (def TwoWayLane
   "lane allowing for two-way traffic"
@@ -1778,7 +1805,6 @@
 (def UrbanArea
   "An area whose boundaries shall be those fixed by responsible state and local officials in cooperation with each other and approved by the Federal Highway Administration, U.S. Department of Transportation."
   {:db/ident :auto-ev/UrbanArea,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.5.1",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -1792,7 +1818,9 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "An area whose boundaries shall be those fixed by responsible state and local officials in cooperation with each other and approved by the Federal Highway Administration, U.S. Department of Transportation."}})
+    "An area whose boundaries shall be those fixed by responsible state and local officials in cooperation with each other and approved by the Federal Highway Administration, U.S. Department of Transportation."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.5.1"})
 
 (def UrbanDistrict
   "territory contiguous to and including any street built up with structures devoted to business, industry or dwelling houses situated at intervals of less than 100 feet for a distance of a quarter of a mile or more"
@@ -1841,7 +1869,6 @@
 (def Waterway
   "A transport way reserved primarily for use by watercraft."
   {:db/ident :auto-ev/Waterway,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.1.10",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficEnvironment/",
@@ -1850,12 +1877,13 @@
    :rdfs/subClassOf :auto-ev/Infrastructure,
    :skos/definition
    {:rdf/language "en",
-    :rdf/value    "A transport way reserved primarily for use by watercraft."}})
+    :rdf/value    "A transport way reserved primarily for use by watercraft."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.1.10"})
 
 (def WorkZone
   "An area of a trafficway where construction, maintenance or utility work activities are identified by warning signs/signals/indicators, including those on transport devices (e.g., signs, flashing lights, channelizing devices, barriers, pavement markings, flagmen, warning signs and arrow boards mounted on the vehicles in a mobile maintenance activity) that mark the beginning and end of a construction, maintenance or utility work activity."
   {:db/ident :auto-ev/WorkZone,
-   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.5.24",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -1869,7 +1897,9 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "An area of a trafficway where construction, maintenance or utility work activities are identified by warning signs/signals/indicators, including those on transport devices (e.g., signs, flashing lights, channelizing devices, barriers, pavement markings, flagmen, warning signs and arrow boards mounted on the vehicles in a mobile maintenance activity) that mark the beginning and end of a construction, maintenance or utility work activity."}})
+    "An area of a trafficway where construction, maintenance or utility work activities are identified by warning signs/signals/indicators, including those on transport devices (e.g., signs, flashing lights, channelizing devices, barriers, pavement markings, flagmen, warning signs and arrow boards mounted on the vehicles in a mobile maintenance activity) that mark the beginning and end of a construction, maintenance or utility work activity."},
+   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
+   "ANSI D.16-2017, section 2.5.24"})
 
 (def address
   "relates an infrastructure to its address"

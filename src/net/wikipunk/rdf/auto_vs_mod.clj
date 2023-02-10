@@ -9,15 +9,7 @@
    :owl/versionIRI
    "https://spec.edmcouncil.org/auto/ontology/master/latest/VS/MetadataVS/",
    :rdf/ns-prefix-map
-   {"auto-vs-mod" "https://spec.edmcouncil.org/auto/ontology/VS/MetadataVS/",
-    "dcterms" "http://purl.org/dc/terms/",
-    "fibo-fnd-utl-av"
-    "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/",
-    "owl" "http://www.w3.org/2002/07/owl#",
-    "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-    "sm" "http://www.omg.org/techprocess/ab/SpecificationMetadata/",
-    "xsd" "http://www.w3.org/2001/XMLSchema#"},
+   {"auto-vs-mod" "https://spec.edmcouncil.org/auto/ontology/VS/MetadataVS/"},
    :rdf/type :owl/Ontology,
    :rdf/uri "https://spec.edmcouncil.org/auto/ontology/VS/MetadataVS/",
    :rdfa/prefix "auto-vs-mod",
