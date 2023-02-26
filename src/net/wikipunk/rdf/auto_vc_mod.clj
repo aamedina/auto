@@ -11,7 +11,6 @@
    :rdf/ns-prefix-map
    {"auto-vc-mod" "https://spec.edmcouncil.org/auto/ontology/VC/MetadataVC/"},
    :rdf/type :owl/Ontology,
-   :rdf/uri "https://spec.edmcouncil.org/auto/ontology/VC/MetadataVC/",
    :rdfa/prefix "auto-vc-mod",
    :rdfa/uri "https://spec.edmcouncil.org/auto/ontology/VC/MetadataVC/",
    :rdfs/label "Metadata for the EDMC-AUTO Vehicle Core (VC) Domain",

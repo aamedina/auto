@@ -6,13 +6,13 @@
    "This Vehicle Signals Ontology (VSSO) describes the car's parts and signals. It is based on the GENIVI's Vehicle Signal Specification.",
    :dcterms/created #inst "2018-01-10T05:00:00.000-00:00",
    :dcterms/license "http://creativecommons.org/licenses/by/4.0/",
+   :fibo-fnd-utl-av/hasMaturityLevel :fibo-fnd-utl-av/Provisional,
    :owl/imports
    ["https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/"
     "https://spec.edmcouncil.org/auto/ontology/VC/VehicleParts/"],
    :rdf/ns-prefix-map
    {"auto-vs" "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/"},
    :rdf/type :owl/Ontology,
-   :rdf/uri "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
    :rdfa/prefix "auto-vs",
    :rdfa/uri "https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/",
    :rdfs/comment
@@ -21,9 +21,7 @@
     "The GENIVI VSS Ontology (VSSO) has been initially created by Benjamin Klotz, Daniel Wilms, and Raphael Troncy (see http://automotive.eurecom.fr/vsso). VSSO, as created by Benjamin Klotz, Daniel Wilms, and Raphael Troncy, is available under the Creative Commons Attribution 4.0 International license; see http://creativecommons.org/licenses/by/4.0/. VSSO describes the car's attributes, branches and signals defined in GENIVI's Vehicle Signal Specification."},
    :rdfs/label "Vehicle signals ontology (VS)",
    :sm/fileAbbreviation "auto-ec-vsso",
-   :sm/filename "VehicleSignals.rdf",
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/hasMaturityLevel"
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/Provisional"})
+   :sm/filename "VehicleSignals.rdf"})
 
 (def ABSError
   "Signal.ADAS.ABS.Error : Indicates if ABS incurred an error condition. True = Error. False = No Error."

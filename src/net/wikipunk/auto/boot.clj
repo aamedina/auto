@@ -1,5 +1,11 @@
 (ns net.wikipunk.auto.boot
-  {:rdf/type :jsonld/Context})
+  {:rdf/type :jsonld/Context}
+  (:require
+   [net.wikipunk.fibo.boot]
+   [net.wikipunk.rdf.schema]
+   [net.wikipunk.rdf.sm]
+   [net.wikipunk.rdf.cmns-av]
+   [net.wikipunk.rdf.fibo-fnd-utl-av]))
 
 (def auto
   {:dcat/downloadURL "https://raw.githubusercontent.com/edmcouncil/auto/master/MetadataAUTO.rdf"

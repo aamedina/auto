@@ -6,20 +6,18 @@
     "This Vehicle Parts Ontology (VP) describes the car's parts.\n\nIt contains many classes and properties extracted from:\n- the GENIVI VSS Ontology (VSSO) has been initially created by Benjamin Klotz, Daniel Wilms, and Raphael Troncy (see http://automotive.eurecom.fr/vsso). VSSO, as created by Benjamin Klotz, Daniel Wilms, and Raphael Troncy, is available under the Creative Commons Attribution 4.0 International license; see http://creativecommons.org/licenses/by/4.0/."},
    :dcterms/created #inst "2021-08-16T17:55:00.000-00:00",
    :dcterms/license "http://creativecommons.org/licenses/by/4.0/",
+   :fibo-fnd-utl-av/hasMaturityLevel :fibo-fnd-utl-av/Provisional,
    :owl/imports
    ["https://spec.edmcouncil.org/auto/ontology/master/latest/MO/MiddleOntology/"
     "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/"],
    :rdf/ns-prefix-map
    {"auto-vp" "https://spec.edmcouncil.org/auto/ontology/VC/VehicleParts/"},
    :rdf/type :owl/Ontology,
-   :rdf/uri "https://spec.edmcouncil.org/auto/ontology/VC/VehicleParts/",
    :rdfa/prefix "auto-vp",
    :rdfa/uri "https://spec.edmcouncil.org/auto/ontology/VC/VehicleParts/",
    :rdfs/label "Vehicle parts ontology (VP)",
    :sm/fileAbbreviation "auto-vp",
-   :sm/filename "VehicleParts.rdf",
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/hasMaturityLevel"
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/Provisional"})
+   :sm/filename "VehicleParts.rdf"})
 
 (def ABS
   "portion of a service brake system that automatically controls the degree of rotational wheel slip"
@@ -95,6 +93,12 @@
 (def ActiveDrivingAssistanceSystem
   "simultaneous use of Lane Centering Assistance and Adaptive Cruise Control features"
   {:db/ident :auto-vp/ActiveDrivingAssistanceSystem,
+   :fibo-fnd-utl-av/explanatoryNote
+   [{:rdf/language "en",
+     :rdf/value
+     "The driver must constantly supervise this support feature and maintain responsibility for driving."}
+    {:rdf/language "en",
+     :rdf/value    "Classified as Level 2 Driving Automation by SAE J3016."}],
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleParts/",
@@ -104,17 +108,15 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "simultaneous use of Lane Centering Assistance and Adaptive Cruise Control features"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/explanatoryNote"
-   [{:rdf/language "en",
-     :rdf/value
-     "The driver must constantly supervise this support feature and maintain responsibility for driving."}
-    {:rdf/language "en",
-     :rdf/value    "Classified as Level 2 Driving Automation by SAE J3016."}]})
+    "simultaneous use of Lane Centering Assistance and Adaptive Cruise Control features"}})
 
 (def ActiveParkingAssistanceSystem
   "feature that assists with steering and potentially other functions during parking maneuvers"
   {:db/ident :auto-vp/ActiveParkingAssistanceSystem,
+   :fibo-fnd-utl-av/explanatoryNote
+   {:rdf/language "en",
+    :rdf/value
+    "Driver may be required to accelerate, brake, and/or select gear position. Some systems are capable of parallel and/or perpendicular parking. The driver must constantly supervise this support feature and maintain responsibility for parking."},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleParts/",
@@ -124,15 +126,19 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "feature that assists with steering and potentially other functions during parking maneuvers"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/explanatoryNote"
-   {:rdf/language "en",
-    :rdf/value
-    "Driver may be required to accelerate, brake, and/or select gear position. Some systems are capable of parallel and/or perpendicular parking. The driver must constantly supervise this support feature and maintain responsibility for parking."}})
+    "feature that assists with steering and potentially other functions during parking maneuvers"}})
 
 (def AdaptiveCruiseControlSystem
   "cruise control that also assists with acceleration and/or braking to maintain a driver-selected gap to the vehicle in front"
   {:db/ident :auto-vp/AdaptiveCruiseControlSystem,
+   :fibo-fnd-utl-av/abbreviation {:rdf/language "en",
+                                  :rdf/value    "ACC"},
+   :fibo-fnd-utl-av/explanatoryNote
+   [{:rdf/language "en",
+     :rdf/value
+     "Some systems can come to a stop and continue while others cannot."}
+    {:rdf/language "en",
+     :rdf/value    "Classified as Level 1 Driving Automation by SAE J3016."}],
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleParts/",
@@ -143,16 +149,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "cruise control that also assists with acceleration and/or braking to maintain a driver-selected gap to the vehicle in front"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/abbreviation"
-   {:rdf/language "en",
-    :rdf/value    "ACC"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/explanatoryNote"
-   [{:rdf/language "en",
-     :rdf/value
-     "Some systems can come to a stop and continue while others cannot."}
-    {:rdf/language "en",
-     :rdf/value    "Classified as Level 1 Driving Automation by SAE J3016."}]})
+    "cruise control that also assists with acceleration and/or braking to maintain a driver-selected gap to the vehicle in front"}})
 
 (def AirBrakeSystem
   "system, including an air-over-hydraulic brake subsystem, that uses air as a medium for transmitting pressure or force from the driver control to the service brake but does not include a system that uses compressed air or vacuum only to assist the driver in applying muscular force to hydraulic or mechanical components"
@@ -263,6 +260,9 @@
 (def AutomaticEmergencyBrakingSystem
   "feature that detects potential collisions with a vehicle ahead, provides forward collision warning, and automatically brakes to avoid a collision or lessen the severity of impact"
   {:db/ident :auto-vp/AutomaticEmergencyBrakingSystem,
+   :fibo-fnd-utl-av/explanatoryNote
+   {:rdf/language "en",
+    :rdf/value    "Some systems also detect pedestrians or other objects."},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleParts/",
@@ -272,14 +272,14 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "feature that detects potential collisions with a vehicle ahead, provides forward collision warning, and automatically brakes to avoid a collision or lessen the severity of impact"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/explanatoryNote"
-   {:rdf/language "en",
-    :rdf/value    "Some systems also detect pedestrians or other objects."}})
+    "feature that detects potential collisions with a vehicle ahead, provides forward collision warning, and automatically brakes to avoid a collision or lessen the severity of impact"}})
 
 (def AutomaticEmergencySteeringSystem
   "feature that detects potential collisions with a vehicle ahead and automatically steers to avoid or lessen the severity of impact"
   {:db/ident :auto-vp/AutomaticEmergencySteeringSystem,
+   :fibo-fnd-utl-av/explanatoryNote
+   {:rdf/language "en",
+    :rdf/value    "Some systems also detect pedestrians or other objects."},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleParts/",
@@ -289,14 +289,13 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "feature that detects potential collisions with a vehicle ahead and automatically steers to avoid or lessen the severity of impact"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/explanatoryNote"
-   {:rdf/language "en",
-    :rdf/value    "Some systems also detect pedestrians or other objects."}})
+    "feature that detects potential collisions with a vehicle ahead and automatically steers to avoid or lessen the severity of impact"}})
 
 (def AutomaticHighBeamsSystem
   "feature that switches between high and low beam headlamps automatically based on lighting and traffic"
   {:db/ident :auto-vp/AutomaticHighBeamsSystem,
+   :fibo-fnd-utl-av/abbreviation {:rdf/language "en",
+                                  :rdf/value    "AHB"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleParts/",
@@ -306,10 +305,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "feature that switches between high and low beam headlamps automatically based on lighting and traffic"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/abbreviation"
-   {:rdf/language "en",
-    :rdf/value    "AHB"}})
+    "feature that switches between high and low beam headlamps automatically based on lighting and traffic"}})
 
 (def AutonomousDrivingChip
   "special system-on-a-chip designed specifically to interpret and recognize, in real-time, traffic-control devices in order to either assist a driver with control of the vehicle or in order to partially or fully automate all aspects of the dynamic driving task"
@@ -459,6 +455,10 @@
 (def BlindSpotWarningSystem
   "feature that detects vehicles in the blind spot while driving and notifies the driver to their presence"
   {:db/ident :auto-vp/BlindSpotWarningSystem,
+   :fibo-fnd-utl-av/explanatoryNote
+   {:rdf/language "en",
+    :rdf/value
+    "Some systems provide an additional warning if the driver activates the turn signal."},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleParts/",
@@ -468,11 +468,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "feature that detects vehicles in the blind spot while driving and notifies the driver to their presence"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/explanatoryNote"
-   {:rdf/language "en",
-    :rdf/value
-    "Some systems provide an additional warning if the driver activates the turn signal."}})
+    "feature that detects vehicles in the blind spot while driving and notifies the driver to their presence"}})
 
 (def Blocking
   "structure, device, or another substantial article placed against or around an article of cargo to prevent horizontal movement of the article of cargo"
@@ -1050,6 +1046,10 @@
 (def DirectDriverMonitoringSystem
   "feature that detects the driver’s eye and/or head movement to estimate where the driver is looking"
   {:db/ident :auto-vp/DirectDriverMonitoringSystem,
+   :fibo-fnd-utl-av/explanatoryNote
+   {:rdf/language "en",
+    :rdf/value
+    "Some systems may provide a warning to the driver and/or limit the use of other features."},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleParts/",
@@ -1059,11 +1059,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "feature that detects the driver’s eye and/or head movement to estimate where the driver is looking"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/explanatoryNote"
-   {:rdf/language "en",
-    :rdf/value
-    "Some systems may provide a warning to the driver and/or limit the use of other features."}})
+    "feature that detects the driver’s eye and/or head movement to estimate where the driver is looking"}})
 
 (def DistanceToObject
   "device that tells the driver the distance from the vehicle to a given object"
@@ -1151,6 +1147,10 @@
 (def DriverReengagementSystem
   "feature that generates a series of escalating warnings and interventions attempting to engage an unresponsive driver"
   {:db/ident :auto-vp/DriverReengagementSystem,
+   :fibo-fnd-utl-av/explanatoryNote
+   {:rdf/language "en",
+    :rdf/value
+    "If the driver does not respond, the system brings the vehicle to a full stop while maintaining steering control. Some systems may steer the vehicle to the side of the road and/or make an emergency call if the driver fails to respond."},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleParts/",
@@ -1160,11 +1160,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "feature that generates a series of escalating warnings and interventions attempting to engage an unresponsive driver"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/explanatoryNote"
-   {:rdf/language "en",
-    :rdf/value
-    "If the driver does not respond, the system brings the vehicle to a full stop while maintaining steering control. Some systems may steer the vehicle to the side of the road and/or make an emergency call if the driver fails to respond."}})
+    "feature that generates a series of escalating warnings and interventions attempting to engage an unresponsive driver"}})
 
 (def Drivetrain
   "system of components that generates power and transmits it to the wheels of a vehicle"
@@ -1402,6 +1398,10 @@
 (def ForwardCollisionWarningSystem
   "feature that detects a potential collision with a vehicle ahead and alerts the driver"
   {:db/ident :auto-vp/ForwardCollisionWarningSystem,
+   :fibo-fnd-utl-av/explanatoryNote
+   {:rdf/language "en",
+    :rdf/value
+    "Some systems also provide alerts for pedestrians or other objects."},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleParts/",
@@ -1411,11 +1411,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "feature that detects a potential collision with a vehicle ahead and alerts the driver"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/explanatoryNote"
-   {:rdf/language "en",
-    :rdf/value
-    "Some systems also provide alerts for pedestrians or other objects."}})
+    "feature that detects a potential collision with a vehicle ahead and alerts the driver"}})
 
 (def FrictionMat
   "device placed between the deck of a vehicle and an article of cargo, or between articles of cargo, intended to provide greater friction than exists naturally between these surfaces"
@@ -1863,6 +1859,9 @@
 (def LaneCenteringAssistanceSystem
   "feature that provides steering support to assist the driver in continuously maintaining the vehicle at or near the center of the lane"
   {:db/ident :auto-vp/LaneCenteringAssistanceSystem,
+   :fibo-fnd-utl-av/explanatoryNote
+   {:rdf/language "en",
+    :rdf/value    "Classified as Level 1 Driving Automation by SAE J3016."},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleParts/",
@@ -1872,10 +1871,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "feature that provides steering support to assist the driver in continuously maintaining the vehicle at or near the center of the lane"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/explanatoryNote"
-   {:rdf/language "en",
-    :rdf/value    "Classified as Level 1 Driving Automation by SAE J3016."}})
+    "feature that provides steering support to assist the driver in continuously maintaining the vehicle at or near the center of the lane"}})
 
 (def LaneDepartureDetection
   "system of electronic components designed to warn a driver when a vehicle strays out of its lane"
@@ -1915,6 +1911,10 @@
 (def LaneKeepingAssistanceSystem
   "feature that provides steering support to assist the driver in keeping the vehicle in the lane"
   {:db/ident :auto-vp/LaneKeepingAssistanceSystem,
+   :fibo-fnd-utl-av/explanatoryNote
+   {:rdf/language "en",
+    :rdf/value
+    "The system reacts only when the vehicle approaches or crosses a lane line or road edge."},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleParts/",
@@ -1924,11 +1924,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "feature that provides steering support to assist the driver in keeping the vehicle in the lane"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/explanatoryNote"
-   {:rdf/language "en",
-    :rdf/value
-    "The system reacts only when the vehicle approaches or crosses a lane line or road edge."}})
+    "feature that provides steering support to assist the driver in keeping the vehicle in the lane"}})
 
 (def Latch
   "device employed to maintain the door in a closed position relative to the vehicle body with provisions for deliberate release"
@@ -2518,6 +2514,9 @@
 (def RearCrossTrafficWarningSystem
   "feature that detects vehicles approaching from the side at the rear of the vehicle while in reverse gear and alerts the driver"
   {:db/ident :auto-vp/RearCrossTrafficWarningSystem,
+   :fibo-fnd-utl-av/explanatoryNote
+   {:rdf/language "en",
+    :rdf/value    "Some systems also warn for pedestrians or other objects."},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleParts/",
@@ -2527,10 +2526,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "feature that detects vehicles approaching from the side at the rear of the vehicle while in reverse gear and alerts the driver"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/explanatoryNote"
-   {:rdf/language "en",
-    :rdf/value    "Some systems also warn for pedestrians or other objects."}})
+    "feature that detects vehicles approaching from the side at the rear of the vehicle while in reverse gear and alerts the driver"}})
 
 (def RearHeadRestraint
   "rear seat back, or any independently adjustable seat component attached to or adjacent to a seat back, that has a height equal to or greater than 700 mm, in any position of backset and height adjustment"
@@ -2634,6 +2630,12 @@
 (def RemoteParkingAssistanceSystem
   "feature that without the driver being physically present inside the vehicle, provides steering, braking, accelerating and/or gear selection while moving a vehicle into or out of a parking space"
   {:db/ident :auto-vp/RemoteParkingAssistanceSystem,
+   :fibo-fnd-utl-av/explanatoryNote
+   [{:rdf/language "en",
+     :rdf/value
+     "The driver must constantly supervise this support feature and maintain responsibility for parking."}
+    {:rdf/language "en",
+     :rdf/value    "Classified as Level 2 Driving Automation by SAE J3016."}],
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleParts/",
@@ -2643,13 +2645,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "feature that without the driver being physically present inside the vehicle, provides steering, braking, accelerating and/or gear selection while moving a vehicle into or out of a parking space"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/explanatoryNote"
-   [{:rdf/language "en",
-     :rdf/value
-     "The driver must constantly supervise this support feature and maintain responsibility for parking."}
-    {:rdf/language "en",
-     :rdf/value    "Classified as Level 2 Driving Automation by SAE J3016."}]})
+    "feature that without the driver being physically present inside the vehicle, provides steering, braking, accelerating and/or gear selection while moving a vehicle into or out of a parking space"}})
 
 (def ReplaceableBulbHeadlamp
   "headlamp comprising a bonded lens and reflector assembly and one or two replaceable light sources"
@@ -2668,6 +2664,9 @@
 (def ReverseAutomaticEmergencyBrakingSystem
   "feature that detects potential collisions while in reverse gear and automatically brakes to avoid or lessen the severity of impact"
   {:db/ident :auto-vp/ReverseAutomaticEmergencyBrakingSystem,
+   :fibo-fnd-utl-av/explanatoryNote
+   {:rdf/language "en",
+    :rdf/value    "Some systems also detect pedestrians or other objects."},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleParts/",
@@ -2677,10 +2676,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "feature that detects potential collisions while in reverse gear and automatically brakes to avoid or lessen the severity of impact"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/explanatoryNote"
-   {:rdf/language "en",
-    :rdf/value    "Some systems also detect pedestrians or other objects."}})
+    "feature that detects potential collisions while in reverse gear and automatically brakes to avoid or lessen the severity of impact"}})
 
 (def Rim
   "metal support for a tire or a tire and tube assembly upon which the tire beads are seated"
@@ -3219,6 +3215,10 @@
 (def TrailerAssistanceSystem
   "feature that assists the driver with visual guidance while backing towards a trailer or during backing maneuvers with a trailer attached"
   {:db/ident :auto-vp/TrailerAssistanceSystem,
+   :fibo-fnd-utl-av/explanatoryNote
+   {:rdf/language "en",
+    :rdf/value
+    "Some systems may provide additional images while driving or backing with a trailer. Some systems may provide steering assistance during backing maneuvers."},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleParts/",
@@ -3228,11 +3228,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "feature that assists the driver with visual guidance while backing towards a trailer or during backing maneuvers with a trailer attached"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/explanatoryNote"
-   {:rdf/language "en",
-    :rdf/value
-    "Some systems may provide additional images while driving or backing with a trailer. Some systems may provide steering assistance during backing maneuvers."}})
+    "feature that assists the driver with visual guidance while backing towards a trailer or during backing maneuvers with a trailer attached"}})
 
 (def Transmission
   "system in a vehicle that changes gears at different speeds"
@@ -3564,6 +3560,14 @@
   {:db/ident   :auto-mo/SpecificallyDependentContinuant,
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "specifically dependent continuant"}})
+
+(def ^{:private true} hasMaturityLevel
+  {:db/ident :fibo-fnd-utl-av/hasMaturityLevel,
+   :rdf/type :owl/AnnotationProperty})
+
+(def ^{:private true} synonym
+  {:db/ident :fibo-fnd-utl-av/synonym,
+   :rdf/type :owl/AnnotationProperty})
 
 (def ^{:private true} definition
   {:db/ident :skos/definition,

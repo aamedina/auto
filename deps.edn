@@ -2,10 +2,10 @@
  {com.stuartsierra/component
   {:mvn/version "1.1.0"}
   io.github.aamedina/fibo
-  {:git/sha "c5cc5c79078ff9f0c5defb06d2557904c46b8661"}
+  {:git/sha "7e66716688b098258bcf0d45f8ac3ca084acd9af"}
   org.clojure/clojure
   {:mvn/version "1.11.1"}}
- :paths ["src" "classes"]
+ :paths ["src" "classes" "resources"]
  :aliases
  {:dev
   {:extra-deps

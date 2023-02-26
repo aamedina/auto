@@ -1,6 +1,9 @@
 {:vocab {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
          :sc/refs      [:auto]
-         :init-ns      net.wikipunk.mop.init}
+         :init-ns      net.wikipunk.temple.init
+         :boot         [net.wikipunk.auto.boot/auto]
+         :config       {:xtdb.lucene/lucene-store
+                        {:db-dir ".vocab/lucene"}}}
  :auto  {:sc/create-fn net.wikipunk.auto/map->AUTO
          :domains      [net.wikipunk.auto.boot/auto-av-mod
                         net.wikipunk.auto.boot/auto-de-mod

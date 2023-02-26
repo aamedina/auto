@@ -11,7 +11,6 @@
    :rdf/ns-prefix-map
    {"auto-vs-mod" "https://spec.edmcouncil.org/auto/ontology/VS/MetadataVS/"},
    :rdf/type :owl/Ontology,
-   :rdf/uri "https://spec.edmcouncil.org/auto/ontology/VS/MetadataVS/",
    :rdfa/prefix "auto-vs-mod",
    :rdfa/uri "https://spec.edmcouncil.org/auto/ontology/VS/MetadataVS/",
    :rdfs/label "Metadata for the Vehicle Signals Ontologies",

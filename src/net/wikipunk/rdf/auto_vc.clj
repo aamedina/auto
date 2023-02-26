@@ -5,6 +5,7 @@
    {:rdf/language "en",
     :rdf/value
     "The Vehicle Core (VC) module focuses on the core concepts related to vehicles' types, structure and configuration.\n\nIt contains many classes and properties extracted from:\n- the automotive extension of schema.org (https://schema.org/docs/automotive.html). \n- the Volkswagen Vehicles Ontology created by Martin Hepp with the contribution of Charles Sandeman-Craik, Tribal DDB; Chris Jenkins, Tribal DDB; Tim Redding, Tribal DDB; Yago Otero, Tribal DDB; William Greenly, Tribal DDB; Robin Dingle, Volkswagen UK (see https://lov.linkeddata.es/dataset/lov/vocabs/vvo) and available under the Creative Commons Attribution 3.0 Unported license (see http://creativecommons.org/licenses/by/3.0/). \n- the Car Options Ontology (COO) created by Martin Hepp, Hepp Research GmbH, with the contribution of Charles Sandeman-Craik, Tribal DDB; Chris Jenkins, Tribal DDB; Tim Redding, Tribal DDB; Yago Otero, Tribal DDB; William Greenly, Tribal DDB; Robin Dingle, Volkswagen UK (see https://lov.linkeddata.es/dataset/lov/vocabs/coo) and available under the Creative Commons Attribution 3.0 Unported license (see http://creativecommons.org/licenses/by/3.0/).\n- the Vehicle Emissions Ontology (VEO) created by Bojan Najdenov, with the contribution of Milos Jovanovik (see https://lov.linkeddata.es/dataset/lov/vocabs/veo) and available under the Creative Commons Attribution 3.0 Unported license (see http://creativecommons.org/licenses/by/3.0/).\n- the Car Ontology (CAR) created by Lihua Zhao and Yutaka Sasaki at the Computational Intelligence Laboratory, Toyota Technological Institute, Nagoya, Japan (see https://www.toyota-ti.ac.jp/Lab/Denshi/COIN/Ontology/TTICore-0.03/) and published by the Toyota Technological Institute Smart Vehicle Research Project. MAP, as created by the Computational Intelligence Laboratory, is available under the Creative Commons - Attribution-NonCommercial-ShareAlike\n4.0 International (http://creativecommons.org/licenses/by-nc-sa/4.0/).\n- the Used Cars Ontology (UCO) (created by Hepp Research GmbH and Makolab SA (see http://ontologies.makolab.com/uco/ns.html) and available under the Creative Commons Attribution 3.0 Unported license; see http://creativecommons.org/licenses/by/3.0/)\n- the Vehicle Sales Ontology (VSO) (created by Martin Hepp (see https://lov.linkeddata.es/dataset/lov/vocabs/vso) and available under the Creative Commons Attribution 3.0 Unported license; see http://creativecommons.org/licenses/by/3.0/)."},
+   :fibo-fnd-utl-av/hasMaturityLevel :fibo-fnd-utl-av/Provisional,
    :owl/imports
    ["https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/"
     "https://spec.edmcouncil.org/auto/ontology/master/latest/MO/MiddleOntology/"],
@@ -13,16 +14,13 @@
    :rdf/ns-prefix-map
    {"auto-vc" "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/"},
    :rdf/type :owl/Ontology,
-   :rdf/uri "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
    :rdfa/prefix "auto-vc",
    :rdfa/uri "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
    :rdfs/label "Vehicle core ontology (VC)",
    :sm/contentLanguage "http://www.w3.org/standards/techs/owl#w3c_all",
    :sm/copyright "Copyright (c) 2021 EDM Council, Inc.",
    :sm/fileAbbreviation "auto-vc-vc",
-   :sm/filename "VehicleCore.rdf",
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/hasMaturityLevel"
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/Provisional"}
+   :sm/filename "VehicleCore.rdf"}
   (:refer-clojure :exclude [max min type]))
 
 (def AgriculturalCommodityTrailer
@@ -42,6 +40,7 @@
 (def Aircraft
   "A transport vehicle designed primarily for, or in use for, moving persons or property through the air from one place to another."
   {:db/ident :auto-vc/Aircraft,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.1.5",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -51,9 +50,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A transport vehicle designed primarily for, or in use for, moving persons or property through the air from one place to another."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.1.5"})
+    "A transport vehicle designed primarily for, or in use for, moving persons or property through the air from one place to another."}})
 
 (def AllWheelDriveConfiguration
   "All-wheel Drive is a transmission layout where the engine drives all four wheels."
@@ -100,6 +97,7 @@
 (def Autocycle
   "A large motorcycle with one rear wheel and two front wheels, with either a saddle and handlebars or seat (s) and a steering wheel, that can be fully enclosed, partially enclosed, or unenclosed."
   {:db/ident :auto-vc/Autocycle,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.9.7",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -109,9 +107,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A large motorcycle with one rear wheel and two front wheels, with either a saddle and handlebars or seat (s) and a steering wheel, that can be fully enclosed, partially enclosed, or unenclosed."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.9.7"})
+    "A large motorcycle with one rear wheel and two front wheels, with either a saddle and handlebars or seat (s) and a steering wheel, that can be fully enclosed, partially enclosed, or unenclosed."}})
 
 (def BaseModel
   "A Base Model is an abstract entity specifying the basic features of a group of vehicles. Examples: VW Golf, VW Polo, VW Passat"
@@ -142,6 +138,8 @@
 (def Bicycle
   "a pedal-driven, human-powered, single-track vehicle, having two wheels attached to a frame, one behind the other. Some bicycles have a small combustion or electric engine that assists with the pedaling."
   {:db/ident :auto-vc/Bicycle,
+   :fibo-fnd-utl-av/synonym {:rdf/language "en",
+                             :rdf/value    "bike"},
    :rdf/type :owl/Class,
    :rdfs/comment
    [{:rdf/language "pl",
@@ -161,10 +159,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "a pedal-driven, human-powered, single-track vehicle, having two wheels attached to a frame, one behind the other. Some bicycles have a small combustion or electric engine that assists with the pedaling."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/synonym"
-   {:rdf/language "en",
-    :rdf/value    "bike"}})
+    "a pedal-driven, human-powered, single-track vehicle, having two wheels attached to a frame, one behind the other. Some bicycles have a small combustion or electric engine that assists with the pedaling."}})
 
 (def Boat
   "a watercraft of modest size designed to float or plane, to provide passage across water"
@@ -333,6 +328,13 @@
    :dcterms/isPartOf "http://auto.schema.org",
    :dcterms/source
    "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group",
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.10",
+   :fibo-fnd-utl-av/synonym [{:rdf/language "en",
+                              :rdf/value    "omnibus"}
+                             {:rdf/language "en",
+                              :rdf/value    "coach"}
+                             {:rdf/language "en",
+                              :rdf/value    "autobus"}],
    :rdf/type :owl/Class,
    :rdfs/comment
    ["QName: auto-vc-vc:BusOrCoach"
@@ -365,16 +367,7 @@
     {:rdf/language "en",
      :rdf/value
      "a road vehicle designed to carry passengers. Coaches are luxury busses, usually in service for long distance travel"}],
-   :sm/directSource "https://schema.org/BusOrCoach",
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.10",
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/synonym"
-   [{:rdf/language "en",
-     :rdf/value    "omnibus"}
-    {:rdf/language "en",
-     :rdf/value    "coach"}
-    {:rdf/language "en",
-     :rdf/value    "autobus"}]})
+   :sm/directSource "https://schema.org/BusOrCoach"})
 
 (def Business
   "The usage of a vehicle for general business purposes, i.e. excluding usages like as a taxi, rental car, or driving instructions."
@@ -441,6 +434,9 @@
    :dcterms/isPartOf "http://auto.schema.org",
    :dcterms/source
    "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group",
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.12",
+   :fibo-fnd-utl-av/synonym {:rdf/language "en",
+                             :rdf/value    "automobile"},
    :rdf/type :owl/Class,
    :rdfs/comment
    ["Automobiles may be classified by size or weight, or both. Size classification is based on wheelbase. Weight classification is based on curb weight, the weight of an automobile with standard equipment and a full complement of fuel and other fluids, but with no load of persons or property. Before classification, wheelbase should be rounded to the nearest inch and curb weight should be rounded to the nearest 100 pounds."
@@ -472,12 +468,7 @@
     {:rdf/language "en",
      :rdf/value
      "A motor vehicle other than a motorcycle, utility vehicle or low speed vehicle consisting of a transport device typically designed for carrying eight or fewer persons."}],
-   :sm/directSource "https://schema.org/Car",
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.12",
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/synonym"
-   {:rdf/language "en",
-    :rdf/value    "automobile"}})
+   :sm/directSource "https://schema.org/Car"})
 
 (def CarSharing
   "The usage of a vehicle for car sharing networks"
@@ -513,6 +504,7 @@
 (def CargoVan
   "Any van where the area behind the driver or cab is designed for transporting cargo or operated for general commercial use."
   {:db/ident :auto-vc/CargoVan,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.14.2",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -522,9 +514,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "Any van where the area behind the driver or cab is designed for transporting cargo or operated for general commercial use."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.14.2"})
+    "Any van where the area behind the driver or cab is designed for transporting cargo or operated for general commercial use."}})
 
 (def Carport
   "The parking of a vehicle under a protective roof, e.g. in a carport"
@@ -543,6 +533,7 @@
 (def CharterBus
   "A bus providing contract service for a group tour or outing, usually on a round-trip basis."
   {:db/ident :auto-vc/CharterBus,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.10.5",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -552,9 +543,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A bus providing contract service for a group tour or outing, usually on a round-trip basis."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.10.5"})
+    "A bus providing contract service for a group tour or outing, usually on a round-trip basis."}})
 
 (def Check
   "a mandatory or optional technical inspection, e.g. the MOT, a vendor-specific certification of used cars, etc."
@@ -582,12 +571,12 @@
 (def ChoiceOrComponent
   "A Choice or Component is a component (e.g. engine), add-on, feature (color \"ocean blue\"), or service that can be chosen to be part of a final vehicle configuration. Example: Engine 1.6 l TDI, color ocean blue, trailer hitch"
   {:db/ident :auto-vc/ChoiceOrComponent,
-   :owl/disjointWith [:auto-vc/Derivative
+   :owl/disjointWith [:auto-vc/PropertySpecification
+                      :auto-vc/Derivative
                       :auto-vc/SpecItemCollection
                       :auto-vc/CompleteCarModel
                       :auto-vc/ConfigurationInfo
-                      :auto-vc/Trim
-                      :auto-vc/PropertySpecification],
+                      :auto-vc/Trim],
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    ["https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/"
@@ -595,33 +584,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "choice or component"},
    :rdfs/subClassOf
-   [{:owl/minQualifiedCardinality 0,
-     :owl/onClass    :auto-vc/PropertySpecification,
-     :owl/onProperty :auto-vc/featureOverride,
-     :rdf/type       :owl/Restriction}
-    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onDataRange :xsd/string,
-                           :owl/onProperty  :auto-vc/productCode,
-                           :rdf/type        :owl/Restriction}
-                          {:owl/maxQualifiedCardinality 1,
-                           :owl/onDataRange :xsd/string,
-                           :owl/onProperty  :auto-vc/productCode,
-                           :rdf/type        :owl/Restriction}],
-     :rdf/type :owl/Class}
-    :auto-mo/Model
-    {:owl/minQualifiedCardinality 0,
-     :owl/onClass    :auto-vc/ChoiceOrComponent,
-     :owl/onProperty :auto-vc/includes,
-     :rdf/type       :owl/Restriction}
-    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onDataRange :xsd/int,
-                           :owl/onProperty  :auto-vc/displayPos,
-                           :rdf/type        :owl/Restriction}
-                          {:owl/maxQualifiedCardinality 1,
-                           :owl/onDataRange :xsd/int,
-                           :owl/onProperty  :auto-vc/displayPos,
-                           :rdf/type        :owl/Restriction}],
-     :rdf/type :owl/Class}
+   [:auto-mo/Model
     {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
                            :owl/onClass    :auto-vc/RelativePriceSpecification,
                            :owl/onProperty :auto-vc/priceModifier,
@@ -631,6 +594,36 @@
                            :owl/onProperty :auto-vc/priceModifier,
                            :rdf/type       :owl/Restriction}],
      :rdf/type :owl/Class}
+    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                           :owl/onDataRange :xsd/int,
+                           :owl/onProperty  :auto-vc/displayPos,
+                           :rdf/type        :owl/Restriction}
+                          {:owl/maxQualifiedCardinality 1,
+                           :owl/onDataRange :xsd/int,
+                           :owl/onProperty  :auto-vc/displayPos,
+                           :rdf/type        :owl/Restriction}],
+     :rdf/type :owl/Class}
+    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                           :owl/onDataRange :xsd/string,
+                           :owl/onProperty  :auto-vc/productCode,
+                           :rdf/type        :owl/Restriction}
+                          {:owl/maxQualifiedCardinality 1,
+                           :owl/onDataRange :xsd/string,
+                           :owl/onProperty  :auto-vc/productCode,
+                           :rdf/type        :owl/Restriction}],
+     :rdf/type :owl/Class}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onClass    :auto-vc/PropertySpecification,
+     :owl/onProperty :auto-vc/featureOverride,
+     :rdf/type       :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onClass    :auto-vc/ChoiceOrComponent,
+     :owl/onProperty :auto-vc/incompatibleWith,
+     :rdf/type       :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onClass    :auto-vc/ChoiceOrComponent,
+     :owl/onProperty :auto-vc/dependsOn,
+     :rdf/type       :owl/Restriction}
     :auto-mo/GenericallyDependentContinuant
     {:owl/minQualifiedCardinality 0,
      :owl/onClass    :auto-vc/ChoiceOrComponent,
@@ -638,11 +631,7 @@
      :rdf/type       :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
      :owl/onClass    :auto-vc/ChoiceOrComponent,
-     :owl/onProperty :auto-vc/dependsOn,
-     :rdf/type       :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onClass    :auto-vc/ChoiceOrComponent,
-     :owl/onProperty :auto-vc/incompatibleWith,
+     :owl/onProperty :auto-vc/includes,
      :rdf/type       :owl/Restriction}],
    :skos/definition
    {:rdf/language "en",
@@ -665,6 +654,7 @@
 (def CommercialMotorVehicle
   "Any motor vehicle used for the transportation of goods, property or people in interstate (See 2.9.2) or intrastate (2.9.3) commerce."
   {:db/ident :auto-vc/CommercialMotorVehicle,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.7.3",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -674,9 +664,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "Any motor vehicle used for the transportation of goods, property or people in interstate (See 2.9.2) or intrastate (2.9.3) commerce."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.7.3"})
+    "Any motor vehicle used for the transportation of goods, property or people in interstate (See 2.9.2) or intrastate (2.9.3) commerce."}})
 
 (def CompleteCarModel
   "A Complete Car Model is an abstract entity specifying all features and configuration choices needed for actually producing a vehicle. In other words, it is the gr:ProductOrServiceModel (\"datasheet\") for a completely configured vehicle. While a Complete Car Model can be defined indepently of a Base Model, Trim, or Derivative, it is usually based on a Derivative plus choices for all mandatory configurational options (coo:SpecItemCollection) of that Derivative. A Complete Car Model should be linked to its Derivative via gr:isVariantOf, if available. Example: VW Golf S 1.6 TDI 3door Manual in ocean blue with air-conditioning, CD player, trailer hitch, power steering, and power windows Note: A coo:CompleteCarModel is NOT an actual car, but a complete feature description of one or multiple actual cars."
@@ -715,18 +703,18 @@
     "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/"],
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "configuration info"},
-   :rdfs/subClassOf [{:owl/onDataRange :xsd/boolean,
-                      :owl/onProperty  :auto-vc/valid,
-                      :owl/qualifiedCardinality 1,
-                      :rdf/type        :owl/Restriction}
-                     :auto-mo/GenericallyDependentContinuant
-                     {:owl/onProperty     :auto-vc/includesChoices,
-                      :owl/someValuesFrom :auto-vc/ChoiceOrComponent,
-                      :rdf/type           :owl/Restriction}
+   :rdfs/subClassOf [:auto-mo/GenericallyDependentContinuant
                      {:owl/minQualifiedCardinality 0,
                       :owl/onClass    :auto-vc/PropertySpecification,
                       :owl/onProperty :auto-vc/featureOverride,
-                      :rdf/type       :owl/Restriction}],
+                      :rdf/type       :owl/Restriction}
+                     {:owl/onProperty     :auto-vc/includesChoices,
+                      :owl/someValuesFrom :auto-vc/ChoiceOrComponent,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onDataRange :xsd/boolean,
+                      :owl/onProperty  :auto-vc/valid,
+                      :owl/qualifiedCardinality 1,
+                      :rdf/type        :owl/Restriction}],
    :skos/definition
    {:rdf/language "en",
     :rdf/value
@@ -783,15 +771,23 @@
     "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/"],
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "damage or accident"},
-   :rdfs/subClassOf [{:owl/minQualifiedCardinality 0,
+   :rdfs/subClassOf [:auto-mo/Process
+                     {:owl/minQualifiedCardinality 0,
                       :owl/onDataRange :xsd/boolean,
                       :owl/onProperty  :auto-vc/airbagDeployment,
                       :rdf/type        :owl/Restriction}
                      {:owl/minQualifiedCardinality 0,
                       :owl/onDataRange :xsd/boolean,
-                      :owl/onProperty  :auto-vc/repaired,
+                      :owl/onProperty  :auto-vc/originalPartsOnly,
                       :rdf/type        :owl/Restriction}
-                     :auto-mo/Process
+                     {:owl/minQualifiedCardinality 0,
+                      :owl/onDataRange :xsd/boolean,
+                      :owl/onProperty  :auto-vc/notAtFaultAccident,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/minQualifiedCardinality 0,
+                      :owl/onDataRange :xsd/boolean,
+                      :owl/onProperty  :auto-vc/structuralDamage,
+                      :rdf/type        :owl/Restriction}
                      {:owl/minQualifiedCardinality 0,
                       :owl/onClass    {:owl/unionOf
                                        [:auto-vc/BusinessEntity
@@ -801,15 +797,7 @@
                       :rdf/type       :owl/Restriction}
                      {:owl/minQualifiedCardinality 0,
                       :owl/onDataRange :xsd/boolean,
-                      :owl/onProperty  :auto-vc/structuralDamage,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/minQualifiedCardinality 0,
-                      :owl/onDataRange :xsd/boolean,
-                      :owl/onProperty  :auto-vc/notAtFaultAccident,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/minQualifiedCardinality 0,
-                      :owl/onDataRange :xsd/boolean,
-                      :owl/onProperty  :auto-vc/originalPartsOnly,
+                      :owl/onProperty  :auto-vc/repaired,
                       :rdf/type        :owl/Restriction}],
    :skos/definition {:rdf/language "en",
                      :rdf/value
@@ -841,24 +829,14 @@
     "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/"],
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "derivative"},
-   :rdfs/subClassOf [{:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                                            :owl/onDataRange :xsd/string,
-                                            :owl/onProperty  :auto-vc/dhCode,
-                                            :rdf/type        :owl/Restriction}
-                                           {:owl/maxQualifiedCardinality 1,
-                                            :owl/onDataRange :xsd/string,
-                                            :owl/onProperty  :auto-vc/dhCode,
-                                            :rdf/type        :owl/Restriction}],
-                      :rdf/type :owl/Class}
-                     {:owl/minQualifiedCardinality 0,
-                      :owl/onClass    :auto-vc/CompleteCarModel,
-                      :owl/onProperty :auto-vc/hasCompleteCarModel,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/minQualifiedCardinality 0,
+   :rdfs/subClassOf [{:owl/minQualifiedCardinality 0,
                       :owl/onClass    :auto-vc/ConfigurationInfo,
                       :owl/onProperty :auto-vc/compatibility,
                       :rdf/type       :owl/Restriction}
-                     :auto-mo/Model
+                     {:owl/minQualifiedCardinality 0,
+                      :owl/onClass    :auto-vc/SpecItemCollection,
+                      :owl/onProperty :auto-vc/hasSpecItems,
+                      :rdf/type       :owl/Restriction}
                      {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
                                             :owl/onDataRange :xsd/string,
                                             :owl/onProperty  :auto-vc/capCode,
@@ -869,9 +847,19 @@
                                             :rdf/type        :owl/Restriction}],
                       :rdf/type :owl/Class}
                      {:owl/minQualifiedCardinality 0,
-                      :owl/onClass    :auto-vc/SpecItemCollection,
-                      :owl/onProperty :auto-vc/hasSpecItems,
-                      :rdf/type       :owl/Restriction}],
+                      :owl/onClass    :auto-vc/CompleteCarModel,
+                      :owl/onProperty :auto-vc/hasCompleteCarModel,
+                      :rdf/type       :owl/Restriction}
+                     :auto-mo/Model
+                     {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                                            :owl/onDataRange :xsd/string,
+                                            :owl/onProperty  :auto-vc/dhCode,
+                                            :rdf/type        :owl/Restriction}
+                                           {:owl/maxQualifiedCardinality 1,
+                                            :owl/onDataRange :xsd/string,
+                                            :owl/onProperty  :auto-vc/dhCode,
+                                            :rdf/type        :owl/Restriction}],
+                      :rdf/type :owl/Class}],
    :skos/definition
    {:rdf/language "en",
     :rdf/value
@@ -983,12 +971,12 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "engine specification"},
    :rdfs/subClassOf [{:owl/minQualifiedCardinality 0,
-                      :owl/onClass    :auto-mo/QualitativeValue,
-                      :owl/onProperty :auto-vc/engineType,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/minQualifiedCardinality 0,
                       :owl/onClass    :auto-mo/QuantitativeValue,
                       :owl/onProperty :auto-vc/torque,
+                      :rdf/type       :owl/Restriction}
+                     {:owl/minQualifiedCardinality 0,
+                      :owl/onClass    :auto-mo/QualitativeValue,
+                      :owl/onProperty :auto-vc/engineType,
                       :rdf/type       :owl/Restriction}
                      {:owl/minQualifiedCardinality 0,
                       :owl/onClass    :auto-mo/QuantitativeValue,
@@ -1123,31 +1111,13 @@
                 :rdf/value    "financing"},
    :rdfs/subClassOf
    [{:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/credit,
-                           :rdf/type       :owl/Restriction}
-                          {:owl/maxQualifiedCardinality 1,
-                           :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/credit,
-                           :rdf/type       :owl/Restriction}],
-     :rdf/type :owl/Class}
-    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onDataRange :rdf/PlainLiteral,
-                           :owl/onProperty  :auto-vc/shortSubtitle,
+                           :owl/onDataRange :xsd/decimal,
+                           :owl/onProperty  :auto-vc/apr,
                            :rdf/type        :owl/Restriction}
                           {:owl/maxQualifiedCardinality 1,
-                           :owl/onDataRange :rdf/PlainLiteral,
-                           :owl/onProperty  :auto-vc/shortSubtitle,
+                           :owl/onDataRange :xsd/decimal,
+                           :owl/onProperty  :auto-vc/apr,
                            :rdf/type        :owl/Restriction}],
-     :rdf/type :owl/Class}
-    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/totalPayable,
-                           :rdf/type       :owl/Restriction}
-                          {:owl/maxQualifiedCardinality 1,
-                           :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/totalPayable,
-                           :rdf/type       :owl/Restriction}],
      :rdf/type :owl/Class}
     {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
                            :owl/onClass    :auto-vc/PriceSpecification,
@@ -1160,38 +1130,11 @@
      :rdf/type :owl/Class}
     {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
                            :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/customerCashPrice,
+                           :owl/onProperty :auto-vc/otrRetailPrice,
                            :rdf/type       :owl/Restriction}
                           {:owl/maxQualifiedCardinality 1,
                            :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/customerCashPrice,
-                           :rdf/type       :owl/Restriction}],
-     :rdf/type :owl/Class}
-    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onDataRange :xsd/decimal,
-                           :owl/onProperty  :auto-vc/finalPayment,
-                           :rdf/type        :owl/Restriction}
-                          {:owl/maxQualifiedCardinality 1,
-                           :owl/onDataRange :xsd/decimal,
-                           :owl/onProperty  :auto-vc/finalPayment,
-                           :rdf/type        :owl/Restriction}],
-     :rdf/type :owl/Class}
-    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onDataRange :xsd/decimal,
-                           :owl/onProperty  :auto-vc/apr,
-                           :rdf/type        :owl/Restriction}
-                          {:owl/maxQualifiedCardinality 1,
-                           :owl/onDataRange :xsd/decimal,
-                           :owl/onProperty  :auto-vc/apr,
-                           :rdf/type        :owl/Restriction}],
-     :rdf/type :owl/Class}
-    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/firstMonthlyPaymentFee,
-                           :rdf/type       :owl/Restriction}
-                          {:owl/maxQualifiedCardinality 1,
-                           :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/firstMonthlyPaymentFee,
+                           :owl/onProperty :auto-vc/otrRetailPrice,
                            :rdf/type       :owl/Restriction}],
      :rdf/type :owl/Class}
     {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
@@ -1205,11 +1148,101 @@
      :rdf/type :owl/Class}
     {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
                            :owl/onClass    :auto-vc/PriceSpecification,
+                           :owl/onProperty :auto-vc/credit,
+                           :rdf/type       :owl/Restriction}
+                          {:owl/maxQualifiedCardinality 1,
+                           :owl/onClass    :auto-vc/PriceSpecification,
+                           :owl/onProperty :auto-vc/credit,
+                           :rdf/type       :owl/Restriction}],
+     :rdf/type :owl/Class}
+    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                           :owl/onClass    :auto-vc/PriceSpecification,
+                           :owl/onProperty :auto-vc/firstMonthlyPaymentFee,
+                           :rdf/type       :owl/Restriction}
+                          {:owl/maxQualifiedCardinality 1,
+                           :owl/onClass    :auto-vc/PriceSpecification,
+                           :owl/onProperty :auto-vc/firstMonthlyPaymentFee,
+                           :rdf/type       :owl/Restriction}],
+     :rdf/type :owl/Class}
+    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                           :owl/onClass    :auto-vc/PriceSpecification,
+                           :owl/onProperty :auto-vc/customerDeposit,
+                           :rdf/type       :owl/Restriction}
+                          {:owl/maxQualifiedCardinality 1,
+                           :owl/onClass    :auto-vc/PriceSpecification,
+                           :owl/onProperty :auto-vc/customerDeposit,
+                           :rdf/type       :owl/Restriction}],
+     :rdf/type :owl/Class}
+    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                           :owl/onDataRange :rdf/PlainLiteral,
+                           :owl/onProperty  :auto-vc/shortTitle,
+                           :rdf/type        :owl/Restriction}
+                          {:owl/maxQualifiedCardinality 1,
+                           :owl/onDataRange :rdf/PlainLiteral,
+                           :owl/onProperty  :auto-vc/shortTitle,
+                           :rdf/type        :owl/Restriction}],
+     :rdf/type :owl/Class}
+    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                           :owl/onClass    :auto-vc/PriceSpecification,
                            :owl/onProperty :auto-vc/advancedPayment,
                            :rdf/type       :owl/Restriction}
                           {:owl/maxQualifiedCardinality 1,
                            :owl/onClass    :auto-vc/PriceSpecification,
                            :owl/onProperty :auto-vc/advancedPayment,
+                           :rdf/type       :owl/Restriction}],
+     :rdf/type :owl/Class}
+    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                           :owl/onClass    :auto-vc/PriceSpecification,
+                           :owl/onProperty :auto-vc/finalPaymentFee,
+                           :rdf/type       :owl/Restriction}
+                          {:owl/maxQualifiedCardinality 1,
+                           :owl/onClass    :auto-vc/PriceSpecification,
+                           :owl/onProperty :auto-vc/finalPaymentFee,
+                           :rdf/type       :owl/Restriction}],
+     :rdf/type :owl/Class}
+    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                           :owl/onDataRange :xsd/decimal,
+                           :owl/onProperty  :auto-vc/noOfMonthlyPayments,
+                           :rdf/type        :owl/Restriction}
+                          {:owl/maxQualifiedCardinality 1,
+                           :owl/onDataRange :xsd/decimal,
+                           :owl/onProperty  :auto-vc/noOfMonthlyPayments,
+                           :rdf/type        :owl/Restriction}],
+     :rdf/type :owl/Class}
+    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                           :owl/onDataRange :rdf/PlainLiteral,
+                           :owl/onProperty  :auto-vc/subtitle,
+                           :rdf/type        :owl/Restriction}
+                          {:owl/maxQualifiedCardinality 1,
+                           :owl/onDataRange :rdf/PlainLiteral,
+                           :owl/onProperty  :auto-vc/subtitle,
+                           :rdf/type        :owl/Restriction}],
+     :rdf/type :owl/Class}
+    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                           :owl/onClass    :auto-vc/PriceSpecification,
+                           :owl/onProperty :auto-vc/customerCashPrice,
+                           :rdf/type       :owl/Restriction}
+                          {:owl/maxQualifiedCardinality 1,
+                           :owl/onClass    :auto-vc/PriceSpecification,
+                           :owl/onProperty :auto-vc/customerCashPrice,
+                           :rdf/type       :owl/Restriction}],
+     :rdf/type :owl/Class}
+    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                           :owl/onClass    :auto-vc/PriceSpecification,
+                           :owl/onProperty :auto-vc/monthlyPayment,
+                           :rdf/type       :owl/Restriction}
+                          {:owl/maxQualifiedCardinality 1,
+                           :owl/onClass    :auto-vc/PriceSpecification,
+                           :owl/onProperty :auto-vc/monthlyPayment,
+                           :rdf/type       :owl/Restriction}],
+     :rdf/type :owl/Class}
+    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                           :owl/onClass    :auto-vc/PriceSpecification,
+                           :owl/onProperty :auto-vc/excessMileage,
+                           :rdf/type       :owl/Restriction}
+                          {:owl/maxQualifiedCardinality 1,
+                           :owl/onClass    :auto-vc/PriceSpecification,
+                           :owl/onProperty :auto-vc/excessMileage,
                            :rdf/type       :owl/Restriction}],
      :rdf/type :owl/Class}
     {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
@@ -1223,6 +1256,25 @@
      :rdf/type :owl/Class}
     {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
                            :owl/onDataRange :rdf/PlainLiteral,
+                           :owl/onProperty  :auto-vc/shortSubtitle,
+                           :rdf/type        :owl/Restriction}
+                          {:owl/maxQualifiedCardinality 1,
+                           :owl/onDataRange :rdf/PlainLiteral,
+                           :owl/onProperty  :auto-vc/shortSubtitle,
+                           :rdf/type        :owl/Restriction}],
+     :rdf/type :owl/Class}
+    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                           :owl/onDataRange :xsd/decimal,
+                           :owl/onProperty  :auto-vc/finalPayment,
+                           :rdf/type        :owl/Restriction}
+                          {:owl/maxQualifiedCardinality 1,
+                           :owl/onDataRange :xsd/decimal,
+                           :owl/onProperty  :auto-vc/finalPayment,
+                           :rdf/type        :owl/Restriction}],
+     :rdf/type :owl/Class}
+    :auto-vc/PaymentMethod
+    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
+                           :owl/onDataRange :rdf/PlainLiteral,
                            :owl/onProperty  :auto-vc/termsAndConditions,
                            :rdf/type        :owl/Restriction}
                           {:owl/maxQualifiedCardinality 1,
@@ -1231,78 +1283,14 @@
                            :rdf/type        :owl/Restriction}],
      :rdf/type :owl/Class}
     {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onDataRange :rdf/PlainLiteral,
-                           :owl/onProperty  :auto-vc/shortTitle,
-                           :rdf/type        :owl/Restriction}
-                          {:owl/maxQualifiedCardinality 1,
-                           :owl/onDataRange :rdf/PlainLiteral,
-                           :owl/onProperty  :auto-vc/shortTitle,
-                           :rdf/type        :owl/Restriction}],
-     :rdf/type :owl/Class}
-    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
                            :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/monthlyPayment,
+                           :owl/onProperty :auto-vc/totalPayable,
                            :rdf/type       :owl/Restriction}
                           {:owl/maxQualifiedCardinality 1,
                            :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/monthlyPayment,
+                           :owl/onProperty :auto-vc/totalPayable,
                            :rdf/type       :owl/Restriction}],
-     :rdf/type :owl/Class}
-    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onDataRange :xsd/decimal,
-                           :owl/onProperty  :auto-vc/noOfMonthlyPayments,
-                           :rdf/type        :owl/Restriction}
-                          {:owl/maxQualifiedCardinality 1,
-                           :owl/onDataRange :xsd/decimal,
-                           :owl/onProperty  :auto-vc/noOfMonthlyPayments,
-                           :rdf/type        :owl/Restriction}],
-     :rdf/type :owl/Class}
-    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/otrRetailPrice,
-                           :rdf/type       :owl/Restriction}
-                          {:owl/maxQualifiedCardinality 1,
-                           :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/otrRetailPrice,
-                           :rdf/type       :owl/Restriction}],
-     :rdf/type :owl/Class}
-    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onDataRange :rdf/PlainLiteral,
-                           :owl/onProperty  :auto-vc/subtitle,
-                           :rdf/type        :owl/Restriction}
-                          {:owl/maxQualifiedCardinality 1,
-                           :owl/onDataRange :rdf/PlainLiteral,
-                           :owl/onProperty  :auto-vc/subtitle,
-                           :rdf/type        :owl/Restriction}],
-     :rdf/type :owl/Class}
-    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/excessMileage,
-                           :rdf/type       :owl/Restriction}
-                          {:owl/maxQualifiedCardinality 1,
-                           :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/excessMileage,
-                           :rdf/type       :owl/Restriction}],
-     :rdf/type :owl/Class}
-    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/customerDeposit,
-                           :rdf/type       :owl/Restriction}
-                          {:owl/maxQualifiedCardinality 1,
-                           :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/customerDeposit,
-                           :rdf/type       :owl/Restriction}],
-     :rdf/type :owl/Class}
-    {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
-                           :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/finalPaymentFee,
-                           :rdf/type       :owl/Restriction}
-                          {:owl/maxQualifiedCardinality 1,
-                           :owl/onClass    :auto-vc/PriceSpecification,
-                           :owl/onProperty :auto-vc/finalPaymentFee,
-                           :rdf/type       :owl/Restriction}],
-     :rdf/type :owl/Class}
-    :auto-vc/PaymentMethod],
+     :rdf/type :owl/Class}],
    :skos/definition
    {:rdf/language "en",
     :rdf/value    "the specification of a payment option via staged payments"}})
@@ -1323,6 +1311,8 @@
 (def FrontWheelDriveConfiguration
   "Front-wheel drive is a transmission layout where the engine drives the front wheels."
   {:db/ident :auto-vc/FrontWheelDriveConfiguration,
+   :fibo-fnd-utl-av/synonym {:rdf/language "en",
+                             :rdf/value    "FWD"},
    :rdf/type [:auto-vc/DriveWheelConfigurationValue :owl/NamedIndividual],
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -1331,10 +1321,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "Front-wheel drive is a transmission layout where the engine drives the front wheels."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/synonym"
-   {:rdf/language "en",
-    :rdf/value    "FWD"}})
+    "Front-wheel drive is a transmission layout where the engine drives the front wheels."}})
 
 (def FuelQuantity
   "a value indicating an amount of fuel"
@@ -1369,6 +1356,7 @@
 (def FullTrailer
   "A trailer, other than a pole trailer, designed for carrying property and so constructed that no part of its weight rests upon or is carried by the towing road vehicle."
   {:db/ident :auto-vc/FullTrailer,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.18",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -1382,9 +1370,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A trailer, other than a pole trailer, designed for carrying property and so constructed that no part of its weight rests upon or is carried by the towing road vehicle."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.18"})
+    "A trailer, other than a pole trailer, designed for carrying property and so constructed that no part of its weight rests upon or is carried by the towing road vehicle."}})
 
 (def Garage
   "The parking of a vehicle in a closed garage"
@@ -1470,6 +1456,7 @@
 (def HeavyTruck
   "A truck which has a gross vehicle weight rating (GVWR) of more than 26,000 pounds (11,793 kilograms)."
   {:db/ident :auto-vc/HeavyTruck,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.26",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -1479,9 +1466,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A truck which has a gross vehicle weight rating (GVWR) of more than 26,000 pounds (11,793 kilograms)."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.26"})
+    "A truck which has a gross vehicle weight rating (GVWR) of more than 26,000 pounds (11,793 kilograms)."}})
 
 (def HorizontalDischargeTrailer
   "trailer or semitrailer that is equipped with a mechanical drive and a conveyor to deliver asphalt and other road building materials, in a controlled horizontal manner, into a lay down machine or paving equipment for road construction and paving operations"
@@ -1540,6 +1525,7 @@
 (def IntercityBus
   "A bus used for long-distance passenger transportation between cities over fixed routes with regular schedules."
   {:db/ident :auto-vc/IntercityBus,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.10.4",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -1549,9 +1535,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A bus used for long-distance passenger transportation between cities over fixed routes with regular schedules."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.10.4"})
+    "A bus used for long-distance passenger transportation between cities over fixed routes with regular schedules."}})
 
 (def Kayak
   "a small human-powered watercraft that traditionally has a covered deck, and one or more cockpits, each seating one paddler who strokes a double-bladed paddle. In this ontology, kayaks are considered watercrafts of their own kind, not a subtype of boat"
@@ -1573,6 +1557,7 @@
 (def LandVehicle
   "A transport vehicle which is neither an aircraft nor a watercraft."
   {:db/ident :auto-vc/LandVehicle,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.1.7",
    :rdf/type :owl/Class,
    :rdfs/comment "QName: auto-vc-vc:LandVehicle",
    :rdfs/isDefinedBy
@@ -1583,13 +1568,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A transport vehicle which is neither an aircraft nor a watercraft."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.1.7"})
+    "A transport vehicle which is neither an aircraft nor a watercraft."}})
 
 (def LargeBus
   "A bus with seating for sixteen or more persons, including the driver."
   {:db/ident :auto-vc/LargeBus,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.10.2",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -1599,13 +1583,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A bus with seating for sixteen or more persons, including the driver."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.10.2"})
+    "A bus with seating for sixteen or more persons, including the driver."}})
 
 (def LargeMotorcycle
   "Any motorcycle other than a motor-driven cycle."
   {:db/ident :auto-vc/LargeMotorcycle,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.9.2",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -1614,9 +1597,7 @@
    :rdfs/subClassOf :auto-vc/Motorcycle,
    :skos/definition {:rdf/language "en",
                      :rdf/value
-                     "Any motorcycle other than a motor-driven cycle."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.9.2"})
+                     "Any motorcycle other than a motor-driven cycle."}})
 
 (def LargeSpecialVehicle
   "special vehicle which is considered large"
@@ -1650,6 +1631,7 @@
 (def LightTruck
   "A truck which has a gross vehicle weight rating (GVWR) of 10,000 pounds (4,536 kilograms) or less"
   {:db/ident :auto-vc/LightTruck,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.24",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -1659,9 +1641,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A truck which has a gross vehicle weight rating (GVWR) of 10,000 pounds (4,536 kilograms) or less"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.24"})
+    "A truck which has a gross vehicle weight rating (GVWR) of 10,000 pounds (4,536 kilograms) or less"}})
 
 (def LowSpeedVehicle
   "A motor vehicle with four or more wheels whose top speed is greater than 20 miles per hour, but not greater than 25 miles per hour."
@@ -1684,6 +1664,7 @@
 (def MediumTruck
   "A truck which has a gross vehicle weight rating (GVWR) of more than 10,000 pounds and less than or equal to 26,000 pounds (4,536 to 11,793 kilograms)."
   {:db/ident :auto-vc/MediumTruck,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.25",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -1693,9 +1674,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A truck which has a gross vehicle weight rating (GVWR) of more than 10,000 pounds and less than or equal to 26,000 pounds (4,536 to 11,793 kilograms)."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.25"})
+    "A truck which has a gross vehicle weight rating (GVWR) of more than 10,000 pounds and less than or equal to 26,000 pounds (4,536 to 11,793 kilograms)."}})
 
 (def ModificationOrMaintenance
   "an event in which a part of the vehicle is being replaced or removed, or a new part is being added."
@@ -1710,43 +1689,43 @@
     "http://purl.org/uco/ns#"],
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "modification or maintenance"},
-   :rdfs/subClassOf [:auto-mo/Process
-                     {:owl/minQualifiedCardinality 0,
-                      :owl/onDataRange :xsd/boolean,
-                      :owl/onProperty  :auto-vc/originalPartsOnly,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :auto-vc/partReplaced,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minQualifiedCardinality 0,
-                      :owl/onDataRange :xsd/boolean,
-                      :owl/onProperty  :auto-vc/notAtFaultAccident,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/minQualifiedCardinality 0,
-                      :owl/onDataRange :xsd/boolean,
-                      :owl/onProperty  :auto-vc/airbagDeployment,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/minQualifiedCardinality 0,
+   :rdfs/subClassOf [{:owl/minQualifiedCardinality 0,
                       :owl/onClass    {:owl/unionOf
                                        [:auto-vc/BusinessEntity
                                         :auto-vc/BusinessEntityType],
                                        :rdf/type :owl/Class},
                       :owl/onProperty :auto-vc/carriedOutBy,
                       :rdf/type       :owl/Restriction}
+                     {:owl/minQualifiedCardinality 0,
+                      :owl/onDataRange :xsd/boolean,
+                      :owl/onProperty  :auto-vc/notAtFaultAccident,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/minQualifiedCardinality 0,
+                      :owl/onDataRange :xsd/boolean,
+                      :owl/onProperty  :auto-vc/repaired,
+                      :rdf/type        :owl/Restriction}
+                     :auto-mo/Process
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :auto-vc/partReplaced,
+                      :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
                       :owl/onProperty     :auto-vc/partRemoved,
                       :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :auto-vc/partAdded,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minQualifiedCardinality 0,
+                      :owl/onDataRange :xsd/boolean,
+                      :owl/onProperty  :auto-vc/airbagDeployment,
+                      :rdf/type        :owl/Restriction}
                      {:owl/minQualifiedCardinality 0,
                       :owl/onDataRange :xsd/boolean,
                       :owl/onProperty  :auto-vc/structuralDamage,
                       :rdf/type        :owl/Restriction}
                      {:owl/minQualifiedCardinality 0,
                       :owl/onDataRange :xsd/boolean,
-                      :owl/onProperty  :auto-vc/repaired,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :auto-vc/partAdded,
-                      :rdf/type           :owl/Restriction}],
+                      :owl/onProperty  :auto-vc/originalPartsOnly,
+                      :rdf/type        :owl/Restriction}],
    :skos/definition
    {:rdf/language "en",
     :rdf/value
@@ -1769,6 +1748,7 @@
 (def Moped
   "A speed-limited motor-driven cycle which may be propelled by pedaling."
   {:db/ident :auto-vc/Moped,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.9.4",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -1778,13 +1758,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A speed-limited motor-driven cycle which may be propelled by pedaling."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.9.4"})
+    "A speed-limited motor-driven cycle which may be propelled by pedaling."}})
 
 (def Motor-drivenCycle
   "Any motorcycle having an engine with less than 150 cubic centimeters displacement or with 5-brake horsepower or less."
   {:db/ident :auto-vc/Motor-drivenCycle,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.9.1",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -1794,9 +1773,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "Any motorcycle having an engine with less than 150 cubic centimeters displacement or with 5-brake horsepower or less."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.9.1"})
+    "Any motorcycle having an engine with less than 150 cubic centimeters displacement or with 5-brake horsepower or less."}})
 
 (def MotorBoat
   "a boat which is powered by an engine"
@@ -1816,6 +1793,7 @@
 (def MotorVehicleIn-transport
   "motor vehicle on a roadway or in motion within or outside the trafficway"
   {:db/ident :auto-vc/MotorVehicleIn-transport,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.34",
    :rdf/type :owl/Class,
    :rdfs/comment [{:rdf/language "en",
                    :rdf/value    "See In-transport"}
@@ -1829,9 +1807,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "motor vehicle on a roadway or in motion within or outside the trafficway"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.34"})
+    "motor vehicle on a roadway or in motion within or outside the trafficway"}})
 
 (def Motorcycle
   "a single-track, two-wheeled motor vehicle"
@@ -1839,6 +1815,9 @@
    :dcterms/isPartOf "http://auto.schema.org",
    :dcterms/source
    "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group",
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.9",
+   :fibo-fnd-utl-av/synonym {:rdf/language "en",
+                             :rdf/value    "motorbike"},
    :rdf/type :owl/Class,
    :rdfs/comment "QName: auto-vc-vc:Motorcycle",
    :rdfs/isDefinedBy
@@ -1860,12 +1839,7 @@
     {:rdf/language "pl",
      :rdf/value
      "pojazd samochodowy zaopatrzony w silnik spalinowy, dwukołowy lub z bocznym wózkiem – wielośladowy"}],
-   :sm/directSource "https://schema.org/Motorcycle",
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.9",
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/synonym"
-   {:rdf/language "en",
-    :rdf/value    "motorbike"}})
+   :sm/directSource "https://schema.org/Motorcycle"})
 
 (def MotorizedBicycle
   "a bicycle with an attached motor used to power the vehicle, or to assist with pedaling"
@@ -1891,6 +1865,7 @@
 (def MotorizedRoadVehicle
   "a wheeled land vehicle whose main propulsion is provided by an engine or motor"
   {:db/ident :auto-vc/MotorizedRoadVehicle,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.7",
    :rdf/type :owl/Class,
    :rdfs/comment {:rdf/language "en",
                   :rdf/value    "See 2.2.7.1, 2.2.7.2, 2.2.9 - 2.2.26"},
@@ -1908,15 +1883,15 @@
                       :rdf/type        :owl/Restriction}
                      {:owl/minQualifiedCardinality 0,
                       :owl/onDataRange :xsd/string,
-                      :owl/onProperty  :auto-vc/insuranceGroup,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/minQualifiedCardinality 0,
-                      :owl/onDataRange :xsd/string,
                       :owl/onProperty  :auto-vc/acrissCode,
                       :rdf/type        :owl/Restriction}
                      {:owl/minQualifiedCardinality 0,
                       :owl/onDataRange :xsd/string,
                       :owl/onProperty  :auto-vc/insuranceGroup50,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/minQualifiedCardinality 0,
+                      :owl/onDataRange :xsd/string,
+                      :owl/onProperty  :auto-vc/insuranceGroup,
                       :rdf/type        :owl/Restriction}],
    :skos/definition
    [{:rdf/language "en",
@@ -1924,9 +1899,7 @@
      "a wheeled land vehicle whose main propulsion is provided by an engine or motor"}
     {:rdf/language "en",
      :rdf/value
-     "Any motorized (mechanically or electrically powered) road vehicle not operated on rails."}],
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.7"})
+     "Any motorized (mechanically or electrically powered) road vehicle not operated on rails."}]})
 
 (def MyCar
   "vehicle that legally belongs to the subject"
@@ -1962,11 +1935,11 @@
      :rdf/type :owl/Class}
     {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
                            :owl/onDataRange :rdf/PlainLiteral,
-                           :owl/onProperty  :auto-vc/subtitle,
+                           :owl/onProperty  :auto-vc/termsAndConditions,
                            :rdf/type        :owl/Restriction}
                           {:owl/maxQualifiedCardinality 1,
                            :owl/onDataRange :rdf/PlainLiteral,
-                           :owl/onProperty  :auto-vc/subtitle,
+                           :owl/onProperty  :auto-vc/termsAndConditions,
                            :rdf/type        :owl/Restriction}],
      :rdf/type :owl/Class}
     :auto-mo/GenericallyDependentContinuant
@@ -1981,20 +1954,20 @@
      :rdf/type :owl/Class}
     {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
                            :owl/onDataRange :rdf/PlainLiteral,
-                           :owl/onProperty  :auto-vc/termsAndConditions,
+                           :owl/onProperty  :auto-vc/shortTitle,
                            :rdf/type        :owl/Restriction}
                           {:owl/maxQualifiedCardinality 1,
                            :owl/onDataRange :rdf/PlainLiteral,
-                           :owl/onProperty  :auto-vc/termsAndConditions,
+                           :owl/onProperty  :auto-vc/shortTitle,
                            :rdf/type        :owl/Restriction}],
      :rdf/type :owl/Class}
     {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
                            :owl/onDataRange :rdf/PlainLiteral,
-                           :owl/onProperty  :auto-vc/shortTitle,
+                           :owl/onProperty  :auto-vc/subtitle,
                            :rdf/type        :owl/Restriction}
                           {:owl/maxQualifiedCardinality 1,
                            :owl/onDataRange :rdf/PlainLiteral,
-                           :owl/onProperty  :auto-vc/shortTitle,
+                           :owl/onProperty  :auto-vc/subtitle,
                            :rdf/type        :owl/Restriction}],
      :rdf/type :owl/Class}],
    :skos/definition {:rdf/language "en",
@@ -2004,6 +1977,7 @@
 (def OtherBus
   "Any bus used for transportation purposes other than school bus, transit bus, intercity bus or charter bus."
   {:db/ident :auto-vc/OtherBus,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.10.6",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -2013,9 +1987,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "Any bus used for transportation purposes other than school bus, transit bus, intercity bus or charter bus."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.10.6"})
+    "Any bus used for transportation purposes other than school bus, transit bus, intercity bus or charter bus."}})
 
 (def OwnershipInfo
   "a structured value representing information about the period of ownership of a vehicle by a person or organisation"
@@ -2028,17 +2000,13 @@
                 :rdf/value    "ownership info"},
    :rdfs/subClassOf
    [{:owl/minQualifiedCardinality 0,
-     :owl/onDataRange :xsd/integer,
-     :owl/onProperty  :auto-vc/numberOfDrivers,
+     :owl/onDataRange :xsd/dateTime,
+     :owl/onProperty  :auto-vc/to,
      :rdf/type        :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
-     :owl/onClass    :auto-mo/QualitativeValue,
-     :owl/onProperty :auto-vc/mileageInitial,
-     :rdf/type       :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onClass    {:owl/unionOf [:auto-mo/Location :auto-mo/PostalAddress],
+     :owl/onClass    {:owl/unionOf [:auto-mo/Organization :auto-mo/Person],
                       :rdf/type    :owl/Class},
-     :owl/onProperty :auto-vc/mainLocation,
+     :owl/onProperty :auto-vc/owner,
      :rdf/type       :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
      :owl/onClass    {:owl/unionOf [:auto-mo/Organization :auto-mo/Person],
@@ -2046,13 +2014,28 @@
      :owl/onProperty :auto-vc/currentOwner,
      :rdf/type       :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
-     :owl/onClass    {:owl/unionOf [:auto-mo/Organization :auto-mo/Person],
-                      :rdf/type    :owl/Class},
-     :owl/onProperty :auto-vc/owner,
+     :owl/onDataRange :xsd/integer,
+     :owl/onProperty  :auto-vc/numberOfDrivers,
+     :rdf/type        :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onClass    :auto-mo/QuantitativeValue,
+     :owl/onProperty :auto-vc/mileageEnd,
      :rdf/type       :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
-     :owl/onClass    :auto-vc/Species,
-     :owl/onProperty :auto-vc/pets,
+     :owl/onClass    :auto-vc/OwnershipInfo,
+     :owl/onProperty :auto-vc/contains,
+     :rdf/type       :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onDataRange :xsd/boolean,
+     :owl/onProperty  :auto-vc/smoking,
+     :rdf/type        :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onDataRange :xsd/dateTime,
+     :owl/onProperty  :auto-vc/from,
+     :rdf/type        :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onClass    :auto-mo/QualitativeValue,
+     :owl/onProperty :auto-vc/mileageInitial,
      :rdf/type       :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
      :owl/onDataRange :xsd/string,
@@ -2062,30 +2045,19 @@
      :owl/onClass    :auto-vc/ParkingType,
      :owl/onProperty :auto-vc/parking,
      :rdf/type       :owl/Restriction}
+    :auto-mo/Quality
+    {:owl/minQualifiedCardinality 0,
+     :owl/onClass    {:owl/unionOf [:auto-mo/Location :auto-mo/PostalAddress],
+                      :rdf/type    :owl/Class},
+     :owl/onProperty :auto-vc/mainLocation,
+     :rdf/type       :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onClass    :auto-vc/Species,
+     :owl/onProperty :auto-vc/pets,
+     :rdf/type       :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
      :owl/onClass    :auto-vc/CarUsageType,
      :owl/onProperty :auto-vc/usage,
-     :rdf/type       :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onDataRange :xsd/dateTime,
-     :owl/onProperty  :auto-vc/from,
-     :rdf/type        :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onDataRange :xsd/boolean,
-     :owl/onProperty  :auto-vc/smoking,
-     :rdf/type        :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onClass    :auto-mo/QuantitativeValue,
-     :owl/onProperty :auto-vc/mileageEnd,
-     :rdf/type       :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onDataRange :xsd/dateTime,
-     :owl/onProperty  :auto-vc/to,
-     :rdf/type        :owl/Restriction}
-    :auto-mo/Quality
-    {:owl/minQualifiedCardinality 0,
-     :owl/onClass    :auto-vc/OwnershipInfo,
-     :owl/onProperty :auto-vc/contains,
      :rdf/type       :owl/Restriction}],
    :skos/definition
    {:rdf/language "en",
@@ -2110,6 +2082,7 @@
 (def ParkedMotorVehicle
   "A motor vehicle not in- transport, other than a working motor vehicle, that is not in motion and not located on the roadway."
   {:db/ident :auto-vc/ParkedMotorVehicle,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.34.2",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -2119,9 +2092,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A motor vehicle not in- transport, other than a working motor vehicle, that is not in motion and not located on the roadway."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.34.2"})
+    "A motor vehicle not in- transport, other than a working motor vehicle, that is not in motion and not located on the roadway."}})
 
 (def Parking
   "The class of parking-related choices or components (a \"MonoSelectGroup\" in automotive terminology), VW ID: 7"
@@ -2178,6 +2149,7 @@
 (def PassengerVan
   "Any van where the area behind the driver or cab is designated for carrying passengers."
   {:db/ident :auto-vc/PassengerVan,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.14.1",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -2187,9 +2159,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "Any van where the area behind the driver or cab is designated for carrying passengers."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.14.1"})
+    "Any van where the area behind the driver or cab is designated for carrying passengers."}})
 
 (def PaymentMethod
   "value indicating the payment method of a payment"
@@ -2321,6 +2291,7 @@
 (def RailwayTrain
   "Any motorized railway vehicle."
   {:db/ident :auto-vc/RailwayTrain,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.5",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -2328,13 +2299,12 @@
                 :rdf/value    "train"},
    :rdfs/subClassOf :auto-vc/RailwayVehicle,
    :skos/definition {:rdf/language "en",
-                     :rdf/value    "Any motorized railway vehicle."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.5"})
+                     :rdf/value    "Any motorized railway vehicle."}})
 
 (def RailwayVehicle
   "Any land vehicle that is (1) designed primarily for, or in use for, moving persons or property from one place to another on rails and (2) not in use on a land way other than a railway."
   {:db/ident :auto-vc/RailwayVehicle,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.4",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -2344,13 +2314,13 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "Any land vehicle that is (1) designed primarily for, or in use for, moving persons or property from one place to another on rails and (2) not in use on a land way other than a railway."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.4"})
+    "Any land vehicle that is (1) designed primarily for, or in use for, moving persons or property from one place to another on rails and (2) not in use on a land way other than a railway."}})
 
 (def RearWheelDriveConfiguration
   "Rear-wheel drive is a transmission layout where the engine drives the rear wheels."
   {:db/ident :auto-vc/RearWheelDriveConfiguration,
+   :fibo-fnd-utl-av/synonym {:rdf/language "en",
+                             :rdf/value    "RWD"},
    :rdf/type [:auto-vc/DriveWheelConfigurationValue :owl/NamedIndividual],
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -2359,10 +2329,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "Rear-wheel drive is a transmission layout where the engine drives the rear wheels."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/synonym"
-   {:rdf/language "en",
-    :rdf/value    "RWD"}})
+    "Rear-wheel drive is a transmission layout where the engine drives the rear wheels."}})
 
 (def RegularVehicle
   "normal vehicle used for daily commuting"
@@ -2408,6 +2375,8 @@
 (def Rickshaw
   "a two-wheeled cart which seats one or two persons and is being drawn by a runner"
   {:db/ident :auto-vc/Rickshaw,
+   :fibo-fnd-utl-av/synonym {:rdf/language "en",
+                             :rdf/value    "ricksha"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    ["https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/"
@@ -2420,10 +2389,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "a two-wheeled cart which seats one or two persons and is being drawn by a runner"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/synonym"
-   {:rdf/language "en",
-    :rdf/value    "ricksha"}})
+    "a two-wheeled cart which seats one or two persons and is being drawn by a runner"}})
 
 (def RightHandDriving
   "The steering position is on the right side of the vehicle (viewed from the main direction of driving). For cars this means that you drive on the left side of the road."
@@ -2471,6 +2437,8 @@
 (def SailingBoat
   "a boat propelled partly or entirely by sails"
   {:db/ident :auto-vc/SailingBoat,
+   :fibo-fnd-utl-av/synonym {:rdf/language "en",
+                             :rdf/value    "sailboat"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    ["https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/"
@@ -2481,14 +2449,13 @@
                   "http://dbpedia.org/resource/Sailboat"],
    :rdfs/subClassOf :auto-vc/Boat,
    :skos/definition {:rdf/language "en",
-                     :rdf/value "a boat propelled partly or entirely by sails"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/synonym"
-   {:rdf/language "en",
-    :rdf/value    "sailboat"}})
+                     :rdf/value
+                     "a boat propelled partly or entirely by sails"}})
 
 (def SchoolBus
   "A motor vehicle used for the transportation of any school pupil at or below the 12th-grade level to or from a public or private school or school-related activity."
   {:db/ident :auto-vc/SchoolBus,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.8.1",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -2502,9 +2469,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A motor vehicle used for the transportation of any school pupil at or below the 12th-grade level to or from a public or private school or school-related activity."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.8.1"})
+    "A motor vehicle used for the transportation of any school pupil at or below the 12th-grade level to or from a public or private school or school-related activity."}})
 
 (def Seats
   "The class of seat-related choices or components (a \"MonoSelectGroup\" in automotive terminology), VW ID: 9"
@@ -2524,6 +2489,7 @@
 (def Semitrailer
   "A trailer, other than a pole trailer, designed for carrying property and so constructed that part of its weight rests upon or is carried by the towing road vehicle."
   {:db/ident :auto-vc/Semitrailer,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.17",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -2533,9 +2499,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A trailer, other than a pole trailer, designed for carrying property and so constructed that part of its weight rests upon or is carried by the towing road vehicle."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.17"})
+    "A trailer, other than a pole trailer, designed for carrying property and so constructed that part of its weight rests upon or is carried by the towing road vehicle."}})
 
 (def Ship
   "a large watercraft that floats on water"
@@ -2555,6 +2519,7 @@
 (def SingleUnitTruck
   "A truck consisting primarily of a single motorized transport device designed for carrying property."
   {:db/ident :auto-vc/SingleUnitTruck,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.19",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -2568,9 +2533,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A truck consisting primarily of a single motorized transport device designed for carrying property."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.19"})
+    "A truck consisting primarily of a single motorized transport device designed for carrying property."}})
 
 (def SmallBus
   "A bus with seating for nine to fifteen persons, including the driver."
@@ -2624,7 +2587,6 @@
                      {:owl/onProperty     :auto-vc/availableChoice,
                       :owl/someValuesFrom :auto-vc/ChoiceOrComponent,
                       :rdf/type           :owl/Restriction}
-                     :auto-mo/GenericallyDependentContinuant
                      {:owl/intersectionOf [{:owl/minQualifiedCardinality 0,
                                             :owl/onDataRange :xsd/int,
                                             :owl/onProperty  :auto-vc/max,
@@ -2634,6 +2596,7 @@
                                             :owl/onProperty  :auto-vc/max,
                                             :rdf/type        :owl/Restriction}],
                       :rdf/type :owl/Class}
+                     :auto-mo/GenericallyDependentContinuant
                      {:owl/intersectionOf
                       [{:owl/minQualifiedCardinality 0,
                         :owl/onClass    :auto-vc/ChoiceOrComponent,
@@ -2700,6 +2663,7 @@
 (def Speed-limitedMotor-drivenCycle
   "Any motor- driven cycle which : 1.) will not attain a speed of more than 30 miles per hour (48 kilometers per hour) in one mile (1.609 kilometers) from a standing start, 2.) has an engine with not more than 50 cubic centimeters displacement or with 2-brake horsepower or less, and 3.) has a power drive system which does not require its operator to shift gears."
   {:db/ident :auto-vc/Speed-limitedMotor-drivenCycle,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.9.3",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -2709,9 +2673,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "Any motor- driven cycle which : 1.) will not attain a speed of more than 30 miles per hour (48 kilometers per hour) in one mile (1.609 kilometers) from a standing start, 2.) has an engine with not more than 50 cubic centimeters displacement or with 2-brake horsepower or less, and 3.) has a power drive system which does not require its operator to shift gears."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.9.3"})
+    "Any motor- driven cycle which : 1.) will not attain a speed of more than 30 miles per hour (48 kilometers per hour) in one mile (1.609 kilometers) from a standing start, 2.) has an engine with not more than 50 cubic centimeters displacement or with 2-brake horsepower or less, and 3.) has a power drive system which does not require its operator to shift gears."}})
 
 (def SpeedInterval
   "a value indicating a speed interval, mostly for explaining acceleration data"
@@ -2967,6 +2929,7 @@
 (def Three-wheeledMotorcycle
   "Any motor vehicle having a seat or saddle for the use of its operator, and having three wheels in contact with the ground."
   {:db/ident :auto-vc/Three-wheeledMotorcycle,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.9.6",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -2976,9 +2939,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "Any motor vehicle having a seat or saddle for the use of its operator, and having three wheels in contact with the ground."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.9.6"})
+    "Any motor vehicle having a seat or saddle for the use of its operator, and having three wheels in contact with the ground."}})
 
 (def TractorPoleTrailer
   "combination vehicle that carries logs lengthwise so that they form the body of the vehicle"
@@ -3012,6 +2973,7 @@
 (def Trailer
   "A road vehicle designed to be drawn by another road vehicle."
   {:db/ident :auto-vc/Trailer,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.15",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -3020,13 +2982,12 @@
    :rdfs/subClassOf :auto-vc/RoadVehicle,
    :skos/definition
    {:rdf/language "en",
-    :rdf/value "A road vehicle designed to be drawn by another road vehicle."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.15"})
+    :rdf/value "A road vehicle designed to be drawn by another road vehicle."}})
 
 (def TransitBus
   "A bus used for passenger transportation over fixed, scheduled routes within primarily urban geographical areas."
   {:db/ident :auto-vc/TransitBus,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.10.3",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -3036,9 +2997,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A bus used for passenger transportation over fixed, scheduled routes within primarily urban geographical areas."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.10.3"})
+    "A bus used for passenger transportation over fixed, scheduled routes within primarily urban geographical areas."}})
 
 (def TransmissionTypeValue
   "a value indicating a type of transmission"
@@ -3097,6 +3056,7 @@
 (def TransportVehicle
   "Consists of one or more devices or animals and their load."
   {:db/ident :auto-vc/TransportVehicle,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.1.4",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -3109,9 +3069,7 @@
    :rdfs/subClassOf :auto-vc/SpecialVehicle,
    :skos/definition
    {:rdf/language "en",
-    :rdf/value    "Consists of one or more devices or animals and their load."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.1.4"})
+    :rdf/value "Consists of one or more devices or animals and their load."}})
 
 (def Trim
   "A Trim is an abstract entity specifying (1) the basic features plus (2) a set of configuration choices (mostly non-functional) of a group of vehicles. A Trim should be linked to its Base Model via gr:isVariantOf, if available. Examples: VW Golf S, VW Polo Match, VW Passat SE"
@@ -3135,6 +3093,9 @@
 (def Truck
   "a motor vehicle designed to transport cargo"
   {:db/ident :auto-vc/Truck,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.13",
+   :fibo-fnd-utl-av/synonym {:rdf/language "en",
+                             :rdf/value    "lorry"},
    :rdf/type :owl/Class,
    :rdfs/comment
    [{:rdf/language "pl",
@@ -3155,16 +3116,12 @@
    [{:rdf/language "en",
      :rdf/value    "a motor vehicle designed to transport cargo"}
     {:rdf/language "en",
-     :rdf/value "A motor vehicle designed primarily for carrying property."}],
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.13",
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/synonym"
-   {:rdf/language "en",
-    :rdf/value    "lorry"}})
+     :rdf/value "A motor vehicle designed primarily for carrying property."}]})
 
 (def TruckCombination
   "A truck consisting primarily of a transport device which is a single- unit truck or truck tractor together with one or more attached trailers."
   {:db/ident :auto-vc/TruckCombination,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.21",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -3174,13 +3131,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A truck consisting primarily of a transport device which is a single- unit truck or truck tractor together with one or more attached trailers."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.21"})
+    "A truck consisting primarily of a transport device which is a single- unit truck or truck tractor together with one or more attached trailers."}})
 
 (def TruckTractor
   "A motor vehicle consisting of a single motorized transport device designed primarily for drawing trailers."
   {:db/ident :auto-vc/TruckTractor,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.20",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -3190,9 +3146,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A motor vehicle consisting of a single motorized transport device designed primarily for drawing trailers."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.20"})
+    "A motor vehicle consisting of a single motorized transport device designed primarily for drawing trailers."}})
 
 (def TwoStrokeMixture
   "A pre-mixed fuel-oil mixture"
@@ -3255,6 +3209,7 @@
 (def Van
   "A gross vehicle weight rating (GVWR) of 10,000 pounds or less and is basically a “ box on wheels ” that is identifiable by its enclosed passenger and/or cargo area, step-up floor, and relatively short (or nonexistent) hood."
   {:db/ident :auto-vc/Van,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.14",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -3274,13 +3229,12 @@
      "A gross vehicle weight rating (GVWR) of 10,000 pounds or less and is basically a “ box on wheels ” that is identifiable by its enclosed passenger and/or cargo area, step-up floor, and relatively short (or nonexistent) hood."}
     {:rdf/language "en",
      :rdf/value
-     "a kind of vehicle used for transporting  goods or groups of people. It is usually a box-shaped vehicle on four wheels, about the same width and length as a large automobile, but taller and usually higher off the ground, also referred to as a light commercial vehicle or LCV."}],
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.14"})
+     "a kind of vehicle used for transporting  goods or groups of people. It is usually a box-shaped vehicle on four wheels, about the same width and length as a large automobile, but taller and usually higher off the ground, also referred to as a light commercial vehicle or LCV."}]})
 
 (def Van-basedBus
   "Any passenger van designed for carrying nine or more persons, including the driver."
   {:db/ident :auto-vc/Van-basedBus,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.14.4",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -3290,13 +3244,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "Any passenger van designed for carrying nine or more persons, including the driver."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.14.4"})
+    "Any passenger van designed for carrying nine or more persons, including the driver."}})
 
 (def Van-basedMotorhome
   "Any van where a frame-mounted recreational unit is added behind the driver or cab area."
   {:db/ident :auto-vc/Van-basedMotorhome,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.14.3",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/",
@@ -3306,9 +3259,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "Any van where a frame-mounted recreational unit is added behind the driver or cab area."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.14.3"})
+    "Any van where a frame-mounted recreational unit is added behind the driver or cab area."}})
 
 (def Vehicle
   "a device that is designed or used to transport people or cargo over land, water, air, or through space"
@@ -3328,51 +3279,42 @@
                   "http://dbpedia.org/resource/Vehicle"],
    :rdfs/subClassOf
    [{:owl/minQualifiedCardinality 0,
-     :owl/onDataRange :xsd/dateTime,
-     :owl/onProperty  :auto-vc/vehicleModelDate,
-     :rdf/type        :owl/Restriction}
-    :auto-mo/Object
-    {:owl/minQualifiedCardinality 0,
      :owl/onClass    :auto-vc/Species,
      :owl/onProperty :auto-vc/pets,
      :rdf/type       :owl/Restriction}
+    :auto-mo/Object
     {:owl/minQualifiedCardinality 0,
-     :owl/onClass    :auto-vc/CarUsageType,
-     :owl/onProperty :auto-vc/usage,
+     :owl/onClass    :auto-vc/PriceSpecification,
+     :owl/onProperty :auto-vc/listPrice,
      :rdf/type       :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onDataRange :rdf/PlainLiteral,
+     :owl/onProperty  :auto-vc/shortSubtitle,
+     :rdf/type        :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onDataRange :xsd/boolean,
+     :owl/onProperty  :auto-vc/repaired,
+     :rdf/type        :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
      :owl/onClass    :auto-vc/PriceSpecification,
      :owl/onProperty :auto-vc/valuation,
      :rdf/type       :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
      :owl/onDataRange :xsd/boolean,
-     :owl/onProperty  :auto-vc/smoking,
+     :owl/onProperty  :auto-vc/structuralDamage,
      :rdf/type        :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
-     :owl/onDataRange :rdf/PlainLiteral,
-     :owl/onProperty  :auto-vc/termsAndConditions,
+     :owl/onClass    :auto-vc/ParkingType,
+     :owl/onProperty :auto-vc/parking,
+     :rdf/type       :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onDataRange :xsd/dateTime,
+     :owl/onProperty  :auto-vc/purchaseDate,
      :rdf/type        :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onClass    :auto-mo/QuantitativeValueFloat,
-     :owl/onProperty :auto-vc/accelerationTime,
-     :rdf/type       :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onClass    :auto-vc/PriceSpecification,
-     :owl/onProperty :auto-vc/listPrice,
-     :rdf/type       :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
      :owl/onDataRange :xsd/boolean,
-     :owl/onProperty  :auto-vc/indicationOfOdometerRollback,
+     :owl/onProperty  :auto-vc/smoking,
      :rdf/type        :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onDataRange :rdf/PlainLiteral,
-     :owl/onProperty  :auto-vc/shortTitle,
-     :rdf/type        :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onClass    {:owl/unionOf [:auto-mo/Organization :auto-mo/Person],
-                      :rdf/type    :owl/Class},
-     :owl/onProperty :auto-vc/owner,
-     :rdf/type       :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
      :owl/onClass    {:owl/unionOf [:auto-mo/Location :auto-mo/PostalAddress],
                       :rdf/type    :owl/Class},
@@ -3382,68 +3324,77 @@
      :owl/someValuesFrom :xsd/string,
      :rdf/type           :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
-     :owl/onClass    :auto-vc/OwnershipInfo,
-     :owl/onProperty :auto-vc/hasOwnershipInfo,
+     :owl/onDataRange :xsd/boolean,
+     :owl/onProperty  :auto-vc/indicationOfOdometerRollback,
+     :rdf/type        :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onClass    {:owl/unionOf [:auto-mo/Organization :auto-mo/Person],
+                      :rdf/type    :owl/Class},
+     :owl/onProperty :auto-vc/owner,
      :rdf/type       :owl/Restriction}
+    {:owl/minCardinality 0,
+     :owl/onProperty     :auto-vc/condition,
+     :rdf/type           :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
      :owl/onClass    :auto-mo/QuantitativeValue,
      :owl/onProperty :auto-vc/cargoVolume,
      :rdf/type       :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
-     :owl/onDataRange :xsd/dateTime,
-     :owl/onProperty  :auto-vc/purchaseDate,
+     :owl/onClass    {:owl/unionOf [:auto-mo/Organization :auto-mo/Person],
+                      :rdf/type    :owl/Class},
+     :owl/onProperty :auto-vc/currentOwner,
+     :rdf/type       :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onDataRange :xsd/string,
+     :owl/onProperty  :auto-vc/knownVehicleDamages,
+     :rdf/type        :owl/Restriction}
+    {:owl/minCardinality 0,
+     :owl/onProperty     :auto-vc/knownVehicleDamages,
+     :rdf/type           :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onDataRange :rdf/PlainLiteral,
+     :owl/onProperty  :auto-vc/termsAndConditions,
+     :rdf/type        :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onDataRange :xsd/boolean,
+     :owl/onProperty  :auto-vc/rentalUsage,
+     :rdf/type        :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onClass    :auto-mo/QuantitativeValueFloat,
+     :owl/onProperty :auto-vc/accelerationTime,
+     :rdf/type       :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onDataRange :xsd/integer,
+     :owl/onProperty  :auto-vc/numberOfOwners,
+     :rdf/type        :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onDataRange :rdf/PlainLiteral,
+     :owl/onProperty  :auto-vc/subtitle,
      :rdf/type        :owl/Restriction}
     {:owl/onDataRange :xsd/boolean,
      :owl/onProperty  :auto-vc/airbagDeployment,
      :owl/qualifiedCardinality 1,
      :rdf/type        :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
-     :owl/onDataRange :xsd/string,
-     :owl/onProperty  :auto-vc/knownVehicleDamages,
-     :rdf/type        :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
      :owl/onDataRange :rdf/PlainLiteral,
-     :owl/onProperty  :auto-vc/shortSubtitle,
+     :owl/onProperty  :auto-vc/shortTitle,
      :rdf/type        :owl/Restriction}
-    {:owl/minCardinality 0,
-     :owl/onProperty     :auto-vc/knownVehicleDamages,
-     :rdf/type           :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
-     :owl/onClass    :auto-vc/ParkingType,
-     :owl/onProperty :auto-vc/parking,
+     :owl/onDataRange :xsd/dateTime,
+     :owl/onProperty  :auto-vc/vehicleModelDate,
+     :rdf/type        :owl/Restriction}
+    {:owl/minQualifiedCardinality 0,
+     :owl/onClass    :auto-vc/OwnershipInfo,
+     :owl/onProperty :auto-vc/hasOwnershipInfo,
      :rdf/type       :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
-     :owl/onDataRange :xsd/boolean,
-     :owl/onProperty  :auto-vc/structuralDamage,
-     :rdf/type        :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onDataRange :rdf/PlainLiteral,
-     :owl/onProperty  :auto-vc/subtitle,
-     :rdf/type        :owl/Restriction}
+     :owl/onClass    :auto-vc/CarUsageType,
+     :owl/onProperty :auto-vc/usage,
+     :rdf/type       :owl/Restriction}
     {:owl/minQualifiedCardinality 0,
      :owl/onDataRange :xsd/integer,
      :owl/onProperty  :auto-vc/numberOfDrivers,
-     :rdf/type        :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onDataRange :xsd/boolean,
-     :owl/onProperty  :auto-vc/rentalUsage,
-     :rdf/type        :owl/Restriction}
-    {:owl/minCardinality 0,
-     :owl/onProperty     :auto-vc/condition,
-     :rdf/type           :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onDataRange :xsd/boolean,
-     :owl/onProperty  :auto-vc/repaired,
-     :rdf/type        :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onDataRange :xsd/integer,
-     :owl/onProperty  :auto-vc/numberOfOwners,
-     :rdf/type        :owl/Restriction}
-    {:owl/minQualifiedCardinality 0,
-     :owl/onClass    {:owl/unionOf [:auto-mo/Organization :auto-mo/Person],
-                      :rdf/type    :owl/Class},
-     :owl/onProperty :auto-vc/currentOwner,
-     :rdf/type       :owl/Restriction}],
+     :rdf/type        :owl/Restriction}],
    :skos/definition
    {:rdf/language "en",
     :rdf/value
@@ -3465,6 +3416,7 @@
 (def Watercraft
   "a vehicle, vessel or craft designed to move across or through water"
   {:db/ident :auto-vc/Watercraft,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.1.6",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    ["https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/"
@@ -3480,9 +3432,7 @@
      "a vehicle, vessel or craft designed to move across or through water"}
     {:rdf/language "en",
      :rdf/value
-     "A transport vehicle designed primarily for, or in use for, moving persons or property on or through, and supported by, water from one place to another."}],
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.1.6"})
+     "A transport vehicle designed primarily for, or in use for, moving persons or property on or through, and supported by, water from one place to another."}]})
 
 (def Wheels
   "The class of wheels-related choices or components (a \"MonoSelectGroup\" in automotive terminology), VW ID: 2"
@@ -3502,6 +3452,7 @@
 (def WorkingMotorVehicle
   "A motor vehicle in the act of performing construction, maintenance or utility work related to the trafficway."
   {:db/ident :auto-vc/WorkingMotorVehicle,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.7.2.",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -3515,9 +3466,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A motor vehicle in the act of performing construction, maintenance or utility work related to the trafficway."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.7.2."})
+    "A motor vehicle in the act of performing construction, maintenance or utility work related to the trafficway."}})
 
 (def accelerationTime
   "The time needed to accelerate the vehicle from a given start velocity to a given target velocity.<br/><br/> Typical unit code(s): SEC for seconds<br/><br/> <ul> <li>Note: There are unfortunately no standard unit codes for seconds/0..100 km/h or seconds/0..60 mph. Simply use \"SEC\" for seconds and indicate the velocities in the <a class=\"localLink\" href=\"http://schema.org/name\">name</a> of the <a class=\"localLink\" href=\"http://schema.org/QuantitativeValue\">QuantitativeValue</a>, or use <a class=\"localLink\" href=\"http://schema.org/valueReference\">valueReference</a> with a <a class=\"localLink\" href=\"http://schema.org/QuantitativeValue\">QuantitativeValue</a> of 0..60 mph or 0..100 km/h to specify the reference speeds.</li> </ul>"
@@ -3630,6 +3579,8 @@
    :dcterms/isPartOf "http://auto.schema.org",
    :dcterms/source
    "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group",
+   :fibo-fnd-utl-av/synonym {:rdf/language "en",
+                             :rdf/value    "body type"},
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy
    ["https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/"
@@ -3643,10 +3594,7 @@
    [{:rdf/language "en",
      :rdf/value
      "Indicates the design and body style of the vehicle. \n\nUse DBPedia resources to indicate the features, if possible. Popular identifiers are\n  http://dbpedia.org/resource/Convertible\n  http://dbpedia.org/resource/Hatchback\n  http://dbpedia.org/resource/Station_wagon\n  http://dbpedia.org/resource/Sport_utility_vehicle\n  http://dbpedia.org/resource/Roadster\n\nSee also http://en.wikipedia.org/wiki/Car_body_styles.\n\nIf you cannot find a suitable identifier in DBPedia, define your own as an instance of vso:BodyStyleValue."}
-    "Indicates the design and body style of the vehicle (e.g. station wagon, hatchback, etc.)."],
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/synonym"
-   {:rdf/language "en",
-    :rdf/value    "body type"}})
+    "Indicates the design and body style of the vehicle (e.g. station wagon, hatchback, etc.)."]})
 
 (def capCode
   "The CAP code"
@@ -4317,6 +4265,8 @@
    :dcterms/isPartOf "http://auto.schema.org",
    :dcterms/source
    "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group",
+   :fibo-fnd-utl-av/synonym {:rdf/language "en",
+                             :rdf/value    "fuel efficiency"},
    :rdf/type :owl/ObjectProperty,
    :rdfs/domain :auto-vc/Vehicle,
    :rdfs/isDefinedBy
@@ -4326,10 +4276,7 @@
    :rdfs/range :auto-mo/QuantitativeValueFloat,
    :skos/definition
    ["The distance traveled per unit of fuel used; most commonly miles per gallon (mpg) or kilometers per liter (km/L).\n\nNote 1: There are unfortunately no standard unit codes for miles per gallon or kilometers per liter. Use unitText to indicate the unit of measurement, e.g. mpg or km/L.\nNote 2: There are two ways of indicating the fuel consumption, fuelConsumption (e.g. 8 liters per 100 km) and fuelEfficiency (e.g. 30 miles per gallon). They are reciprocal.\nNote 3: Often, the absolute value is useful only when related to driving speed (\"at 80 km/h\") or usage pattern (\"city traffic\"). You can use valueReference to link the value for the fuel economy to another value."
-    "The amount of fuel consumed for traveling a particular distance or temporal duration with the given vehicle (e.g. liters per 100 km).\n\nNote 1: There are unfortunately no standard unit codes for liters per 100 km. Use unitText to indicate the unit of measurement, e.g. L/100 km.\nNote 2: There are two ways of indicating the fuel consumption, fuelConsumption (e.g. 8 liters per 100 km) and fuelEfficiency (e.g. 30 miles per gallon). They are reciprocal.\nNote 3: Often, the absolute value is useful only when related to driving speed (\"at 80 km/h\") or usage pattern (\"city traffic\"). You can use valueReference to link the value for the fuel consumption to another value."],
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/synonym"
-   {:rdf/language "en",
-    :rdf/value    "fuel efficiency"}})
+    "The amount of fuel consumed for traveling a particular distance or temporal duration with the given vehicle (e.g. liters per 100 km).\n\nNote 1: There are unfortunately no standard unit codes for liters per 100 km. Use unitText to indicate the unit of measurement, e.g. L/100 km.\nNote 2: There are two ways of indicating the fuel consumption, fuelConsumption (e.g. 8 liters per 100 km) and fuelEfficiency (e.g. 30 miles per gallon). They are reciprocal.\nNote 3: Often, the absolute value is useful only when related to driving speed (\"at 80 km/h\") or usage pattern (\"city traffic\"). You can use valueReference to link the value for the fuel consumption to another value."]})
 
 (def fuelInjectionTypeId
   "The Volkswagen-specific identifier for the fuel injection type of a vehicle or engine"
@@ -4671,6 +4618,8 @@
 (def heightOpenTailgate
   "The outer height of the vehicle with the tailgate open. Note that you can use gr:hasMinValueFloat and gr:hasMaxValueFloat to indicate ranges. Typical unit code(s): CMT for centimeters, MTR for meters, INH for inches, FOT for foot/feet"
   {:db/ident :auto-vc/heightOpenTailgate,
+   :fibo-fnd-utl-av/synonym {:rdf/language "en",
+                             :rdf/value    "height open bonnet"},
    :rdf/type :owl/ObjectProperty,
    :rdfs/domain :auto-vc/Vehicle,
    :rdfs/isDefinedBy
@@ -4682,10 +4631,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "The outer height of the vehicle with the tailgate open. Note that you can use gr:hasMinValueFloat and gr:hasMaxValueFloat to indicate ranges.\nTypical unit code(s): CMT for centimeters, MTR for meters, INH for inches, FOT for foot/feet"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/synonym"
-   {:rdf/language "en",
-    :rdf/value    "height open bonnet"}})
+    "The outer height of the vehicle with the tailgate open. Note that you can use gr:hasMinValueFloat and gr:hasMaxValueFloat to indicate ranges.\nTypical unit code(s): CMT for centimeters, MTR for meters, INH for inches, FOT for foot/feet"}})
 
 (def includes
   "Links a Choice or Component to one or multiple other Choices Or Components implicity contained Note: This property is transitive, i.e., if B is included in A and C and D are included in B, then C and D are also included in A."
@@ -5628,6 +5574,8 @@
    :dcterms/isPartOf "http://auto.schema.org",
    :dcterms/source
    "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group",
+   :fibo-fnd-utl-av/synonym {:rdf/language "en",
+                             :rdf/value    "vehicle seating capacity"},
    :rdf/type :owl/ObjectProperty,
    :rdfs/domain :auto-vc/Vehicle,
    :rdfs/isDefinedBy
@@ -5637,10 +5585,7 @@
    :rdfs/range :auto-mo/QuantitativeValueInteger,
    :skos/definition
    ["The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.\n\nTypical unit code(s): C62 for persons."
-    "The number of persons that can be seated (e.g. in a vehicle), both in terms of the physical space available, and in terms of limitations set by law.<br/><br/>\n\nTypical unit code(s): C62 for persons"],
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/synonym"
-   {:rdf/language "en",
-    :rdf/value    "vehicle seating capacity"}})
+    "The number of persons that can be seated (e.g. in a vehicle), both in terms of the physical space available, and in terms of limitations set by law.<br/><br/>\n\nTypical unit code(s): C62 for persons"]})
 
 (def serialNumber
   "relates a vehicle to its serial number"
@@ -5852,6 +5797,8 @@
    :dcterms/isPartOf "http://auto.schema.org",
    :dcterms/source
    "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group",
+   :fibo-fnd-utl-av/synonym {:rdf/language "en",
+                             :rdf/value    "tongue weight"},
    :rdf/type :owl/ObjectProperty,
    :rdfs/domain :auto-vc/Vehicle,
    :rdfs/isDefinedBy
@@ -5861,10 +5808,7 @@
    :rdfs/range :auto-mo/QuantitativeValueFloat,
    :skos/definition
    ["The permitted vertical load (TWR) of a trailer attached to the vehicle. Also referred to as Tongue Load Rating (TLR) or Vertical Load Rating (VLR)<br/><br/>\n\nTypical unit code(s): KGM for kilogram, LBR for pound<br/><br/>\n\n<ul>\n<li>Note 1: You can indicate additional information in the <a class=\"localLink\" href=\"http://schema.org/name\">name</a> of the <a class=\"localLink\" href=\"http://schema.org/QuantitativeValue\">QuantitativeValue</a> node.</li>\n<li>Note 2: You may also link to a <a class=\"localLink\" href=\"http://schema.org/QualitativeValue\">QualitativeValue</a> node that provides additional information using <a class=\"localLink\" href=\"http://schema.org/valueReference\">valueReference</a>.</li>\n<li>Note 3: Note that you can use <a class=\"localLink\" href=\"http://schema.org/minValue\">minValue</a> and <a class=\"localLink\" href=\"http://schema.org/maxValue\">maxValue</a> to indicate ranges.</li>\n</ul>"
-    "The permitted weight of a trailer attached to the vehicle.\n\nTypical unit code(s): KGM for kilogram, LBR for pound\n\nNote 1: You can indicate additional information in the name of the QuantitativeValue node. \n\nNote 2: You may also link to a QualitativeValue node that provides additional information using valueReference. \n\nNote 3: Note that you can use minValue and maxValue to indicate ranges."],
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/synonym"
-   {:rdf/language "en",
-    :rdf/value    "tongue weight"}})
+    "The permitted weight of a trailer attached to the vehicle.\n\nTypical unit code(s): KGM for kilogram, LBR for pound\n\nNote 1: You can indicate additional information in the name of the QuantitativeValue node. \n\nNote 2: You may also link to a QualitativeValue node that provides additional information using valueReference. \n\nNote 3: Note that you can use minValue and maxValue to indicate ranges."]})
 
 (def transmission
   "The type of component used for transmitting the power from a rotating power source to the wheels or propeller(s) (\"gearbox\" for cars). Use DBPedia resources to indicate the transmission type, if possible. Popular identifiers are http://dbpedia.org/resource/Manual_transmission http://dbpedia.org/resource/Automatic_transmission If you cannot find a suitable identifier in DBPedia, define your own as an instance of vso:TransmissionTypeValue."
@@ -6054,6 +5998,11 @@
    :dcterms/isPartOf "http://auto.schema.org",
    :dcterms/source
    "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group",
+   :fibo-fnd-utl-av/abbreviation "VIN",
+   :fibo-fnd-utl-av/synonym [{:rdf/language "en",
+                              :rdf/value    "Vehicle Identification Number"}
+                             {:rdf/language "en",
+                              :rdf/value    "VIN"}],
    :rdf/type :owl/DatatypeProperty,
    :rdfs/domain :auto-vc/Vehicle,
    :rdfs/isDefinedBy
@@ -6069,14 +6018,7 @@
    [{:rdf/language "en",
      :rdf/value
      "A unique serial number used by the automotive industry to identify individual motor vehicles"}
-    "The Vehicle Identification Number (VIN) is a unique serial number used by the automotive industry to identify individual motor vehicles."],
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/abbreviation"
-   "VIN",
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/synonym"
-   [{:rdf/language "en",
-     :rdf/value    "Vehicle Identification Number"}
-    {:rdf/language "en",
-     :rdf/value    "VIN"}]})
+    "The Vehicle Identification Number (VIN) is a unique serial number used by the automotive industry to identify individual motor vehicles."]})
 
 (def vehicleInteriorColor
   "The color or color combination of the interior of the vehicle."
@@ -6385,6 +6327,7 @@
 (def ^{:private true} Person
   "Any living human."
   {:db/ident :auto-mo/Person,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.1.1",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -6393,9 +6336,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "person"},
    :skos/definition {:rdf/language "en",
-                     :rdf/value    "Any living human."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.1.1"})
+                     :rdf/value    "Any living human."}})
 
 (def ^{:private true} PostalAddress
   "postal address"
@@ -6576,6 +6517,22 @@
   {:db/ident   :auto-mo/valueReference,
    :rdf/type   :owl/ObjectProperty,
    :rdfs/label "value reference"})
+
+(def ^{:private true} abbreviation
+  {:db/ident :fibo-fnd-utl-av/abbreviation,
+   :rdf/type :owl/AnnotationProperty})
+
+(def ^{:private true} adaptedFrom
+  {:db/ident :fibo-fnd-utl-av/adaptedFrom,
+   :rdf/type :owl/AnnotationProperty})
+
+(def ^{:private true} hasMaturityLevel
+  {:db/ident :fibo-fnd-utl-av/hasMaturityLevel,
+   :rdf/type :owl/AnnotationProperty})
+
+(def ^{:private true} synonym
+  {:db/ident :fibo-fnd-utl-av/synonym,
+   :rdf/type :owl/AnnotationProperty})
 
 (def ^{:private true} definition
   {:db/ident :skos/definition,

@@ -11,7 +11,6 @@
    :rdf/ns-prefix-map
    {"auto-mo-mod" "https://spec.edmcouncil.org/auto/ontology/MO/MetadataMO/"},
    :rdf/type :owl/Ontology,
-   :rdf/uri "https://spec.edmcouncil.org/auto/ontology/MO/MetadataMO/",
    :rdfa/prefix "auto-mo-mod",
    :rdfa/uri "https://spec.edmcouncil.org/auto/ontology/MO/MetadataMO/",
    :rdfs/label "Metadata for the EDMC-AUTO middle ontology (MO)",

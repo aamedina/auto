@@ -11,7 +11,6 @@
    :rdf/ns-prefix-map
    {"auto-de-mod" "https://spec.edmcouncil.org/auto/ontology/DE/MetadataDE/"},
    :rdf/type :owl/Ontology,
-   :rdf/uri "https://spec.edmcouncil.org/auto/ontology/DE/MetadataDE/",
    :rdfa/prefix "auto-de-mod",
    :rdfa/uri "https://spec.edmcouncil.org/auto/ontology/DE/MetadataDE/",
    :rdfs/label "Metadata for the driving events ontologies",

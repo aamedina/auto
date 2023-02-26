@@ -6,6 +6,7 @@
     "The Traffic Incident Ontology (TI) is an ontology for traffic incidents.\n\nIn part, it is based on the Classification of Motor Vehicle Traffic Crashes (AMERICAN NATIONAL STANDARD, ANSI D.16-2017)."},
    :dcterms/creator "Piotr Kulicki",
    :dcterms/license "http://creativecommons.org/licenses/by/3.0/",
+   :fibo-fnd-utl-av/hasMaturityLevel :fibo-fnd-utl-av/Provisional,
    :owl/imports
    ["https://spec.edmcouncil.org/auto/ontology/master/latest/VC/VehicleCore/"
     "https://spec.edmcouncil.org/auto/ontology/master/latest/MO/MiddleOntology/"
@@ -13,14 +14,11 @@
    :rdf/ns-prefix-map
    {"auto-ti" "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/"},
    :rdf/type :owl/Ontology,
-   :rdf/uri "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
    :rdfa/prefix "auto-ti",
    :rdfa/uri "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
    :rdfs/label "Traffic incident ontology (TI)",
    :sm/fileAbbreviation "auto-de-ti",
-   :sm/filename "TrafficIncidents.rdf",
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/hasMaturityLevel"
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/Provisional"})
+   :sm/filename "TrafficIncidents.rdf"})
 
 (def Accident
   "something bad that happens that is not expected or intended and that often damages something or injures someone"
@@ -56,6 +54,7 @@
 (def AircraftAccident
   "A transport accident that involves an aircraft in-transport."
   {:db/ident :auto-ti/AircraftAccident,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.4.10",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -64,13 +63,12 @@
    :rdfs/subClassOf :auto-ti/Crash,
    :skos/definition
    {:rdf/language "en",
-    :rdf/value "A transport accident that involves an aircraft in-transport."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.4.10"})
+    :rdf/value "A transport accident that involves an aircraft in-transport."}})
 
 (def At-IntersectionCrash
   "A traffic crash in which the first harmful event occurs within the limits of an intersection."
   {:db/ident :auto-ti/At-IntersectionCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.7.3",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -80,13 +78,13 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A traffic crash in which the first harmful event occurs within the limits of an intersection."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.7.3"})
+    "A traffic crash in which the first harmful event occurs within the limits of an intersection."}})
 
 (def AtWork
   "Engaged in duties, activities or tasks that produce a product or service; that are done in exchange for money, goods, services, profit or benefit; and that are legal activities in the United States."
   {:db/ident :auto-ti/AtWork,
+   :fibo-fnd-utl-av/adaptedFrom {:rdf/language "en",
+                                 :rdf/value    "ANSI D.16-2017, section 2.9.6"},
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -100,14 +98,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "Engaged in duties, activities or tasks that produce a product or service; that are done in exchange for money, goods, services, profit or benefit; and that are legal activities in the United States."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   {:rdf/language "en",
-    :rdf/value    "ANSI D.16-2017, section 2.9.6"}})
+    "Engaged in duties, activities or tasks that produce a product or service; that are done in exchange for money, goods, services, profit or benefit; and that are legal activities in the United States."}})
 
 (def Cataclysm
   "An avalanche, landslide/mudslide, hurricane, cyclone, downburst, flood, torrential rain, cloudburst, lightning, tornado, tidal wave, earthquake or volcanic eruption (See 2.4.9 transport crash)."
   {:db/ident :auto-ti/Cataclysm,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.4.5",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -117,9 +113,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "An avalanche, landslide/mudslide, hurricane, cyclone, downburst, flood, torrential rain, cloudburst, lightning, tornado, tidal wave, earthquake or volcanic eruption (See 2.4.9 transport crash)."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.4.5"})
+    "An avalanche, landslide/mudslide, hurricane, cyclone, downburst, flood, torrential rain, cloudburst, lightning, tornado, tidal wave, earthquake or volcanic eruption (See 2.4.9 transport crash)."}})
 
 (def Collision
   "occurs when a vehicle that is moving along a roadway collides with another vehicle or object"
@@ -146,6 +140,7 @@
 (def CollisionCrash
   "A road vehicle crash other than an overturning crash in which the first harmful event is a collision of a road vehicle in-transport with another road vehicle, other property or pedestrians."
   {:db/ident :auto-ti/CollisionCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.6.2",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -155,13 +150,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A road vehicle crash other than an overturning crash in which the first harmful event is a collision of a road vehicle in-transport with another road vehicle, other property or pedestrians."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.6.2"})
+    "A road vehicle crash other than an overturning crash in which the first harmful event is a collision of a road vehicle in-transport with another road vehicle, other property or pedestrians."}})
 
 (def CollisionInvolvingMotorVehicleInTransport
   "A crash that is both a motor vehicle crash and a collision crash in which the first harmful event is the collision of two or more motor vehicles in-transport."
   {:db/ident :auto-ti/CollisionInvolvingMotorVehicleInTransport,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.6.6",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -171,9 +165,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A crash that is both a motor vehicle crash and a collision crash in which the first harmful event is the collision of two or more motor vehicles in-transport."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.6.6"})
+    "A crash that is both a motor vehicle crash and a collision crash in which the first harmful event is the collision of two or more motor vehicles in-transport."}})
 
 (def CollisionInvolvingOtherRoadVehicleInTransport
   "A crash that is both an other-road vehicle crash and a collision crash in which the first harmful event is the collision of two or more other road vehicles in-transport."
@@ -193,6 +185,7 @@
 (def CollisioninvolvingAnimal
   "A collision crash in which the first harmful event is the collision of an animal, other than an animal powering an other road vehicle, and a road vehicle in-transport."
   {:db/ident :auto-ti/CollisioninvolvingAnimal,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.6.11",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -202,13 +195,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A collision crash in which the first harmful event is the collision of an animal, other than an animal powering an other road vehicle, and a road vehicle in-transport."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.6.11"})
+    "A collision crash in which the first harmful event is the collision of an animal, other than an animal powering an other road vehicle, and a road vehicle in-transport."}})
 
 (def CollisioninvolvingFixedObject
   "A collision crash in which the first harmful event is the striking of a fixed object by a road vehicle in- transport."
   {:db/ident :auto-ti/CollisioninvolvingFixedObject,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.6.12",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -222,13 +214,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A collision crash in which the first harmful event is the striking of a fixed object by a road vehicle in- transport."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.6.12"})
+    "A collision crash in which the first harmful event is the striking of a fixed object by a road vehicle in- transport."}})
 
 (def CollisioninvolvingOtherObject
   "Any collision crash other than a (1) collision involving pedestrian, (2) collision involving motor vehicle in-transport, (3) collision involving other road vehicle in-transport, (4) collision involving parked motor vehicle, (5) collision involving railway vehicle, (6) collision involving pedalcycle, (7) collision involving animal, or (8) collision involving fixed object."
   {:db/ident :auto-ti/CollisioninvolvingOtherObject,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.6.13",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -238,13 +229,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "Any collision crash other than a (1) collision involving pedestrian, (2) collision involving motor vehicle in-transport, (3) collision involving other road vehicle in-transport, (4) collision involving parked motor vehicle, (5) collision involving railway vehicle, (6) collision involving pedalcycle, (7) collision involving animal, or (8) collision involving fixed object."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.6.13"})
+    "Any collision crash other than a (1) collision involving pedestrian, (2) collision involving motor vehicle in-transport, (3) collision involving other road vehicle in-transport, (4) collision involving parked motor vehicle, (5) collision involving railway vehicle, (6) collision involving pedalcycle, (7) collision involving animal, or (8) collision involving fixed object."}})
 
 (def CollisioninvolvingOtherRoadVehicle
   "A collision involving other road vehicle in- in Transport transport is a crash that is both an other-road- vehicle crash and a collision crash in which the first harmful event is the collision of two or more other road vehicles in-transport."
   {:db/ident :auto-ti/CollisioninvolvingOtherRoadVehicle,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.6.7",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -254,13 +244,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A collision involving other road vehicle in- in Transport transport is a crash that is both an other-road- vehicle crash and a collision crash in which the first harmful event is the collision of two or more other road vehicles in-transport."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.6.7"})
+    "A collision involving other road vehicle in- in Transport transport is a crash that is both an other-road- vehicle crash and a collision crash in which the first harmful event is the collision of two or more other road vehicles in-transport."}})
 
 (def CollisioninvolvingParkedMotor
   "A crash in which the first harmful event is the striking of a motor vehicle not in- transport (See 2.2.34.1) by a road vehicle in- transport (See 2.2.34)."
   {:db/ident :auto-ti/CollisioninvolvingParkedMotor,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.6.8",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -270,13 +259,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A crash in which the first harmful event is the striking of a motor vehicle not in- transport (See 2.2.34.1) by a road vehicle in- transport (See 2.2.34)."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.6.8"})
+    "A crash in which the first harmful event is the striking of a motor vehicle not in- transport (See 2.2.34.1) by a road vehicle in- transport (See 2.2.34)."}})
 
 (def CollisioninvolvingPedalcycle
   "A crash that is both a motor vehicle crash and a collision crash in which the first harmful event is the collision of a pedalcycle in-transport and a motor vehicle in- transport."
   {:db/ident :auto-ti/CollisioninvolvingPedalcycle,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.6.10",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -286,13 +274,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A crash that is both a motor vehicle crash and a collision crash in which the first harmful event is the collision of a pedalcycle in-transport and a motor vehicle in- transport."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.6.10"})
+    "A crash that is both a motor vehicle crash and a collision crash in which the first harmful event is the collision of a pedalcycle in-transport and a motor vehicle in- transport."}})
 
 (def CollisioninvolvingPedestrianCrash
   "A collision crash in which the first harmful event is the collision of a pedestrian and a road vehicle in- transport."
   {:db/ident :auto-ti/CollisioninvolvingPedestrianCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.6.5",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -302,13 +289,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A collision crash in which the first harmful event is the collision of a pedestrian and a road vehicle in- transport."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.6.5"})
+    "A collision crash in which the first harmful event is the collision of a pedestrian and a road vehicle in- transport."}})
 
 (def CollisioninvolvingRailwayVehicle
   "A collision crash in which the first harmful event is the collision of a road vehicle in-transport and a railway vehicle."
   {:db/ident :auto-ti/CollisioninvolvingRailwayVehicle,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.6.9",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -318,13 +304,13 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A collision crash in which the first harmful event is the collision of a road vehicle in-transport and a railway vehicle."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.6.9"})
+    "A collision crash in which the first harmful event is the collision of a road vehicle in-transport and a railway vehicle."}})
 
 (def Commerce
   "Any trade, traffic or transportation of commodities or persons for financial consideration or exchange, or in the furtherance of a business enterprise."
   {:db/ident :auto-ti/Commerce,
+   :fibo-fnd-utl-av/adaptedFrom {:rdf/language "en",
+                                 :rdf/value    "ANSI D.16-2017, section 2.9.1"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -334,14 +320,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "Any trade, traffic or transportation of commodities or persons for financial consideration or exchange, or in the furtherance of a business enterprise."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   {:rdf/language "en",
-    :rdf/value    "ANSI D.16-2017, section 2.9.1"}})
+    "Any trade, traffic or transportation of commodities or persons for financial consideration or exchange, or in the furtherance of a business enterprise."}})
 
 (def ContactVehicle
   "Any road vehicle which comes in contact with one or more road vehicles, non-motorists or property in a collision crash, or has a noncollision crash."
   {:db/ident :auto-ti/ContactVehicle,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.4.7",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -355,13 +339,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "Any road vehicle which comes in contact with one or more road vehicles, non-motorists or property in a collision crash, or has a noncollision crash."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.4.7"})
+    "Any road vehicle which comes in contact with one or more road vehicles, non-motorists or property in a collision crash, or has a noncollision crash."}})
 
 (def Crash
   "An unstabilized situation which includes at least one harmful event."
   {:db/ident :auto-ti/Crash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.4.6",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -371,13 +354,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "An unstabilized situation which includes at least one harmful event."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.4.6"})
+    "An unstabilized situation which includes at least one harmful event."}})
 
 (def Damage
   "A harm to property that reduces the monetary value of that property."
   {:db/ident :auto-ti/Damage,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.3.7",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -387,9 +369,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A harm to property that reduces the monetary value of that property."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.3.7"})
+    "A harm to property that reduces the monetary value of that property."}})
 
 (def DangerousBehaviour
   "action by a traffic user which results in a traffic incident"
@@ -448,6 +428,7 @@
 (def DeliberateIntent
   "The classification given to the cause of an event which occurs when a person acts deliberately to cause the event or deliberately refrains from prudent acts which would prevent occurrence of the event."
   {:db/ident :auto-ti/DeliberateIntent,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.4.2",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -457,9 +438,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "The classification given to the cause of an event which occurs when a person acts deliberately to cause the event or deliberately refrains from prudent acts which would prevent occurrence of the event."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.4.2"})
+    "The classification given to the cause of an event which occurs when a person acts deliberately to cause the event or deliberately refrains from prudent acts which would prevent occurrence of the event."}})
 
 (def DestructionOfProperty
   "damage to or the destruction of public or private property, caused either by a person who is not its owner or by natural phenomena"
@@ -484,6 +463,7 @@
 (def DisablingDamage
   "A road vehicle damage which precludes departure of the vehicle from the scene of the crash in its usual operating manner by daylight after simple repairs."
   {:db/ident :auto-ti/DisablingDamage,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.3.11",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -493,9 +473,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A road vehicle damage which precludes departure of the vehicle from the scene of the crash in its usual operating manner by daylight after simple repairs."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.3.11"})
+    "A road vehicle damage which precludes departure of the vehicle from the scene of the crash in its usual operating manner by daylight after simple repairs."}})
 
 (def DistanceBack
   "distance back"
@@ -518,6 +496,8 @@
 (def Driver
   "An occupant who is in actual physical control of a transport vehicle or, for an out-of control vehicle, an occupant who was in control until control was lost."
   {:db/ident :auto-ti/Driver,
+   :fibo-fnd-utl-av/adaptedFrom {:rdf/language "en",
+                                 :rdf/value "ANSI D.16-2017, section 2.2.37"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -527,14 +507,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "An occupant who is in actual physical control of a transport vehicle or, for an out-of control vehicle, an occupant who was in control until control was lost."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   {:rdf/language "en",
-    :rdf/value    "ANSI D.16-2017, section 2.2.37"}})
+    "An occupant who is in actual physical control of a transport vehicle or, for an out-of control vehicle, an occupant who was in control until control was lost."}})
 
 (def DrivewayAccess-RelatedCrash
   "A traffic crash that (1) occurs adjacent to a driveway, (2) is not a driveway access crash and (3) results from an activity, behavior or control related to the movement of traffic units onto or out of a driveway."
   {:db/ident :auto-ti/DrivewayAccess-RelatedCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.7.4.1",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -544,9 +522,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A traffic crash that (1) occurs adjacent to a driveway, (2) is not a driveway access crash and (3) results from an activity, behavior or control related to the movement of traffic units onto or out of a driveway."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.7.4.1"})
+    "A traffic crash that (1) occurs adjacent to a driveway, (2) is not a driveway access crash and (3) results from an activity, behavior or control related to the movement of traffic units onto or out of a driveway."}})
 
 (def DrivewayTowawayOperation
   "operation in which an empty or unladen motor vehicle with one or more sets of wheels on the surface of the roadway is being transported by means of a saddle-mount or tow-bar between vehicle manufacturer's facilities, a vehicle manufacturer and a dealership or purchaser or to a repair facility"
@@ -565,6 +541,7 @@
 (def DrivewayaccessCrash
   "A traffic crash in which the first harmful event occurs on a driveway access (See 2.5.9) or involves a road vehicle entering or leaving another roadway by way of a driveway access (See Figure 4)."
   {:db/ident :auto-ti/DrivewayaccessCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.7.4",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -578,9 +555,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A traffic crash in which the first harmful event occurs on a driveway access (See 2.5.9) or involves a road vehicle entering or leaving another roadway by way of a driveway access (See Figure 4)."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.7.4"})
+    "A traffic crash in which the first harmful event occurs on a driveway access (See 2.5.9) or involves a road vehicle entering or leaving another roadway by way of a driveway access (See Figure 4)."}})
 
 (def DrivingUnderTheInfluence
   "driving motor or non-mechanical vehicles during or after consuming alcohol or psychoactive substances"
@@ -607,6 +582,7 @@
 (def Entrance-ExitRamp-relatedCrash
   "A traffic crash in which the first harmful event occurs off the entrance/exit ramp roadway, but is related to the use of or entry onto the ramp."
   {:db/ident :auto-ti/Entrance-ExitRamp-relatedCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.7.9.1",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -620,13 +596,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A traffic crash in which the first harmful event occurs off the entrance/exit ramp roadway, but is related to the use of or entry onto the ramp."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.7.9.1"})
+    "A traffic crash in which the first harmful event occurs off the entrance/exit ramp roadway, but is related to the use of or entry onto the ramp."}})
 
 (def Entrance-ExitRampCrash
   "A traffic crash in which the first harmful event occurs on an entrance or exit ramp roadway and is not the result of an activity, behavior or control related to the movement of traffic units through an intersection."
   {:db/ident :auto-ti/Entrance-ExitRampCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.7.9",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -640,9 +615,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A traffic crash in which the first harmful event occurs on an entrance or exit ramp roadway and is not the result of an activity, behavior or control related to the movement of traffic units through an intersection."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.7.9"})
+    "A traffic crash in which the first harmful event occurs on an entrance or exit ramp roadway and is not the result of an activity, behavior or control related to the movement of traffic units through an intersection."}})
 
 (def EntryOnRedLight
   "action of crossing the pedestrian crossing while the traffic light is red"
@@ -697,6 +670,7 @@
 (def FatalCrash
   "Any injury crash that results in one or more fatal injuries."
   {:db/ident :auto-ti/FatalCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.4.27",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -705,13 +679,14 @@
    :rdfs/subClassOf :auto-ti/InjuryCrash,
    :skos/definition
    {:rdf/language "en",
-    :rdf/value "Any injury crash that results in one or more fatal injuries."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.4.27"})
+    :rdf/value "Any injury crash that results in one or more fatal injuries."}})
 
 (def FatalInjury
   "Any injury that results in death within 30 days after the motor vehicle crash in which the injury occurred."
   {:db/ident :auto-ti/FatalInjury,
+   :fibo-fnd-utl-av/abbreviation {:rdf/language "en",
+                                  :rdf/value    "K"},
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.3.2",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -725,16 +700,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "Any injury that results in death within 30 days after the motor vehicle crash in which the injury occurred."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/abbreviation"
-   {:rdf/language "en",
-    :rdf/value    "K"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.3.2"})
+    "Any injury that results in death within 30 days after the motor vehicle crash in which the injury occurred."}})
 
 (def Fatality
   "Any death resulting from a fatal injury."
   {:db/ident :auto-ti/Fatality,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 3.1.3.",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -742,9 +713,7 @@
                 :rdf/value    "fatality"},
    :rdfs/subClassOf :auto-ti/HarmfulEvent,
    :skos/definition {:rdf/language "en",
-                     :rdf/value    "Any death resulting from a fatal injury."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 3.1.3."})
+                     :rdf/value    "Any death resulting from a fatal injury."}})
 
 (def ForcingTheRightOfWay
   "refraining from traffic if this traffic may force another driver to change direction or lane or change the speed significantly and to stop, slow down or accelerate by pedestrians"
@@ -771,6 +740,7 @@
 (def FunctionalDamage
   "Any road vehicle damage, other than disabling damage, which affects operation of the road vehicle or its parts."
   {:db/ident :auto-ti/FunctionalDamage,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.3.12",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -780,13 +750,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "Any road vehicle damage, other than disabling damage, which affects operation of the road vehicle or its parts."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.3.12"})
+    "Any road vehicle damage, other than disabling damage, which affects operation of the road vehicle or its parts."}})
 
 (def HarmfulEvent
   "An occurrence of injury or damage."
   {:db/ident :auto-ti/HarmfulEvent,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.4.1",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -794,13 +763,12 @@
                 :rdf/value    "harmful event"},
    :rdfs/subClassOf :auto-mo/Process,
    :skos/definition {:rdf/language "en",
-                     :rdf/value    "An occurrence of injury or damage."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.4.1"})
+                     :rdf/value    "An occurrence of injury or damage."}})
 
 (def HazardousMaterial
   "A substance or material which has been designated by the U.S. Department of Transportation, or other authorizing entity, as capable of posing an unreasonable risk to health, safety and property when transported in commerce."
   {:db/ident :auto-ti/HazardousMaterial,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.9.5",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -814,13 +782,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A substance or material which has been designated by the U.S. Department of Transportation, or other authorizing entity, as capable of posing an unreasonable risk to health, safety and property when transported in commerce."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.9.5"})
+    "A substance or material which has been designated by the U.S. Department of Transportation, or other authorizing entity, as capable of posing an unreasonable risk to health, safety and property when transported in commerce."}})
 
 (def HazardousMaterialsPlacard
   "A sign required to be affixed to any motor vehicle transporting quantities of hazardous materials in quantities above the thresholds established by the U.S. Department of Transportation, or other authorized entity."
   {:db/ident :auto-ti/HazardousMaterialsPlacard,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.9.5.1",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -834,13 +801,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A sign required to be affixed to any motor vehicle transporting quantities of hazardous materials in quantities above the thresholds established by the U.S. Department of Transportation, or other authorized entity."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.9.5.1"})
+    "A sign required to be affixed to any motor vehicle transporting quantities of hazardous materials in quantities above the thresholds established by the U.S. Department of Transportation, or other authorized entity."}})
 
 (def In-transport
   "The state or condition of a transport vehicle which is in motion or within the portion of a transport way ordinarily used by similar transport vehicles."
   {:db/ident :auto-ti/In-transport,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.34",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -854,13 +820,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "The state or condition of a transport vehicle which is in motion or within the portion of a transport way ordinarily used by similar transport vehicles."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.34"})
+    "The state or condition of a transport vehicle which is in motion or within the portion of a transport way ordinarily used by similar transport vehicles."}})
 
 (def Injury
   "A bodily harm to a person."
   {:db/ident :auto-ti/Injury,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.3.1",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -868,13 +833,12 @@
                 :rdf/value    "injury"},
    :rdfs/subClassOf :auto-ti/HarmfulEvent,
    :skos/definition {:rdf/language "en",
-                     :rdf/value    "A bodily harm to a person."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.3.1"})
+                     :rdf/value    "A bodily harm to a person."}})
 
 (def InjuryCrash
   "Any road vehicle crash that results in one or more injuries."
   {:db/ident :auto-ti/InjuryCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.4.26",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -883,9 +847,7 @@
    :rdfs/subClassOf :auto-ti/Crash,
    :skos/definition
    {:rdf/language "en",
-    :rdf/value "Any road vehicle crash that results in one or more injuries."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.4.26"})
+    :rdf/value "Any road vehicle crash that results in one or more injuries."}})
 
 (def InoperativeVehicle
   "state of a vehicle in which some or all of its functions do not work"
@@ -909,6 +871,7 @@
 (def InterchangeCrash
   "A traffic crash in which the first harmful event occurs within boundaries which include all ramps of auxiliary roadways and include each roadway entering or leaving the interchange to a point 30 meters (100 feet) beyond the gore or curb return at the outermost ramp connection. Interchange crashes may include at-intersection crashes, intersection- related crashes, driveway access crashes or nonjunction crashes."
   {:db/ident :auto-ti/InterchangeCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.7.7",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -918,13 +881,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A traffic crash in which the first harmful event occurs within boundaries which include all ramps of auxiliary roadways and include each roadway entering or leaving the interchange to a point 30 meters (100 feet) beyond the gore or curb return at the outermost ramp connection. Interchange crashes may include at-intersection crashes, intersection- related crashes, driveway access crashes or nonjunction crashes."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.7.7"})
+    "A traffic crash in which the first harmful event occurs within boundaries which include all ramps of auxiliary roadways and include each roadway entering or leaving the interchange to a point 30 meters (100 feet) beyond the gore or curb return at the outermost ramp connection. Interchange crashes may include at-intersection crashes, intersection- related crashes, driveway access crashes or nonjunction crashes."}})
 
 (def Intersection-relatedCrash
   "A traffic crash in which the first harmful event (1) occurs on an approach to or exit from an intersection and (2) results from an activity, behavior or control related to the movement of traffic units through the intersection."
   {:db/ident :auto-ti/Intersection-relatedCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.7.5",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -934,13 +896,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A traffic crash in which the first harmful event (1) occurs on an approach to or exit from an intersection and (2) results from an activity, behavior or control related to the movement of traffic units through the intersection."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.7.5"})
+    "A traffic crash in which the first harmful event (1) occurs on an approach to or exit from an intersection and (2) results from an activity, behavior or control related to the movement of traffic units through the intersection."}})
 
 (def InterstateCommerce
   "A commerce in the United States where the transit between the points of origin and termination does not occur entirely within the borders of the state of origin."
   {:db/ident :auto-ti/InterstateCommerce,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.9.2",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -950,13 +911,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A commerce in the United States where the transit between the points of origin and termination does not occur entirely within the borders of the state of origin."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.9.2"})
+    "A commerce in the United States where the transit between the points of origin and termination does not occur entirely within the borders of the state of origin."}})
 
 (def InterstateSystem
   "The National System of Interstate and Defense Highways as defined in Section 101, Title 23, United States Code."
   {:db/ident :auto-ti/InterstateSystem,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.5.3",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -966,13 +926,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "The National System of Interstate and Defense Highways as defined in Section 101, Title 23, United States Code."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.5.3"})
+    "The National System of Interstate and Defense Highways as defined in Section 101, Title 23, United States Code."}})
 
 (def IntrastateCommerce
   "A commerce in any state where the transit between the points of origin and termination occurs entirely within the borders of the state of origin."
   {:db/ident :auto-ti/IntrastateCommerce,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.9.3",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -982,13 +941,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A commerce in any state where the transit between the points of origin and termination occurs entirely within the borders of the state of origin."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.9.3"})
+    "A commerce in any state where the transit between the points of origin and termination occurs entirely within the borders of the state of origin."}})
 
 (def JackknifeCrash
   "A noncollision crash in which the first harmful event results from unintended contact between any two units of a multi-unit road vehicle such as a truck combination."
   {:db/ident :auto-ti/JackknifeCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.6.4",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -998,13 +956,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A noncollision crash in which the first harmful event results from unintended contact between any two units of a multi-unit road vehicle such as a truck combination."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.6.4"})
+    "A noncollision crash in which the first harmful event results from unintended contact between any two units of a multi-unit road vehicle such as a truck combination."}})
 
 (def LegalIntervention
   "A category of deliberate intent in which the person who acts or refrains from acting is a law-enforcing agent or other official."
   {:db/ident :auto-ti/LegalIntervention,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.4.3",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1014,13 +971,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A category of deliberate intent in which the person who acts or refrains from acting is a law-enforcing agent or other official."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.4.3"})
+    "A category of deliberate intent in which the person who acts or refrains from acting is a law-enforcing agent or other official."}})
 
 (def MotorCarrier
   "The legal business entity, individual, partnership, corporation or organization that directs, controls and is responsible for the transportation of goods, property or people."
   {:db/ident :auto-ti/MotorCarrier,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.9.4",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1030,13 +986,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "The legal business entity, individual, partnership, corporation or organization that directs, controls and is responsible for the transportation of goods, property or people."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.9.4"})
+    "The legal business entity, individual, partnership, corporation or organization that directs, controls and is responsible for the transportation of goods, property or people."}})
 
 (def MotorVehicleCrash
   "A transport crash that (1) involves a motor vehicle in-transport, (2) is not an aircraft accident or watercraft accident, and (3) does not include any harmful event involving a railway train in-transport prior to involvement of a motor vehicle in-transport."
   {:db/ident :auto-ti/MotorVehicleCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.4.12",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1046,9 +1001,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A transport crash that (1) involves a motor vehicle in-transport, (2) is not an aircraft accident or watercraft accident, and (3) does not include any harmful event involving a railway train in-transport prior to involvement of a motor vehicle in-transport."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.4.12"})
+    "A transport crash that (1) involves a motor vehicle in-transport, (2) is not an aircraft accident or watercraft accident, and (3) does not include any harmful event involving a railway train in-transport prior to involvement of a motor vehicle in-transport."}})
 
 (def MotorVehicleDamage
   "A road vehicle damage to a motor vehicle."
@@ -1065,6 +1018,7 @@
 (def MotorVehicleNontrafficCrash
   "A motor vehicle crash which is a nontraffic crash."
   {:db/ident :auto-ti/MotorVehicleNontrafficCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.4.23",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1073,9 +1027,7 @@
    :rdfs/subClassOf :auto-ti/Crash,
    :skos/definition {:rdf/language "en",
                      :rdf/value
-                     "A motor vehicle crash which is a nontraffic crash."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.4.23"})
+                     "A motor vehicle crash which is a nontraffic crash."}})
 
 (def MotorVehicleTrafficCrash
   "A motor vehicle cash which is a traffic crash."
@@ -1093,6 +1045,7 @@
 (def MotorcycleConversionKit
   "A device that makes it possible to convert a conventional two-wheel motorcycle into a motorcycle having the look and the stability of a tricycle-type vehicle, which improves stability and increases ease of operation."
   {:db/ident :auto-ti/MotorcycleConversionKit,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.9.5",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -1106,13 +1059,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A device that makes it possible to convert a conventional two-wheel motorcycle into a motorcycle having the look and the stability of a tricycle-type vehicle, which improves stability and increases ease of operation."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.9.5"})
+    "A device that makes it possible to convert a conventional two-wheel motorcycle into a motorcycle having the look and the stability of a tricycle-type vehicle, which improves stability and increases ease of operation."}})
 
 (def Motorist
   "Any occupant of a motor vehicle in-transport."
   {:db/ident :auto-ti/Motorist,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.40",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1121,9 +1073,7 @@
    :rdfs/subClassOf :auto-ti/RoleOfPersonInTraffic,
    :skos/definition {:rdf/language "en",
                      :rdf/value
-                     "Any occupant of a motor vehicle in-transport."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.40"})
+                     "Any occupant of a motor vehicle in-transport."}})
 
 (def MovementSpeed
   "relates a vehicle to its movement speed"
@@ -1155,6 +1105,9 @@
 (def NoApparentInjury
   "A situation where there is no reason to believe that the person received any bodily harm from the motor vehicle crash. There is no physical evidence of injury and the person does not report any change in normal function."
   {:db/ident :auto-ti/NoApparentInjury,
+   :fibo-fnd-utl-av/abbreviation {:rdf/language "en",
+                                  :rdf/value    "O"},
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.3.6.1",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1164,16 +1117,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A situation where there is no reason to believe that the person received any bodily harm from the motor vehicle crash. There is no physical evidence of injury and the person does not report any change in normal function."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/abbreviation"
-   {:rdf/language "en",
-    :rdf/value    "O"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.3.6.1"})
+    "A situation where there is no reason to believe that the person received any bodily harm from the motor vehicle crash. There is no physical evidence of injury and the person does not report any change in normal function."}})
 
 (def NoApparentInjuryCrash
   "Any road vehicle crash other than an injury crash."
   {:db/ident :auto-ti/NoApparentInjuryCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.4.29",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -1186,13 +1135,12 @@
    :rdfs/subClassOf :auto-ti/Injury,
    :skos/definition {:rdf/language "en",
                      :rdf/value
-                     "Any road vehicle crash other than an injury crash."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.4.29"})
+                     "Any road vehicle crash other than an injury crash."}})
 
 (def Non-contactVehicle
   "Any vehicle other than a contact vehicle."
   {:db/ident :auto-ti/Non-contactVehicle,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.4.8",
    :rdf/type :owl/Class,
    :rdfs/comment {:rdf/language "en",
                   :rdf/value
@@ -1203,13 +1151,13 @@
                 :rdf/value    "non-contact vehicle"},
    :rdfs/subClassOf :auto-ti/RoleInAccident,
    :skos/definition {:rdf/language "en",
-                     :rdf/value    "Any vehicle other than a contact vehicle."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.4.8"})
+                     :rdf/value "Any vehicle other than a contact vehicle."}})
 
 (def Non-fatalInjuryCrash
   "Any injury crash other than a fatal crash."
   {:db/ident :auto-ti/Non-fatalInjuryCrash,
+   :fibo-fnd-utl-av/adaptedFrom {:rdf/language "en",
+                                 :rdf/value "ANSI D.16-2017, section 2.4.28"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1217,14 +1165,12 @@
                 :rdf/value    "non-fatal injury crash"},
    :rdfs/subClassOf :auto-ti/InjuryCrash,
    :skos/definition {:rdf/language "en",
-                     :rdf/value "Any injury crash other than a fatal crash."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   {:rdf/language "en",
-    :rdf/value    "ANSI D.16-2017, section 2.4.28"}})
+                     :rdf/value "Any injury crash other than a fatal crash."}})
 
 (def Non-junctionCrash
   "A road vehicle crash that is not an at-intersection crash, a driveway access crash or an intersection-related crash."
   {:db/ident :auto-ti/Non-junctionCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.7.6",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1234,13 +1180,13 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A road vehicle crash that is not an at-intersection crash, a driveway access crash or an intersection-related crash."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.7.6"})
+    "A road vehicle crash that is not an at-intersection crash, a driveway access crash or an intersection-related crash."}})
 
 (def Non-motorist
   "Any person other than a motorist"
   {:db/ident :auto-ti/Non-motorist,
+   :fibo-fnd-utl-av/adaptedFrom {:rdf/language "en",
+                                 :rdf/value "ANSI D.16-2017, section 2.2.41"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1248,14 +1194,12 @@
                 :rdf/value    "non-motorist"},
    :rdfs/subClassOf :auto-ti/RoleOfPersonInTraffic,
    :skos/definition {:rdf/language "en",
-                     :rdf/value    "Any person other than a motorist"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   {:rdf/language "en",
-    :rdf/value    "ANSI D.16-2017, section 2.2.41"}})
+                     :rdf/value    "Any person other than a motorist"}})
 
 (def Non-trafficCrash
   "A road vehicle crash which is not a traffic crash."
   {:db/ident :auto-ti/Non-trafficCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.4.19",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1264,13 +1208,12 @@
    :rdfs/subClassOf :auto-ti/Crash,
    :skos/definition {:rdf/language "en",
                      :rdf/value
-                     "A road vehicle crash which is not a traffic crash."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.4.19"})
+                     "A road vehicle crash which is not a traffic crash."}})
 
 (def NoncollisionCrash
   "Any road vehicle crash other than a collision crash."
   {:db/ident :auto-ti/NoncollisionCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.6.3",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1279,9 +1222,7 @@
    :rdfs/subClassOf :auto-ti/Crash,
    :skos/definition {:rdf/language "en",
                      :rdf/value
-                     "Any road vehicle crash other than a collision crash."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.6.3"})
+                     "Any road vehicle crash other than a collision crash."}})
 
 (def NotAdaptingSpeedToWeatherConditions
   "action of driving at a speed that is inadequate to weather conditions"
@@ -1342,6 +1283,8 @@
 (def Occupant
   "Any person who is part of a transport vehicle."
   {:db/ident :auto-ti/Occupant,
+   :fibo-fnd-utl-av/adaptedFrom {:rdf/language "en",
+                                 :rdf/value "ANSI D.16-2017, section 2.2.35"},
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1350,10 +1293,7 @@
    :rdfs/subClassOf :auto-ti/RoleOfPersonInTraffic,
    :skos/definition {:rdf/language "en",
                      :rdf/value
-                     "Any person who is part of a transport vehicle."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   {:rdf/language "en",
-    :rdf/value    "ANSI D.16-2017, section 2.2.35"}})
+                     "Any person who is part of a transport vehicle."}})
 
 (def Off-roadwayCrash
   "Any road vehicle crash other than an on-roadway crash."
@@ -1371,6 +1311,7 @@
 (def On-roadwayCrash
   "(1) a collision crash in which the initial point of contact between colliding units in the first harmful event is within a roadway or (2) a non-collision crash in which the road vehicle involved was partly or entirely on the roadway at the time of the first harmful event."
   {:db/ident :auto-ti/On-roadwayCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.7.1",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1380,13 +1321,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "(1) a collision crash in which the initial point of contact between colliding units in the first harmful event is within a roadway or (2) a non-collision crash in which the road vehicle involved was partly or entirely on the roadway at the time of the first harmful event."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.7.1"})
+    "(1) a collision crash in which the initial point of contact between colliding units in the first harmful event is within a roadway or (2) a non-collision crash in which the road vehicle involved was partly or entirely on the roadway at the time of the first harmful event."}})
 
 (def Other-road-vehicleCrash
   "A transport crash that (1) involves an other road vehicle in- transport and (2) is not an aircraft accident, watercraft accident, motor vehicle crash or railway accident."
   {:db/ident :auto-ti/Other-road-vehicleCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.4.14",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1396,13 +1336,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A transport crash that (1) involves an other road vehicle in- transport and (2) is not an aircraft accident, watercraft accident, motor vehicle crash or railway accident."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.4.14"})
+    "A transport crash that (1) involves an other road vehicle in- transport and (2) is not an aircraft accident, watercraft accident, motor vehicle crash or railway accident."}})
 
 (def Other-road-vehicleDamage
   "A road vehicle damage to an other road vehicle."
   {:db/ident :auto-ti/Other-road-vehicleDamage,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.3.10",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1411,13 +1350,12 @@
    :rdfs/subClassOf :auto-ti/RoadVehicleDamage,
    :skos/definition {:rdf/language "en",
                      :rdf/value
-                     "A road vehicle damage to an other road vehicle."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.3.10"})
+                     "A road vehicle damage to an other road vehicle."}})
 
 (def Other-road-vehicleNontrafficCrash
   "An other-road-vehicle crash which is a nontraffic crash."
   {:db/ident :auto-ti/Other-road-vehicleNontrafficCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.4.25",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1426,13 +1364,12 @@
    :rdfs/subClassOf :auto-ti/Crash,
    :skos/definition
    {:rdf/language "en",
-    :rdf/value    "An other-road-vehicle crash which is a nontraffic crash."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.4.25"})
+    :rdf/value    "An other-road-vehicle crash which is a nontraffic crash."}})
 
 (def Other-road-vehicleTrafficCrash
   "An other- road-vehicle crash which is a traffic crash."
   {:db/ident :auto-ti/Other-road-vehicleTrafficCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.4.24",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1441,9 +1378,7 @@
    :rdfs/subClassOf :auto-ti/Crash,
    :skos/definition {:rdf/language "en",
                      :rdf/value
-                     "An other- road-vehicle crash which is a traffic crash."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.4.24"})
+                     "An other- road-vehicle crash which is a traffic crash."}})
 
 (def OtherObjectsWithWhichCarCanCollide
   "objects other than infrastructure, agents, vehicles, property, natural places, hazardous material, hazardous material placard, with which vehicles can collide"
@@ -1465,6 +1400,7 @@
 (def OverturningCrash
   "A road vehicle crash in which the first harmful event is the overturning of a road vehicle."
   {:db/ident :auto-ti/OverturningCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.6.1",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1474,13 +1410,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A road vehicle crash in which the first harmful event is the overturning of a road vehicle."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.6.1"})
+    "A road vehicle crash in which the first harmful event is the overturning of a road vehicle."}})
 
 (def Passenger
   "Any occupant of a road vehicle other than its driver."
   {:db/ident :auto-ti/Passenger,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.38",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1489,13 +1424,12 @@
    :rdfs/subClassOf :auto-ti/RoleOfPersonInTraffic,
    :skos/definition {:rdf/language "en",
                      :rdf/value
-                     "Any occupant of a road vehicle other than its driver."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.38"})
+                     "Any occupant of a road vehicle other than its driver."}})
 
 (def PedalcycleCrash
   "An other-road-vehicle crash that (1) involves a pedalcycle in-transport and (2) is not a streetcar crash."
   {:db/ident :auto-ti/PedalcycleCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.4.16",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1505,13 +1439,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "An other-road-vehicle crash that (1) involves a pedalcycle in-transport and (2) is not a streetcar crash."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.4.16"})
+    "An other-road-vehicle crash that (1) involves a pedalcycle in-transport and (2) is not a streetcar crash."}})
 
 (def Pedalcyclist
   "Any occupant of a pedalcycle in-transport."
   {:db/ident :auto-ti/Pedalcyclist,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.39",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1519,13 +1452,12 @@
                 :rdf/value    "pedalcyclist"},
    :rdfs/subClassOf :auto-ti/RoleOfPersonInTraffic,
    :skos/definition {:rdf/language "en",
-                     :rdf/value "Any occupant of a pedalcycle in-transport."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.39"})
+                     :rdf/value "Any occupant of a pedalcycle in-transport."}})
 
 (def Pedestrian
   "Any person who is not an occupant."
   {:db/ident :auto-ti/Pedestrian,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.36",
    :owl/disjointWith :auto-vc/Vehicle,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
@@ -1542,13 +1474,12 @@
     {:rdf/language "en",
      :rdf/value    "Any person who is not an occupant."}
     {:rdf/language "en",
-     :rdf/value    "a person walking rather than travelling in a vehicle"}],
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.36"})
+     :rdf/value    "a person walking rather than travelling in a vehicle"}]})
 
 (def PersonalConveyance
   "A device, other than a transport device, used by a pedestrian (See 2.2.36) for personal mobility assistance or recreation. These devices can be motorized or human powered, but not propelled by pedaling."
   {:db/ident :auto-ti/PersonalConveyance,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.6.1",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1558,13 +1489,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A device, other than a transport device, used by a pedestrian (See 2.2.36) for personal mobility assistance or recreation. These devices can be motorized or human powered, but not propelled by pedaling."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.6.1"})
+    "A device, other than a transport device, used by a pedestrian (See 2.2.36) for personal mobility assistance or recreation. These devices can be motorized or human powered, but not propelled by pedaling."}})
 
 (def PolicePursuit
   "An event that is initiated when a law enforcement officer, operating an authorized emergency vehicle, gives notice to stop to a motorist the officer is attempting to contact, and that motorist fails to comply with the signal by either maintaining his/her speed, increasing speed, or taking other evasive action to elude the officer 's continued attempts to stop the motorist."
   {:db/ident :auto-ti/PolicePursuit,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.4.3.1",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -1578,13 +1508,14 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "An event that is initiated when a law enforcement officer, operating an authorized emergency vehicle, gives notice to stop to a motorist the officer is attempting to contact, and that motorist fails to comply with the signal by either maintaining his/her speed, increasing speed, or taking other evasive action to elude the officer 's continued attempts to stop the motorist."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.4.3.1"})
+    "An event that is initiated when a law enforcement officer, operating an authorized emergency vehicle, gives notice to stop to a motorist the officer is attempting to contact, and that motorist fails to comply with the signal by either maintaining his/her speed, increasing speed, or taking other evasive action to elude the officer 's continued attempts to stop the motorist."}})
 
 (def PossibleInjury
   "Any injury reported or claimed which is not a fatal, suspected serious, or suspected minor injury."
   {:db/ident :auto-ti/PossibleInjury,
+   :fibo-fnd-utl-av/abbreviation {:rdf/language "en",
+                                  :rdf/value    "C"},
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.3.6",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -1598,12 +1529,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "Any injury reported or claimed which is not a fatal, suspected serious, or suspected minor injury."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/abbreviation"
-   {:rdf/language "en",
-    :rdf/value    "C"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.3.6"})
+    "Any injury reported or claimed which is not a fatal, suspected serious, or suspected minor injury."}})
 
 (def PrivateMotorCarrier
   "person who provides transportation of property or passengers, by commercial motor vehicle, and is not a for-hire motor carrier"
@@ -1622,6 +1548,7 @@
 (def Property
   "Any physical object other than a person."
   {:db/ident :auto-ti/Property,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.1.2",
    :owl/equivalentClass {:owl/intersectionOf [:auto-mo/MaterialEntity
                                               {:owl/complementOf
                                                :auto-mo/Person,
@@ -1633,13 +1560,12 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "property"},
    :skos/definition {:rdf/language "en",
-                     :rdf/value    "Any physical object other than a person."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.1.2"})
+                     :rdf/value    "Any physical object other than a person."}})
 
 (def PropertyDamageOnlyCrash
   "A no apparent injury crash."
   {:db/ident :auto-ti/PropertyDamageOnlyCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.4.30",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1647,9 +1573,7 @@
                 :rdf/value    "property damage only crash"},
    :rdfs/subClassOf :auto-ti/CollisionCrash,
    :skos/definition {:rdf/language "en",
-                     :rdf/value    "A no apparent injury crash."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.4.30"})
+                     :rdf/value    "A no apparent injury crash."}})
 
 (def QualifiedVAExaminer
   "advanced practice nurse, doctor of chiropractic, doctor of medicine, doctor of osteopathy, physician assistant, or other medical professional who is employed in the Department of Veterans Affairs"
@@ -1682,6 +1606,7 @@
 (def RailwayAccident
   "A transport accident that (1) involves a railway train in-transport and (2) is not an aircraft accident, watercraft accident or motor vehicle crash."
   {:db/ident :auto-ti/RailwayAccident,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.4.13",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1691,9 +1616,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A transport accident that (1) involves a railway train in-transport and (2) is not an aircraft accident, watercraft accident or motor vehicle crash."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.4.13"})
+    "A transport accident that (1) involves a railway train in-transport and (2) is not an aircraft accident, watercraft accident or motor vehicle crash."}})
 
 (def Receiver
   "person who takes delivery from a motor carrier or driver of a commercial motor vehicle of property transported in interstate commerce or hazardous materials transported in interstate or intrastate commerce"
@@ -1726,6 +1649,7 @@
 (def RoadVehicleDamage
   "A damage to a road vehicle."
   {:db/ident :auto-ti/RoadVehicleDamage,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.3.8",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1733,13 +1657,12 @@
                 :rdf/value    "road vehicle damage"},
    :rdfs/subClassOf :auto-ti/Damage,
    :skos/definition {:rdf/language "en",
-                     :rdf/value    "A damage to a road vehicle."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.3.8"})
+                     :rdf/value    "A damage to a road vehicle."}})
 
 (def RoadVehicleNontrafficCrash
   "A nontraffic crash."
   {:db/ident :auto-ti/RoadVehicleNontrafficCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.4.21",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1747,13 +1670,12 @@
                 :rdf/value    "road vehicle nontraffic crash"},
    :rdfs/subClassOf :auto-ti/Crash,
    :skos/definition {:rdf/language "en",
-                     :rdf/value    "A nontraffic crash."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.4.21"})
+                     :rdf/value    "A nontraffic crash."}})
 
 (def RoadVehicleTrafficCrash
   "A traffic crash."
   {:db/ident :auto-ti/RoadVehicleTrafficCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.4.20",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1761,9 +1683,7 @@
                 :rdf/value    "road vehicle traffic crash"},
    :rdfs/subClassOf :auto-ti/Crash,
    :skos/definition {:rdf/language "en",
-                     :rdf/value    "A traffic crash."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.4.20"})
+                     :rdf/value    "A traffic crash."}})
 
 (def RoleInAccident
   "role a vehicle takes in an accident"
@@ -1793,6 +1713,7 @@
 (def SchoolBusCrash
   "(1) a motor vehicle crash in which a school bus, with or without a pupil on board, is involved directly as a contact vehicle, or (2) a motor vehicle crash or an other-road- vehicle crash in which a school bus, with or without a pupil on board, is involved indirectly as a noncontact vehicle."
   {:db/ident :auto-ti/SchoolBusCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.8.2",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1802,9 +1723,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "(1) a motor vehicle crash in which a school bus, with or without a pupil on board, is involved directly as a contact vehicle, or (2) a motor vehicle crash or an other-road- vehicle crash in which a school bus, with or without a pupil on board, is involved indirectly as a noncontact vehicle."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.8.2"})
+    "(1) a motor vehicle crash in which a school bus, with or without a pupil on board, is involved directly as a contact vehicle, or (2) a motor vehicle crash or an other-road- vehicle crash in which a school bus, with or without a pupil on board, is involved indirectly as a noncontact vehicle."}})
 
 (def SpeedMismatching
   "action of having inadequate speed"
@@ -1852,6 +1771,7 @@
 (def StreetcarCrash
   "An other-road-vehicle crash that involves a streetcar in-transport."
   {:db/ident :auto-ti/StreetcarCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.4.15",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1861,13 +1781,14 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "An other-road-vehicle crash that involves a streetcar in-transport."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.4.15"})
+    "An other-road-vehicle crash that involves a streetcar in-transport."}})
 
 (def SuspectedMinorInjury
   "Any injury that is evident at the scene of the crash, other than fatal or serious injuries, including lump on the head, abrasions, bruises, minor lacerations (cuts on the skin surface with minimal bleeding and no exposure of deeper tissue /muscles)."
   {:db/ident :auto-ti/SuspectedMinorInjury,
+   :fibo-fnd-utl-av/abbreviation {:rdf/language "en",
+                                  :rdf/value    "B"},
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.3.5",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1877,16 +1798,14 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "Any injury that is evident at the scene of the crash, other than fatal or serious injuries, including lump on the head, abrasions, bruises, minor lacerations (cuts on the skin surface with minimal bleeding and no exposure of deeper tissue /muscles)."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/abbreviation"
-   {:rdf/language "en",
-    :rdf/value    "B"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.3.5"})
+    "Any injury that is evident at the scene of the crash, other than fatal or serious injuries, including lump on the head, abrasions, bruises, minor lacerations (cuts on the skin surface with minimal bleeding and no exposure of deeper tissue /muscles)."}})
 
 (def SuspectedSeriousInjury
   "Any injury other than fatal which results in one or more of the following : Severe laceration resulting in exposure of underlying tissues /muscle /organs or resulting in significant loss of blood; broken or distorted extremity (arm or leg); crush injuries; suspected skull, chest, or abdominal injury other than bruises or minor lacerations; significant burns (second and third degree burns over 10 % or more of the body); unconsciousness when taken from the crash scene, or paralysis."
   {:db/ident :auto-ti/SuspectedSeriousInjury,
+   :fibo-fnd-utl-av/abbreviation {:rdf/language "en",
+                                  :rdf/value    "A"},
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.3.4",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1896,12 +1815,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "Any injury other than fatal which results in one or more of the following : Severe laceration resulting in exposure of underlying tissues /muscle /organs or resulting in significant loss of blood; broken or distorted extremity (arm or leg); crush injuries; suspected skull, chest, or abdominal injury other than bruises or minor lacerations; significant burns (second and third degree burns over 10 % or more of the body); unconsciousness when taken from the crash scene, or paralysis."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/abbreviation"
-   {:rdf/language "en",
-    :rdf/value    "A"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.3.4"})
+    "Any injury other than fatal which results in one or more of the following : Severe laceration resulting in exposure of underlying tissues /muscle /organs or resulting in significant loss of blood; broken or distorted extremity (arm or leg); crush injuries; suspected skull, chest, or abdominal injury other than bruises or minor lacerations; significant burns (second and third degree burns over 10 % or more of the body); unconsciousness when taken from the crash scene, or paralysis."}})
 
 (def TooHigh
   "action of having too high speed"
@@ -1950,6 +1864,7 @@
 (def TrafficCrash
   "A road vehicle crash in which (1) the unstabilized situation originates on a trafficway or (2) a harmful event occurs on a trafficway."
   {:db/ident :auto-ti/TrafficCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.4.18",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -1959,18 +1874,16 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A road vehicle crash in which (1) the unstabilized situation originates on a trafficway or (2) a harmful event occurs on a trafficway."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.4.18"})
+    "A road vehicle crash in which (1) the unstabilized situation originates on a trafficway or (2) a harmful event occurs on a trafficway."}})
 
 (def TrafficIncident
   "all road accidents - irrespective of whether there is an accident or serious material damage"
   {:db/ident :auto-ti/TrafficIncident,
-   :owl/equivalentClass [{:owl/onProperty     :auto-ti/hasCause,
-                          :owl/someValuesFrom :auto-ti/TrafficIncidentCauses,
-                          :rdf/type           :owl/Restriction}
-                         {:owl/onProperty     :auto-ti/hasEffect,
+   :owl/equivalentClass [{:owl/onProperty     :auto-ti/hasEffect,
                           :owl/someValuesFrom :auto-ti/TrafficIncidentEffect,
+                          :rdf/type           :owl/Restriction}
+                         {:owl/onProperty     :auto-ti/hasCause,
+                          :owl/someValuesFrom :auto-ti/TrafficIncidentCauses,
                           :rdf/type           :owl/Restriction}],
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
@@ -1979,10 +1892,10 @@
                  :rdf/value    "zdarzenie drogowe"}
                 {:rdf/language "en",
                  :rdf/value    "traffic incident"}],
-   :rdfs/subClassOf [{:owl/onProperty     :auto-ti/hasTrafficUser,
+   :rdfs/subClassOf [:auto-mo/Process
+                     {:owl/onProperty     :auto-ti/hasTrafficUser,
                       :owl/someValuesFrom :auto-ti/TrafficParticipant,
-                      :rdf/type           :owl/Restriction}
-                     :auto-mo/Process],
+                      :rdf/type           :owl/Restriction}],
    :skos/definition
    [{:rdf/language "en",
      :rdf/value
@@ -2048,6 +1961,7 @@
 (def TrafficUnit
   "A land vehicle or a pedestrian."
   {:db/ident :auto-ti/TrafficUnit,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.42",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -2055,9 +1969,7 @@
                 :rdf/value    "traffic unit"},
    :rdfs/subClassOf :auto-mo/Role,
    :skos/definition {:rdf/language "en",
-                     :rdf/value    "A land vehicle or a pedestrian."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.42"})
+                     :rdf/value    "A land vehicle or a pedestrian."}})
 
 (def TrafficViolation
   "socially harmful act (even to a slight extent), prohibited by the law in force at the time of its commission, under pain of imprisonment, restriction of liberty, fine up to PLN 5,000 or reprimand"
@@ -2084,6 +1996,7 @@
 (def TransportCrash
   "A crash (1) that involves a transport vehicle in-transport, (2) in which the first harmful event is not produced by the discharge of a firearm or explosive device, and (3) that does not directly result from a cataclysm where the timing is such that the cataclysm is occurring at the time of the accident or crash."
   {:db/ident :auto-ti/TransportCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.4.9",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -2093,13 +2006,12 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A crash (1) that involves a transport vehicle in-transport, (2) in which the first harmful event is not produced by the discharge of a firearm or explosive device, and (3) that does not directly result from a cataclysm where the timing is such that the cataclysm is occurring at the time of the accident or crash."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.4.9"})
+    "A crash (1) that involves a transport vehicle in-transport, (2) in which the first harmful event is not produced by the discharge of a firearm or explosive device, and (3) that does not directly result from a cataclysm where the timing is such that the cataclysm is occurring at the time of the accident or crash."}})
 
 (def TransportDevice
   "Any device designed primarily for moving persons or property along with the device itself from one place to another, except (1) a weapon, (2) a device used primarily within the confines of a building and its premises, or (3) a personal conveyance."
   {:db/ident :auto-ti/TransportDevice,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.1.3",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -2109,9 +2021,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "Any device designed primarily for moving persons or property along with the device itself from one place to another, except (1) a weapon, (2) a device used primarily within the confines of a building and its premises, or (3) a personal conveyance."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.1.3"})
+    "Any device designed primarily for moving persons or property along with the device itself from one place to another, except (1) a weapon, (2) a device used primarily within the confines of a building and its premises, or (3) a personal conveyance."}})
 
 (def UnstabilizedSituation
   "A set of events not under human control."
@@ -2183,6 +2093,7 @@
 (def WatercraftAccident
   "A transport accident if it (1) involves a watercraft in-transport and (2) is not an aircraft accident."
   {:db/ident :auto-ti/WatercraftAccident,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.4.11",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -2192,9 +2103,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A transport accident if it (1) involves a watercraft in-transport and (2) is not an aircraft accident."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.4.11"})
+    "A transport accident if it (1) involves a watercraft in-transport and (2) is not an aircraft accident."}})
 
 (def Weather
   "current atmospheric conditions"
@@ -2213,6 +2122,7 @@
 (def WorkZoneCrash
   "A motor vehicle traffic crash in which the first harmful event occurs within the boundaries of a work zone or on an approach to or exit from a work zone, resulting from an activity, behavior or control related to the movement of the traffic units through the work zone."
   {:db/ident :auto-ti/WorkZoneCrash,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.7.8",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
    "https://spec.edmcouncil.org/auto/ontology/DE/TrafficIncidents/",
@@ -2222,9 +2132,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "A motor vehicle traffic crash in which the first harmful event occurs within the boundaries of a work zone or on an approach to or exit from a work zone, resulting from an activity, behavior or control related to the movement of the traffic units through the work zone."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.7.8"})
+    "A motor vehicle traffic crash in which the first harmful event occurs within the boundaries of a work zone or on an approach to or exit from a work zone, resulting from an activity, behavior or control related to the movement of the traffic units through the work zone."}})
 
 (def does
   "relates a traffic user or a vehicle to an action"
@@ -2241,6 +2149,9 @@
 (def grossCombinationWeightRating
   "The value specified by the manufacturer as the recommended maximum loaded weight of a combination (articulated) motor vehicle."
   {:db/ident :auto-ti/grossCombinationWeightRating,
+   :fibo-fnd-utl-av/abbreviation {:rdf/language "en",
+                                  :rdf/value    "GCWR"},
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.23.1",
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
    {:rdf/language "en",
@@ -2254,16 +2165,14 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "The value specified by the manufacturer as the recommended maximum loaded weight of a combination (articulated) motor vehicle."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/abbreviation"
-   {:rdf/language "en",
-    :rdf/value    "GCWR"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.23.1"})
+    "The value specified by the manufacturer as the recommended maximum loaded weight of a combination (articulated) motor vehicle."}})
 
 (def grossVehicleWeight
   "The actual weight of a road vehicle including the weight of the road vehicle, its load of persons and property, and all added equipment."
   {:db/ident :auto-ti/grossVehicleWeight,
+   :fibo-fnd-utl-av/abbreviation {:rdf/language "en",
+                                  :rdf/value    "GVW"},
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.22",
    :rdf/type :owl/DatatypeProperty,
    :rdfs/domain :auto-vc/RoadVehicle,
    :rdfs/isDefinedBy
@@ -2273,16 +2182,14 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "The actual weight of a road vehicle including the weight of the road vehicle, its load of persons and property, and all added equipment."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/abbreviation"
-   {:rdf/language "en",
-    :rdf/value    "GVW"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.22"})
+    "The actual weight of a road vehicle including the weight of the road vehicle, its load of persons and property, and all added equipment."}})
 
 (def grossVehicleWeightRating
   "The value specified by the manufacturer as the recommended maximum loaded weight of a single motor vehicle."
   {:db/ident :auto-ti/grossVehicleWeightRating,
+   :fibo-fnd-utl-av/abbreviation {:rdf/language "en",
+                                  :rdf/value    "GVWR"},
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.23",
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
    {:rdf/language "en",
@@ -2296,12 +2203,7 @@
    :skos/definition
    {:rdf/language "en",
     :rdf/value
-    "The value specified by the manufacturer as the recommended maximum loaded weight of a single motor vehicle."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/abbreviation"
-   {:rdf/language "en",
-    :rdf/value    "GVWR"},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.23"})
+    "The value specified by the manufacturer as the recommended maximum loaded weight of a single motor vehicle."}})
 
 (def hasCause
   "relates a process to another process that causes it"
@@ -2442,6 +2344,7 @@
 (def totalLanesInRoadway
   "A number of through lanes of the roadway."
   {:db/ident :auto-ti/totalLanesInRoadway,
+   :fibo-fnd-utl-av/adaptedFrom "ANSI D.16-2017, section 2.2.33.1",
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
    {:rdf/language "en",
@@ -2453,6 +2356,4 @@
                 :rdf/value    "total lanes in roadway"},
    :rdfs/range :xsd/int,
    :skos/definition {:rdf/language "en",
-                     :rdf/value    "A number of through lanes of the roadway."},
-   "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/adaptedFrom"
-   "ANSI D.16-2017, section 2.2.33.1"})
+                     :rdf/value "A number of through lanes of the roadway."}})
